@@ -1,0 +1,24 @@
+{
+    "global": {
+        "title": "Le juste prix",
+        "menu": {
+            "language": "Langue",
+            "model": "Tester le modèle"
+        },
+        "footer":{
+            "contact": "Contact : ",
+            "other": "Nos autres sites : "
+        },
+        "text": "Ceci est une smple demonstration pour ngx-translate"
+    },
+    "model": {
+        "inside": "Intérieur",
+        "outside": "Extérieur",
+        "input": {
+            "area": "Surface au sol",
+            "rooms": "Nombre de pièces",
+            "type" : "Type de bien",
+            "location": "Localisation"
+        }
+    }
+}

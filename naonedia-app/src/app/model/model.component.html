@@ -1,0 +1,85 @@
+<form (ngSubmit)="onSubmit()">
+    <div class="card mt-3 mb-3">
+        <div class="card-header">
+            <h2 [translate]="'model.inside'"></h2>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col">
+                        <h5 [translate]="'model.input.area'"></h5>
+                        <ng5-slider [(value)]="userInput.groundSurface" [manualRefresh]="manualRefresh" [options]="{floor: 0, ceil: 500}"></ng5-slider>
+
+                        <h5 [translate]="'model.input.rooms'"></h5>
+                        <input class="form-control" type="number" [(value)]="userInput.roomNumber" numbersOnly/>
+
+                    </div>
+                    <div class="col">
+                        <h5 [translate]="'model.input.type'"></h5>
+                        <ng5-slider [(value)]="userInput.type" [manualRefresh]="manualRefresh" [options]="{showTicksValues: true, stepsArray: [{value:'Appartement'},{value:'Maison'},{value:'Villa'}]}"></ng5-slider>
+
+                        <h5 [translate]="'model.input.location'"></h5>
+                        <select class="form-control" [(value)]="userInput.location">
+                            <option *ngFor="let loc of locations" 
+                                [ngValue]="loc">
+                                {{ loc }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="card-header">
+            <h2 [translate]="'model.outside'"></h2>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col">
+                        <h4 [translate]="'model.input.area'"></h4>
+                        <ng5-slider [(value)]="value" [options]="{floor: 0, ceil: 500}"></ng5-slider>
+                    </div>
+                    <div class="col">
+                        <h4 [translate]="'model.input.rooms'"></h4>
+                        <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h4>4th parameter</h4>
+                        <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-lg btn-block">Predict</button>
+</form>
+
+
+<div class="card mb-3 mt-3">
+    <div class="card-header">
+        Result
+    </div>
+    <div class="row pt-2">
+            <div class="col text-center">
+                <div [hidden]="!accuracy">
+                    <canvas id="canvas1">{{ accuracy }}</canvas>
+                </div>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
+            </div>
+            <div class="col text-center">
+                <div [hidden]="!samples">
+                    <canvas id="canvas2">{{ samples }}</canvas>
+                </div>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
+            </div>
+        </div>
+</div>
+
+    
+
+
+

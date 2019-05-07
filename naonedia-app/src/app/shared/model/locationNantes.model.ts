@@ -1,0 +1,31 @@
+import { Town } from './town.model';
+
+export const LocationNantes = [
+    new Town('Basse-Goulaine', 44115),
+    new Town('Bouaye', 44830),
+    new Town('Bouguenais', 44340),
+    new Town('Brains', 44830),
+    new Town('Carquefou', 44470),
+    new Town('La Chapelle-sur-Erdre', 44240),
+    new Town('Couëron', 44220),
+    new Town('Indre', 44610),
+    new Town('La Montagne', 44620),
+    new Town('Mauves-sur-Loire', 44470),
+    new Town('Nantes 1', 44100),
+    new Town('Nantes 2', 44200),
+    new Town('Nantes 3', 44300),
+    new Town('Nantes 4', 44400),
+    new Town('Orvault', 44700),
+    new Town('Le Pellerin', 44640),
+    new Town('Rezé', 44400),
+    new Town('Saint-Aignan-de-Grand-Lieu', 44150),
+    new Town('Saint-Herblain', 44800),
+    new Town('Saint-Jean-de-Boiseau', 44640),
+    new Town('Saint-Léger-les-Vignes', 44710),
+    new Town('Sainte-Luce-sur-Loire', 44980),
+    new Town('Saint-Sébastien', 44230),
+    new Town('Sautron', 44880),
+    new Town('Les Sorinières', 44840),
+    new Town('Thouaré', 44470),
+    new Town('Vertou.', 44120)
+];

@@ -1,0 +1,24 @@
+{
+    "global": {
+        "title": "Le juste prix",
+        "menu": {
+            "language": "Language",
+            "model": "Test model"
+        },
+        "footer":{
+            "contact": "Contact : ",
+            "other": "Other sites : "
+        },
+        "text": "This is a simple demonstration app for ngx-translate"
+    },
+    "model": {
+        "inside": "Inside",
+        "outside": "Outside",
+        "input": {
+            "area": "Ground surface",
+            "rooms": "Number or rooms",
+            "type" : "Kind of good",
+            "location": "Location"
+        }
+    }
+}

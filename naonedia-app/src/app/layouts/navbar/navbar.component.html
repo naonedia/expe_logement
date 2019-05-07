@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-md text-dark">
+    <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
+        <span class="logo-img"></span>
+    </a>
+
+    <a class="navbar-toggler d-lg-none" data-toggle="collapse" data-target="#navbarResponsive" (click)="toggleNavbar()">
+        <fa-icon icon="bars"></fa-icon>
+    </a>
+        
+    
+    <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed">
+        <ul class="navbar-nav ml-auto">
+            <li ngbDropdown class="nav-item">
+                <a class="nav-link" routerLink="/model" id="modelNavBar" (click)="collapseNavbar()">
+                    <span>
+                        <fa-icon icon="chart-bar" class="text-dark"></fa-icon>
+                        <span [translate]="'global.menu.model'" class="text-dark">Test model</span>
+                    </span>
+                </a>
+            </li>
+            
+            <li ngbDropdown class="nav-item dropdown pointer" *ngIf="languages && languages.length > 1">
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle id="languagesNavBarDropdown">
+                    <span>
+                        <fa-icon icon="flag" class="text-dark"></fa-icon>
+                        <span [translate]="'global.menu.language'" class="text-dark">Language</span>
+                    </span>
+                </a>
+                <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="languagesNavBarDropdown">
+                    <li *ngFor="let language of languages">
+                        <a class="dropdown-item" [ActiveMenu]="language" (click)="changeLanguage(language);collapseNavbar();">{{language | findLanguageFromKey}}</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
