@@ -9,17 +9,21 @@ import {
     AfterContentInit
 } from '@angular/core';
 
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+
 import { TranslateService } from '@ngx-translate/core';
 
 import { Chart } from 'chart.js';
 import { Options } from 'ng5-slider';
 import { LocationNantes } from '../shared/model/locationNantes.model';
 import { UserInput } from '../shared/model/userInput.model';
-import { HouseType } from '../shared/model/houseType.model';
+import { HouseType, HouseTypeList } from '../shared/model/houseType.model';
+import { poiList, POI } from '../shared/model/poi.model';
 
 @Component({
     selector: 'app-model',
-    templateUrl: './model.component.html'
+    templateUrl: './model.component.html',
+    styleUrls: ['model.scss']
 })
 export class ModelComponent implements OnInit, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
     // Chart options
@@ -30,8 +34,10 @@ export class ModelComponent implements OnInit, AfterContentInit, AfterContentChe
     // Retrieve locations
     locations = LocationNantes;
 
+    houseTypeList = HouseTypeList;
+
     // User input
-    userInput = new UserInput(HouseType.APPARTEMENT, 50, 2, this.locations[10] );
+    userInput = new UserInput(HouseTypeList[0], 50, 2, this.locations[10], [], poiList , []);
     value = 0;
 
 
@@ -42,16 +48,14 @@ export class ModelComponent implements OnInit, AfterContentInit, AfterContentChe
         ceil: 250
     };
 
+    // Housing slider
+    housingOptions: Options;
+
     constructor(private translateService: TranslateService) {}
 
-    locationNantesKeys(): Array<string> {
-        const keys = Object.keys(LocationNantes);
-        return keys.slice(keys.length / 2);
-    }
-
     ngOnInit() {
-        this.manualRefresh.emit();
 
+        this.manualRefresh.emit();
         this.accuracy = new Chart('canvas1', {
             type: 'line',
             data: {
@@ -104,11 +108,47 @@ export class ModelComponent implements OnInit, AfterContentInit, AfterContentChe
 
     onSubmit() {
         console.log('submitted');
-        // this.datas = this.datas.map(x => x + this.userInput.groundSurface);
-        this.accuracy.data.datasets[0].data = this.accuracy.data.datasets[0].data.map(x => x * this.userInput.groundSurface);
-        this.accuracy.update();
-        this.accuracy.render();
-        console.log(this.datas);
+
+        console.log(this.userInput);
+
         console.log('end submitted');
+        /* this.accuracy.data.datasets[0].data = this.accuracy.data.datasets[0].data.map(x => x * this.userInput.groundSurface);
+        this.accuracy.update();
+        this.accuracy.render(); */
+    }
+
+    drop(event: CdkDragDrop<string[]>) {
+
+        // first check if it was moved within the same list or moved to a different list
+        if (event.previousContainer === event.container) {
+        // change the items index if it was moved within the same list
+        moveItemInArray(
+            event.container.data,
+            event.previousIndex,
+            event.currentIndex
+        );
+        } else {
+            // remove item from the previous list and add it to the new array
+            transferArrayItem(
+                event.previousContainer.data,
+                event.container.data,
+                event.previousIndex,
+                event.currentIndex
+            );
+        }
+    }
+
+    addItem(list: string, poi: POI) {
+        switch (list) {
+            case 'close':
+                this.userInput.close.push(poi);
+                break;
+            case 'medium':
+                this.userInput.medium.push(poi);
+                break;
+            default:
+                this.userInput.far.push(poi);
+                break;
+        }
     }
 }
