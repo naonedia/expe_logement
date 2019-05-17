@@ -18,10 +18,33 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 import { NgxWebstorageModule } from 'ngx-webstorage';
 
+import { Injector, APP_INITIALIZER } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { LOCATION_INITIALIZED } from '@angular/common';
+import { DemoMaterialModule } from './material-module';
+
+export function appInitializerFactory(translate: TranslateService, injector: Injector) {
+  return () => new Promise<any>((resolve: any) => {
+    const locationInitialized = injector.get(LOCATION_INITIALIZED, Promise.resolve(null));
+    locationInitialized.then(() => {
+      const langToSet = 'en';
+      translate.addLangs(['en', 'fr']);
+      translate.setDefaultLang('en');
+      translate.use(langToSet).subscribe(() => {
+        console.log(`Successfully initialized '${langToSet}' language.'`);
+      }, err => {
+        console.error(`Problem with '${langToSet}' language initialization.'`);
+      }, () => {
+        resolve(null);
+      });
+    });
+  });
+}
 
 @NgModule({
   imports: [
     BrowserModule,
+
     NgxWebstorageModule.forRoot({ prefix: 'app', separator: '-' }),
     ChatBotSharedModule.forRoot(),
     ChatBotHomeModule,
@@ -41,7 +64,14 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
     AppRoutingModule,
   ],
   declarations: [MainComponent, NavbarComponent, ErrorComponent, ActiveMenuDirective, FooterComponent],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: appInitializerFactory,
+      deps: [TranslateService, Injector],
+      multi: true
+    }
+  ],
   bootstrap: [MainComponent]
 })
 export class AppModule { }
