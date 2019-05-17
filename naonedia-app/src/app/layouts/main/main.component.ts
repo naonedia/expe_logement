@@ -4,7 +4,8 @@ import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-root',
-    templateUrl: './main.component.html'
+    templateUrl: './main.component.html',
+    styleUrls: ['main.scss']
 })
 export class MainComponent implements OnInit {
     title = 'naonedia-app';
@@ -17,8 +18,5 @@ export class MainComponent implements OnInit {
                 this.router.navigate(['/404']);
             }
         });
-
-        this.translateService.addLangs(['en', 'fr']);
-        this.translateService.setDefaultLang('en');
     }
 }
