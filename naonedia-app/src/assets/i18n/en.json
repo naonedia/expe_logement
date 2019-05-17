@@ -3,7 +3,7 @@
         "title": "Le juste prix",
         "menu": {
             "language": "Language",
-            "model": "Test model"
+            "model": "Evaluate a property"
         },
         "footer":{
             "contact": "Contact : ",
@@ -16,9 +16,23 @@
         "outside": "Outside",
         "input": {
             "area": "Ground surface",
-            "rooms": "Number or rooms",
-            "type" : "Kind of good",
-            "location": "Location"
+            "rooms": "Number of rooms",
+            "type" : "Housing",
+            "location": "Location",
+            "medical": "Medical facilities",
+            "parks": "Parks & gardens",
+            "transport": "Public transport",
+            "daily": "Daily places",
+            "distractions": "Spare time places"
         }
+    },
+    "houseType":{
+        "house": "House",
+        "flat": "Flat"
+    },
+    "distanceType":{
+        "CLOSE": "10 min by foot",
+        "MEDIUM": "5 min by car",
+        "FAR": "None close"
     }
 }

@@ -3,7 +3,7 @@
         "title": "Le juste prix",
         "menu": {
             "language": "Langue",
-            "model": "Tester le modèle"
+            "model": "Evaluer un bien immobilier"
         },
         "footer":{
             "contact": "Contact : ",
@@ -18,7 +18,21 @@
             "area": "Surface au sol",
             "rooms": "Nombre de pièces",
             "type" : "Type de bien",
-            "location": "Localisation"
+            "location": "Localisation",
+            "medical": "Etablissements médicaux",
+            "parks": "Parcs & jardins",
+            "transport": "Transports public",
+            "daily": "Lieux du quotidien",
+            "distractions": "Loisirs & distractions"
         }
+    },
+    "houseType": {
+        "house": "Maison",
+        "flat": "Appartement"
+    },
+    "distanceType":{
+        "CLOSE": "10 min à pied",
+        "MEDIUM": "5 min en voiture",
+        "FAR": "Aucun à proximité"
     }
 }
