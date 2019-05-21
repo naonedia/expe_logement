@@ -5,18 +5,22 @@ import '../assets/scss/vendor.scss';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
     faBars,
-    faFlag,
-    faChartBar,
-    faPeopleCarry,
-    faCircle,
-    faTimes,
-    faDatabase,
-    faWalking,
-    faCarSide,
-    faMapMarkerAlt,
-    faSlash,
-    faHome,
     faBuilding,
+    faCalendarAlt,
+    faCarSide,
+    faChartBar,
+    faCircle,
+    faDatabase,
+    faFlag,
+    faHome,
+    faMapMarkedAlt,
+    faMapMarkerAlt,
+    faPeopleCarry,
+    faSlash,
+    faTimes,
+    faTools,
+    faUsers,
+    faWalking
 } from '@fortawesome/free-solid-svg-icons';
 
 import { far } from '@fortawesome/free-regular-svg-icons';
@@ -24,16 +28,21 @@ import { far } from '@fortawesome/free-regular-svg-icons';
 // Adds the SVG icon to the library so you can use it in your page
 
 library.add(faBars);
-library.add(faFlag);
-library.add(faChartBar);
-library.add(faPeopleCarry);
-library.add(faCircle);
-library.add(faTimes);
-library.add(faDatabase);
-library.add(faWalking);
-library.add(faCarSide);
-library.add(faMapMarkerAlt);
-library.add(faSlash);
-library.add(faHome);
 library.add(faBuilding);
+library.add(faCalendarAlt);
+library.add(faCarSide);
+library.add(faChartBar);
+library.add(faCircle);
+library.add(faDatabase);
+library.add(faFlag);
+library.add(faHome);
+library.add(faMapMarkedAlt);
+library.add(faMapMarkerAlt);
+library.add(faPeopleCarry);
+library.add(faSlash);
+library.add(faTimes);
+library.add(faTools);
+library.add(faUsers);
+library.add(faWalking);
+
 library.add(far.faCircle);
