@@ -1,3 +1,17 @@
+.app-model{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+::ng-deep {
+    .custom-slider .ng5-slider .ng5-slider-pointer{
+        background-color: #1972d9;
+    }
+    .custom-slider .ng5-slider .ng5-slider-pointer.ng5-slider-active:after {
+        background-color: black;
+    }    
+}
+
 .cdk-drag-preview {
     text-align: center;
     box-sizing: border-box;
