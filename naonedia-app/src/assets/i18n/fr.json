@@ -1,6 +1,6 @@
 {
     "global": {
-        "title": "Le juste prix",
+        "title": "Expérience logement",
         "menu": {
             "language": "Langue",
             "model": "Evaluer un bien immobilier"
@@ -10,6 +10,26 @@
             "other": "Nos autres sites : "
         },
         "text": "Ceci est une smple demonstration pour ngx-translate"
+    },
+    "home": {
+        "contributions": "contributions",
+        "info":{
+            "location": "Lieu d'origine",
+            "date": "Création",
+            "contributors": "Collaborateurs",
+            "project": "Projets"
+        },
+        "us": {
+            "title": "A propos de nous",
+            "text2": "Nous sommes un collectif souhaitant impulser une dynamique territoriale sur l'IA. Au total nous sommes plus de 80 acteurs",
+            "text1": "Nos membres proviennent de différents horizons : chercheurs, académiques, entrepreneurs (grandes entreprises, ESN, startups), experts, collectivités, user-groups, journalistes, juristes, etc...",
+            "text3": "Nous agissons autour de huit engagements: transparence, décloisonnement, responsabilité/traçabilité, éthique, respect de la vie privée, gouvernance, culture scientifique et technique, coopération homme-machine."
+        },
+        "why": {
+            "title": "Pourquoi cette application",
+            "text1": "Le but de ce projet est de présenter le savoir faire Nantais en matière d'intelligence artificielle.",
+            "text2": "Cette application est destinée à tous type de public. Elle permet d'expliquer de manière ludique les grand principes et donc de démystifier le sujet."
+        }
     },
     "model": {
         "inside": "Intérieur",
