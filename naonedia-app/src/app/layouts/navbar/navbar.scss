@@ -57,7 +57,7 @@ Navbar
     top: 0;
     z-index: 999;
     width: 100%;
-    min-height: 98px;
+    min-height: 60px;
     transform: translateZ(0);
 
     .dropdown-menu {
@@ -113,8 +113,8 @@ Logo styles
 ========================================================================== */
 @media (min-width: 767.98px) {
     .logo-img {
-        width: 545px;
-        height: 66px;
+        width: 300px;
+        height: 36px;
         display: inline-block;
         vertical-align: middle;
         background: url('../../../assets/images/logo-2.png') no-repeat center center;
