@@ -1,15 +1,13 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, AfterContentInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-home',
-    templateUrl: './home.component.html'
+    templateUrl: './home.component.html',
+    styleUrls: ['home.scss']
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent {
 
     constructor(private translateService: TranslateService) {}
 
-    ngOnInit() {}
-
-    ngOnDestroy() {}
 }

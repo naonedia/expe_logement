@@ -1,66 +1,86 @@
-<section style="min-height: 100vh;">
-    <h1 [translate]="'global.title'" class="text-center"></h1>
-    <div class="row">
-        <div class="col text-center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
-        </div>
-        <div class="col text-center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
+<!-- <h1 [translate]="'global.title'" class="text-center fa-3x parallax-1 bg2"></h1> -->
+<div class="parallax-2">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <h1 class="text-center" [translate]="'home.why.title'"></h1>
+            <p class="text-left">
+                <span [translate]="'home.why.text1'"></span><br>
+                <span [translate]="'home.why.text2'"></span>
+            </p>
         </div>
     </div>
-</section>
-<section style="min-height: 100vh;">
-    <div class="row">
-        <div class="col text-center">
-            <fa-layers [fixedWidth]="true" class="fa-10x">
-                <fa-icon icon="circle"></fa-icon>
-                <fa-icon icon="people-carry" class="fa-inverse" transform="shrink-8"></fa-icon>
-            </fa-layers>
-            <p> Open data Nantes</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col text-center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
-        </div>
-        <div class="col text-center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
-        </div>
-    </div>
+</div>
 
-    <div class="row">
-        <div class="col text-center">
-            <fa-layers [fixedWidth]="true" class="fa-10x">
-                <fa-icon icon="circle"></fa-icon>
-                <fa-icon icon="database" class="fa-inverse" transform="shrink-8"></fa-icon>
-            </fa-layers>
-            <p> Open data Nantes</p>
+<div class="row parallax bg2">
+    <div class="col text-center" id="tst">
+        <div class="row mb-0 pb-0">
+            <div class="col">
+                <fa-layers [fixedWidth]="true" class="fa-10x">
+                    <fa-icon icon="circle"></fa-icon>
+                    <fa-icon icon="people-carry" class="fa-inverse" transform="shrink-8"></fa-icon>
+                </fa-layers>
+            </div>
+        </div>
+        <div class="row mt-0 pt-0">
+            <div class="col">
+                <span class="fa-4x"> - - </span>
+                <span class="fa-4x" [translate]="'home.contributions'"></span>
+            </div>
         </div>
     </div>
+</div>
+
+<div class="parallax-2">
     <div class="row">
-        <div class="col text-center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
+        <div class="col text-center info">
+            <div class="row">
+                <span class="col">
+                    <fa-icon icon="map-marked-alt" class="mr-1 fa-3x"></fa-icon>
+                </span>
+                <span class="col">
+                    <span class="row text-center fa-2x mb-0 pb-0">Nantes</span>
+                    <span class="row text-center mt-0 pt-0" [translate]="'home.info.location'"></span>
+                </span>
+                <span class="col">
+                    <fa-icon icon="calendar-alt" class="mr-1 fa-3x"></fa-icon>
+                </span>
+                <span class="col">
+                    <span class="row text-center fa-2x mb-0 pb-0">2018</span>
+                    <span class="row text-center mt-0 pt-0" [translate]="'home.info.date'"></span>
+                </span>
+            </div>
+            <div class="row">
+                <span class="col">
+                    <fa-icon icon="users" class="mr-1 fa-3x"></fa-icon>
+                </span>
+                <span class="col">
+                    <span class="row text-center fa-2x mb-0 pb-0">+80</span>
+                    <span class="row text-center mt-0 pt-0" [translate]="'home.info.contributors'"></span>
+                </span>
+                <span class="col">
+                    <fa-icon icon="tools" class="mr-1 fa-3x"></fa-icon>
+                </span>
+                <span class="col">
+                    <span class="row text-center fa-2x mb-0 pb-0">3</span>
+                    <span class="row text-center mt-0 pt-0" [translate]="'home.info.project'"></span>
+                </span>
+            </div>
         </div>
         <div class="col text-center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
+            <h1 [translate]="'home.us.title'"></h1>
+            <p [translate]="'home.us.text1'" class="text-left"></p>
+            <p [translate]="'home.us.text2'" class="text-left"></p>
+            <p [translate]="'home.us.text3'" class="text-left"></p>
         </div>
     </div>
-</section>
+</div>
+
+<div class="row parallax bg2">
+    <div class="col text-center">
+        <fa-layers [fixedWidth]="true" class="fa-10x">
+            <fa-icon icon="circle"></fa-icon>
+            <fa-icon icon="database" class="fa-inverse" transform="shrink-8"></fa-icon>
+        </fa-layers>
+        <p> Open data Nantes</p>
+    </div>
+</div>

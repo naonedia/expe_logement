@@ -1,0 +1,47 @@
+.info{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.parallax-1 { 
+    height: 10vh;
+}
+
+.parallax { 
+    /* Full height */
+    height: 50vh;
+
+    .col{
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+}
+
+.parallax-2 {   
+    /* Full height */
+    height: 50%;
+}
+
+.bg1{
+    background: url("../../assets/images/bg1.jpg");
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg2{
+    background: url("../../assets/images/bg2.jpg");
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media only screen and (max-device-width: 1366px) {
+    .parallax {
+      background-attachment: scroll;
+    }
+  }
