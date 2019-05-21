@@ -13,6 +13,9 @@
     },
     "home": {
         "contributions": "contributions",
+        "opendata": "Open data source",
+        "data1": "Property values",
+        "data2": "OpenStreetMap data",
         "info":{
             "location": "Original place",
             "date": "Creation date",

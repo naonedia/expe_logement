@@ -11,24 +11,22 @@ p{
     color: #9a9a9a;
 }
 
+.custom-a { 
+    transition: all 0.5s ease;
+    color: black;
+}
+.custom-a:hover { 
+    transition: all 0.5s ease;
+    color: white;
+}
+
+
 body,
 h1,
 h2,
 h3,
 h4 {
     font-weight: 300;
-}
-
-a {
-    color: #533f03;
-    font-weight: bold;
-}
-
-a:hover {
-    color: #533f03;
-    font-weight: bold;
-    /* make sure browsers use the pointer cursor for anchors, even with no href */
-    cursor: pointer;
 }
 
 /* ==========================================================================

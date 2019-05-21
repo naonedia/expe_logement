@@ -13,6 +13,9 @@
     },
     "home": {
         "contributions": "contributions",
+        "opendata": "Source open data",
+        "data1": "Valeurs foncières",
+        "data2": "Données OpenStreetMap",
         "info":{
             "location": "Lieu d'origine",
             "date": "Création",

@@ -1,5 +1,6 @@
 import { Component, AfterContentInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-home',
@@ -8,6 +9,10 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HomeComponent {
 
-    constructor(private translateService: TranslateService) {}
+    constructor(private router: Router, private translateService: TranslateService) {}
+
+    goToModel() {
+        this.router.navigate(['model']);
+    }
 
 }
