@@ -1,6 +1,5 @@
 import { HouseType } from './houseType.model';
 import { Town } from './town.model';
-import { DistanceType } from './distanceType.model';
 import { POI } from './poi.model';
 
 export class UserInput {
