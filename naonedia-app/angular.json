@@ -29,8 +29,8 @@
             "styles": [
               "src/assets/scss/styles-app-loading.scss",
               "src/assets/scss/global.scss",
-              "src/assets/css/font-awesome-animation.min.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "src/assets/scss/_bootstrap-variables.scss",
+              "src/assets/css/font-awesome-animation.min.css"
             ],
             "scripts": [],
             "es5BrowserSupport": true
@@ -89,8 +89,8 @@
             "styles": [
               "src/assets/scss/styles-app-loading.scss",
               "src/assets/scss/global.scss",
-              "src/assets/css/font-awesome-animation.min.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "src/assets/scss/_bootstrap-variables.scss",
+              "src/assets/css/font-awesome-animation.min.css"
             ],
             "scripts": [],
             "assets": [

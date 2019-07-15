@@ -8,11 +8,15 @@
 // Colors:
 // Grayscale and brand colors for use across Bootstrap.
 
-$primary: #1972d9;
-$success: #28a745;
+$primary: #1872d9;
+$success: #00aac1;
 $info: #17a2b8;
 $warning: #ffc107;
 $danger: #dc3545;
+
+$gray-100: #f8f9fa;
+$gray-600: #868e96;
+$gray-800: #343a40;
 
 // Options:
 // Quickly modify global styling by enabling or disabling optional features.
@@ -33,8 +37,6 @@ $border-radius-sm: 0.1rem;
 
 // Body:
 // Settings for the `<body>` element.
-
-$body-bg: #e4e5e6;
 
 // Typography:
 // Font, line-height, and color for body text, headings, and more.

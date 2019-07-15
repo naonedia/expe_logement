@@ -1,125 +1,62 @@
-<!-- <h1 [translate]="'global.title'" class="text-center fa-3x parallax-1 bg2"></h1> -->
-<div class="row parallax bg2">
-    <div class="col text-center">
-        <div class="row mb-0 pb-0">
-            <div class="col">
-                <fa-layers (click)="goToModel()" [fixedWidth]="true" class="faa-tada animated-hover fa-10x">
-                    <fa-icon icon="circle"></fa-icon>
-                    <fa-icon icon="chart-bar" class="fa-inverse" transform="shrink-8"></fa-icon>
-                </fa-layers>
-            </div>
-        </div>
-        <div class="row mt-0 pt-0">
-            <div class="col">
-                <h1><span [translate]="'global.menu.model'"></span></h1>
-            </div>
+<div class="row main">
+    <div class="col left">
+        <h1 class="text-center">Expérimentation logement</h1>
+        <span class="text-center">
+            L'objectif de ce projet est de présenter le savoir-faire nantais en matière d'intelligence
+            artificielle.<br />
+            Cette application est destinée à tout type de public. Elle permet d'expliquer de manière ludique les grands
+            principes afin de démystifier le sujet.
+        </span>
+
+        <iframe class="video" src="https://www.youtube.com/embed/f1xz5KeYmX0?rel=0&amp;showinfo=1" frameborder="0" allowfullscreen=""></iframe>
+
+        <!-- <div class="video align-middle text-center fa-10x">
+            <div [innerHtml]="ytIframe"></div>
+        </div> -->
+
+        <div class="text-center">
+            <a class="btn btn-success btn-lg rounded-pill" href="#" role="button">En savoir plus</a>
         </div>
     </div>
-</div>
+    <div class="col right">
+        <img src="/assets/images/vertical-shift.svg" class="svg1">
+        <img src="/assets/images/horizontal-shift.svg" class="svg2">
 
-<div class="parallax-2">
-    <div class="row justify-content-center">
-        <div class="col-10">
-            <h1 class="text-center" [translate]="'home.why.title'"></h1>
-            <p class="text-left">
-                <span [translate]="'home.why.text1'"></span><br>
-                <span [translate]="'home.why.text2'"></span>
-            </p>
-        </div>
-    </div>
-</div>
+        <div class="row top-right">
+            <div class="col">
+                <fa-icon class="centered-icon people-carry fa-inverse fa-10x" icon="people-carry"></fa-icon>
 
-<div class="row parallax bg2">
-    <div class="col text-center">
-        <div class="row mb-0 pb-0">
-            <div class="col">
-                <fa-layers [fixedWidth]="true" class="faa-horzontal animated fa-10x">
-                    <fa-icon icon="circle"></fa-icon>
-                    <fa-icon icon="people-carry" class="fa-inverse" transform="shrink-8"></fa-icon>
-                </fa-layers>
-            </div>
-        </div>
-        <div class="row mt-0 pt-0">
-            <div class="col">
-                <span class="fa-4x"> - - </span>
-                <h1><span [translate]="'home.contributions'"></span></h1>
-            </div>
-        </div>
-    </div>
-</div>
+                <div class="text-explain align-middle text-center text-light">
 
-<div class="parallax-2">
-    <div class="row">
-        <div class="col text-center info">
-            <div class="row">
-                <span class="col">
-                    <fa-icon icon="map-marked-alt" class="mr-1 fa-3x"></fa-icon>
-                </span>
-                <span class="col">
-                    <span class="row text-center fa-2x mb-0 pb-0">Nantes</span>
-                    <span class="row text-center mt-0 pt-0" [translate]="'home.info.location'"></span>
-                </span>
-                <span class="col">
-                    <fa-icon icon="calendar-alt" class="mr-1 fa-3x"></fa-icon>
-                </span>
-                <span class="col">
-                    <span class="row text-center fa-2x mb-0 pb-0">2018</span>
-                    <span class="row text-center mt-0 pt-0" [translate]="'home.info.date'"></span>
-                </span>
-            </div>
-            <div class="row">
-                <span class="col">
-                    <fa-icon icon="users" class="mr-1 fa-3x"></fa-icon>
-                </span>
-                <span class="col">
-                    <span class="row text-center fa-2x mb-0 pb-0">+80</span>
-                    <span class="row text-center mt-0 pt-0" [translate]="'home.info.contributors'"></span>
-                </span>
-                <span class="col">
-                    <fa-icon icon="tools" class="mr-1 fa-3x"></fa-icon>
-                </span>
-                <span class="col">
-                    <span class="row text-center fa-2x mb-0 pb-0">3</span>
-                    <span class="row text-center mt-0 pt-0" [translate]="'home.info.project'"></span>
-                </span>
-            </div>
-        </div>
-        <div class="col text-center">
-            <h1 [translate]="'home.us.title'"></h1>
-            <p [translate]="'home.us.text1'" class="text-left"></p>
-            <p [translate]="'home.us.text2'" class="text-left"></p>
-            <p [translate]="'home.us.text3'" class="text-left"></p>
-        </div>
-    </div>
-</div>
+                    <span class="align-middle text-center">Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit,<br> sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.
+                    </span>
 
-<div class="row parallax bg2">
-    <div class="col text-center">
-        <div class="row mb-0 pb-0">
-            <div class="col">
-                <h1><span [translate]="'home.opendata'"></span></h1>
+                    <div class="text-center align-middle">
+                        <a class="btn btn-light btn-lg rounded-pill text-success" href="#" role="button">Participer</a>
+                    </div>
+
+                </div>
             </div>
         </div>
-        <div class="row mb-0 pb-0">
-            <div class="col">
-                <fa-layers [fixedWidth]="true" class="fa-10x">
-                    <fa-icon icon="circle"></fa-icon>
-                    <fa-icon icon="database" class="fa-inverse" transform="shrink-8"></fa-icon>
-                </fa-layers>
-            </div>
-        </div>
-        <div class="row mt-0 pt-0">
-            <div class="col">
-                <h3>
-                    <a class="custom-a" [translate]="'home.data1'" rel="noopener noreferrer" target="_blank"
-                        href="https://www.data.gouv.fr/fr/datasets/demandes-de-valeurs-foncieres-geolocalisees/"></a>
-                </h3>
-            </div>
-            <div class="col">
-                <h3>
-                    <a class="custom-a" [translate]="'home.data2'" rel="noopener noreferrer" target="_blank"
-                        href="https://download.geofabrik.de/europe/france/pays-de-la-loire.html"></a>
-                </h3>
+        <div class="row bottom-right">
+            <div class="col center-block">
+                <fa-icon class="centered-icon chart-bar fa-inverse fa-10x" icon="chart-bar"></fa-icon>
+
+                <div class="text-explain align-middle text-center">
+
+                    <span class="align-middle text-center text-light">
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        <br>
+                        laboris nisi ut aliquip ex ea commodo consequat.
+                    </span>
+
+                    <div class="text-center align-middle">
+                        <a class="btn btn-light btn-lg rounded-pill text-success" routerLink="/model" role="button">Estimer un bien</a>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
