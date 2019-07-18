@@ -35,27 +35,17 @@
         }
     },
     "model": {
-        "inside": "Inside",
-        "outside": "Outside",
         "input": {
             "area": "Ground surface",
+            "areaCarrez": "Ground surface using ‘Loi Carrez’",
+            "areaTotal": "Total ground surface",
             "rooms": "Number of rooms",
             "type" : "Housing",
-            "location": "Location",
-            "medical": "Medical facilities",
-            "parks": "Parks & gardens",
-            "transport": "Public transport",
-            "daily": "Daily places",
-            "distractions": "Spare time places"
+            "poi": "Points of interest nearby"
         }
     },
     "houseType":{
         "house": "House",
         "flat": "Flat"
-    },
-    "distanceType":{
-        "CLOSE": "10 min by foot",
-        "MEDIUM": "5 min by car",
-        "FAR": "None close"
     }
 }

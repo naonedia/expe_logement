@@ -35,27 +35,18 @@
         }
     },
     "model": {
-        "inside": "Intérieur",
-        "outside": "Extérieur",
         "input": {
             "area": "Surface au sol",
+            "areaCarrez": "Surface au sol ‘Loi Carrez’",
+            "areaTotal": "Surface total",
             "rooms": "Nombre de pièces",
             "type" : "Type de bien",
             "location": "Localisation",
-            "medical": "Etablissements médicaux",
-            "parks": "Parcs & jardins",
-            "transport": "Transports public",
-            "daily": "Lieux du quotidien",
-            "distractions": "Loisirs & distractions"
+            "poi": "Points d'intérêt à proximité"
         }
     },
     "houseType": {
         "house": "Maison",
         "flat": "Appartement"
-    },
-    "distanceType":{
-        "CLOSE": "10 min à pied",
-        "MEDIUM": "5 min en voiture",
-        "FAR": "Aucun à proximité"
     }
 }
