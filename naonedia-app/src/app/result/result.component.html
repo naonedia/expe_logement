@@ -1,0 +1,20 @@
+<div class="card mb-3 mt-3">
+  <div class="card-header">
+    Result
+  </div>
+  <div class="row pt-2">
+    <div class="col text-center">
+      <div [hidden]="!accuracy">
+        <canvas id="canvas1">{{ accuracy }}</canvas>
+      </div>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
+    </div>
+    <div class="col text-center">
+      <div [hidden]="!samples">
+        <canvas id="canvas2">{{ samples }}</canvas>
+      </div>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
+    </div>
+  </div>
+</div>
