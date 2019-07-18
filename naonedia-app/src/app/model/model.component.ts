@@ -74,8 +74,8 @@ export class ModelComponent implements OnInit, AfterViewInit {
             image: new Icon(({
                 anchor: [0.5, 1],
                 scale: 3,
-                anchorXUnits: 'fraction',
-                anchorYUnits: 'fraction',
+                anchorXUnits: 'fraction' as any,
+                anchorYUnits: 'fraction' as any,
                 opacity: 0.75,
                 src: '/assets/images/marker.svg'
             }))
