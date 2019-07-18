@@ -10,4 +10,4 @@ import { ModelComponent } from './model.component';
     declarations: [ModelComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class ChatBotModelModule {}
+export class ModelModule {}

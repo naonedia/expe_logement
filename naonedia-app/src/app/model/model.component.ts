@@ -1,154 +1,198 @@
-import {
-    Component,
-    OnInit,
-    OnDestroy,
-    EventEmitter,
-    AfterViewInit,
-    AfterContentChecked,
-    AfterViewChecked,
-    AfterContentInit
-} from '@angular/core';
-
-import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
-
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { Subject, Observable } from 'rxjs';
+import { debounceTime, distinctUntilChanged, tap, switchMap, filter, map } from 'rxjs/operators';
 
-import { Chart } from 'chart.js';
-import { Options } from 'ng5-slider';
-import { LocationNantes } from '../shared/model/locationNantes.model';
+import Feature from 'ol/Feature';
+import GeoJSON from 'ol/format/GeoJSON';
+import Map from 'ol/Map';
+import Point from 'ol/geom/Point';
+import { fromLonLat, transform } from 'ol/proj';
+import { OSM } from 'ol/source';
+import { Fill, Icon, Stroke, Style } from 'ol/style';
+import TileLayer from 'ol/layer/Tile';
+import SourceVector from 'ol/source/Vector';
+import LayerVector from 'ol/layer/Vector';
+import View from 'ol/View';
+
+import { ModelService } from './model.service';
+import { HouseType } from '../shared/model/houseType.model';
 import { UserInput } from '../shared/model/userInput.model';
-import { HouseType, HouseTypeList } from '../shared/model/houseType.model';
-import { poiList, POI } from '../shared/model/poi.model';
+
 
 @Component({
     selector: 'app-model',
     templateUrl: './model.component.html',
     styleUrls: ['model.scss']
 })
-export class ModelComponent implements OnInit, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
-    // Chart options
-    accuracy = Chart;
-    samples = Chart;
-    datas = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
 
-    // Retrieve locations
-    locations = LocationNantes;
+export class ModelComponent implements OnInit, AfterViewInit {
 
-    houseTypeList = HouseTypeList;
+    // Nantes Longitude and latitude
+    longitude = -1.553621;
+    latitude = 47.218371;
+
+    coordinatesChange = new Subject<number[]>();
+
+    // Open Street Map
+    map: any;
+
+    houseTypeList = Object.keys(HouseType);
 
     // User input
-    userInput = new UserInput(HouseTypeList[0], 50, 2, this.locations[10], [], poiList , []);
+    userInput = new UserInput();
     value = 0;
 
+    location: string;
 
-    // Slider options
-    manualRefresh: EventEmitter<void> = new EventEmitter<void>();
-    options: Options = {
-        floor: 0,
-        ceil: 250
-    };
+    search: any;
 
-    // Housing slider
-    housingOptions: Options;
-
-    constructor(private translateService: TranslateService) {}
+    constructor(
+        private router: Router,
+        private modelService: ModelService,
+        private translateService: TranslateService
+    ) { }
 
     ngOnInit() {
+        const temp = new Point(fromLonLat([this.longitude, this.latitude]));
 
-        this.manualRefresh.emit();
-        this.accuracy = new Chart('canvas1', {
-            type: 'line',
-            data: {
-                labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
-                datasets: [{ data: this.datas, borderColor: '#3cba9f', fill: false }]
-            },
-            options: {
-                responsive: true,
-                legend: { display: false },
-                scales: {
-                    xAxes: [{ display: true, scaleLabel: { display: true, labelString: 'Epochs' } }],
-                    yAxes: [{ display: true, scaleLabel: { display: true, labelString: 'Accuracy' } }]
-                }
+        const wmsLayer = new TileLayer({
+            source: new OSM()
+        });
+
+        const view = new View({
+            center: fromLonLat([this.longitude, this.latitude]),
+            zoom: 11
+        });
+
+        const iconFeature = new Feature({
+            geometry: temp
+        });
+
+        const iconStyle = new Style({
+            image: new Icon(({
+                anchor: [0.5, 1],
+                scale: 3,
+                anchorXUnits: 'fraction',
+                anchorYUnits: 'fraction',
+                opacity: 0.75,
+                src: '/assets/images/marker.svg'
+            }))
+        });
+
+        iconFeature.setStyle(iconStyle);
+
+        const vectorNantesLayer = new LayerVector({
+            source: new SourceVector({
+                format: new GeoJSON(),
+                url: '/assets/maps/metropolis.geojson'
+            }),
+            style: new Style({
+                fill: new Fill({
+                    color: 'rgba(0,170,193,0.3)'
+                }),
+                stroke: new Stroke({
+                    color: 'white'
+                })
+            })
+        });
+
+        const vectorNantesCentreVilleLayer = new LayerVector({
+            source: new SourceVector({
+                format: new GeoJSON(),
+                url: '/assets/maps/town-center.geojson'
+            }),
+            style: new Style({
+                fill: new Fill({
+                    color: 'rgba(24,114,217,0.3)'
+                }),
+                stroke: new Stroke({
+                    color: 'white'
+                })
+            })
+        });
+
+        const vectorSource = new SourceVector({
+            features: [iconFeature]
+        });
+
+        const vectorLayer = new LayerVector({
+            source: vectorSource
+        });
+
+        this.map = new Map({
+            layers: [wmsLayer, vectorNantesLayer, vectorNantesCentreVilleLayer, vectorLayer],
+            target: 'map',
+            view
+        });
+
+        this.coordinatesChange.subscribe(res => {
+            console.log('called with: ' + res);
+            temp.setCoordinates(fromLonLat(res));
+            this.userInput.longitude = res[0];
+            this.userInput.latitude = res[1];
+        });
+
+        this.map.on('singleclick', (evt) => {
+            if (
+                vectorNantesLayer.getSource().getFeaturesAtCoordinate(evt.coordinate).length !== 0 ||
+                vectorNantesCentreVilleLayer.getSource().getFeaturesAtCoordinate(evt.coordinate).length !== 0
+            ) {
+                this.coordinatesChange.next(transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326'));
+                this.modelService.getAdress(this.userInput.longitude, this.userInput.latitude).subscribe(res => console.log(res));
             }
         });
 
-        this.samples = new Chart('canvas2', {
-            type: 'line',
-            data: {
-                labels: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-                datasets: [{ data: [1, 2, 4 , 8, 16, 20, 32, 42, 64], borderColor: '#3cba9f', fill: false }]
-            },
-            options: {
-                responsive: true,
-                legend: { display: false },
-                scales: {
-                    xAxes: [{ display: true, scaleLabel: { display: true, labelString: 'Epochs' } }],
-                    yAxes: [{ display: true, scaleLabel: { display: true, labelString: 'Number of sample' } }]
-                }
-            }
-        });
-    }
-    ngAfterContentInit() {
-        this.manualRefresh.emit();
-    }
-
-    ngAfterContentChecked() {
-        this.manualRefresh.emit();
+        this.search = (text: Observable<string>) =>
+            text.pipe(
+                debounceTime(200),
+                distinctUntilChanged(),
+                filter(searchText => searchText !== ''),
+                switchMap((searchText) => this.modelService.getAutoComplete(searchText)),
+                map(response => response.filter(value =>
+                    vectorNantesLayer.getSource().getFeaturesAtCoordinate(fromLonLat(value.geometry.coordinates)).length !== 0 ||
+                    vectorNantesCentreVilleLayer.getSource().getFeaturesAtCoordinate(fromLonLat(value.geometry.coordinates)).length !== 0
+                ))
+            );
     }
 
     ngAfterViewInit() {
-        this.manualRefresh.emit();
+        this.map.setTarget('map');
     }
-
-    ngAfterViewChecked() {
-        this.manualRefresh.emit();
-    }
-
-    ngOnDestroy() {}
 
     onSubmit() {
-        console.log('submitted');
-
         console.log(this.userInput);
 
-        console.log('end submitted');
-        /* this.accuracy.data.datasets[0].data = this.accuracy.data.datasets[0].data.map(x => x * this.userInput.groundSurface);
-        this.accuracy.update();
-        this.accuracy.render(); */
+        this.router.navigate(['/result']);
     }
 
-    drop(event: CdkDragDrop<string[]>) {
-
-        // first check if it was moved within the same list or moved to a different list
-        if (event.previousContainer === event.container) {
-        // change the items index if it was moved within the same list
-        moveItemInArray(
-            event.container.data,
-            event.previousIndex,
-            event.currentIndex
-        );
-        } else {
-            // remove item from the previous list and add it to the new array
-            transferArrayItem(
-                event.previousContainer.data,
-                event.container.data,
-                event.previousIndex,
-                event.currentIndex
-            );
+    /**
+     * Used to format the result data from the lookup into the
+     * display and list values. Maps objects into a string
+     */
+    resultFormatBandListValue = (value: any) => {
+        return value.properties.name;
+    }
+    /**
+     * Initially binds the string value and then after selecting
+     * an item by checking either for string or key/value object.
+     */
+    inputFormatBandListValue = (value: any) => {
+        if (value.properties.name) {
+            this.coordinatesChange.next(value.geometry.coordinates);
+            return value.properties.name;
         }
+        return value;
     }
 
-    addItem(list: string, poi: POI) {
-        switch (list) {
-            case 'close':
-                this.userInput.close.push(poi);
-                break;
-            case 'medium':
-                this.userInput.medium.push(poi);
-                break;
-            default:
-                this.userInput.far.push(poi);
-                break;
+    increaseRoomNumber() {
+        this.userInput.roomNumber += 1;
+    }
+
+    decreaseRoomNumber() {
+        if (this.userInput.roomNumber > 0) {
+            this.userInput.roomNumber -= 1;
         }
     }
 }
