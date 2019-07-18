@@ -7,7 +7,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { ChatBotSharedModule } from './shared';
 import { ChatBotHomeModule } from './home/home.module';
 import { ChatBotCoreModule } from './core/core.module';
-import { ChatBotModelModule } from './model/model.module';
+import { ModelModule } from './model/model.module';
+import { ResultModule } from './result/result.module';
+
 
 import { NavbarComponent, FooterComponent, ActiveMenuDirective, ErrorComponent, MainComponent } from './layouts';
 
@@ -48,7 +50,8 @@ export function appInitializerFactory(translate: TranslateService, injector: Inj
     NgxWebstorageModule.forRoot({ prefix: 'app', separator: '-' }),
     ChatBotSharedModule.forRoot(),
     ChatBotHomeModule,
-    ChatBotModelModule,
+    ModelModule,
+    ResultModule,
     ChatBotCoreModule,
 
     // Configure i18n

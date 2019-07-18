@@ -1,13 +1,4 @@
-export class HouseType {
-    private translationKey;
-    constructor(public name: string, public icon: string) {
-        this.name = name;
-        this.icon = icon;
-        this.translationKey = 'houseType.' + name;
-    }
+export enum HouseType {
+    house = 'house',
+    flat = 'flat'
 }
-
-export const HouseTypeList = [
-    new HouseType('house', 'home'),
-    new HouseType('flat', 'building')
-];
