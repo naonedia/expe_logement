@@ -7,7 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { ChatBotSharedModule } from './shared';
 import { ChatBotHomeModule } from './home/home.module';
 import { ChatBotCoreModule } from './core/core.module';
-import { ModelModule } from './model/model.module';
+import { EstimateModule } from './estimate/estimate.module';
+import { ParticipateModule } from './participate/participate.module';
 import { ResultModule } from './result/result.module';
 
 
@@ -50,7 +51,8 @@ export function appInitializerFactory(translate: TranslateService, injector: Inj
     NgxWebstorageModule.forRoot({ prefix: 'app', separator: '-' }),
     ChatBotSharedModule.forRoot(),
     ChatBotHomeModule,
-    ModelModule,
+    EstimateModule,
+    ParticipateModule,
     ResultModule,
     ChatBotCoreModule,
 
