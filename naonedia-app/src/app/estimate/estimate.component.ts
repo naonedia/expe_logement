@@ -18,7 +18,7 @@ import View from 'ol/View';
 
 import { EstimateService } from './estimate.service';
 import { HouseType } from '../shared/model/houseType.model';
-import { UserInput } from '../shared/model/userInput.model';
+import { EstimateInput } from '../shared/model/estimateInput.model';
 
 
 @Component({
@@ -41,7 +41,7 @@ export class EstimateComponent implements OnInit, AfterViewInit {
     houseTypeList = Object.keys(HouseType);
 
     // User input
-    userInput = new UserInput();
+    userInput = new EstimateInput();
     value = 0;
 
     location: string;
@@ -128,7 +128,6 @@ export class EstimateComponent implements OnInit, AfterViewInit {
         });
 
         this.coordinatesChange.subscribe(res => {
-            console.log('called with: ' + res);
             temp.setCoordinates(fromLonLat(res));
             this.userInput.longitude = res[0];
             this.userInput.latitude = res[1];
@@ -140,7 +139,7 @@ export class EstimateComponent implements OnInit, AfterViewInit {
                 vectorNantesCentreVilleLayer.getSource().getFeaturesAtCoordinate(evt.coordinate).length !== 0
             ) {
                 this.coordinatesChange.next(transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326'));
-                this.estimateService.getAdress(this.userInput.longitude, this.userInput.latitude).subscribe(res => console.log(res));
+                //this.estimateService.getAdress(this.userInput.longitude, this.userInput.latitude).subscribe(res => console.log(res));
             }
         });
 

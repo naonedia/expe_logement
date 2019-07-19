@@ -1,6 +1,6 @@
 import { HouseType } from './houseType.model';
 
-export class UserInput {
+export class EstimateInput {
 
     type: HouseType = HouseType.house;
     groundSurface = 50;

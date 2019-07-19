@@ -18,7 +18,7 @@ import View from 'ol/View';
 
 import { ParticipateService } from './participate.service';
 import { HouseType } from '../shared/model/houseType.model';
-import { UserInput } from '../shared/model/userInput.participate';
+import { ParticipateInput } from '../shared/model/participateInput.model';
 
 
 @Component({
@@ -41,7 +41,7 @@ export class ParticipateComponent implements OnInit, AfterViewInit {
     houseTypeList = Object.keys(HouseType);
 
     // User input
-    userInput = new UserInput();
+    userInput = new ParticipateInput();
     value = 0;
 
     location: string;
@@ -128,7 +128,6 @@ export class ParticipateComponent implements OnInit, AfterViewInit {
         });
 
         this.coordinatesChange.subscribe(res => {
-            console.log('called with: ' + res);
             temp.setCoordinates(fromLonLat(res));
             this.userInput.longitude = res[0];
             this.userInput.latitude = res[1];
@@ -140,7 +139,7 @@ export class ParticipateComponent implements OnInit, AfterViewInit {
                 vectorNantesCentreVilleLayer.getSource().getFeaturesAtCoordinate(evt.coordinate).length !== 0
             ) {
                 this.coordinatesChange.next(transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326'));
-                this.participateService.getAdress(this.userInput.longitude, this.userInput.latitude).subscribe(res => console.log(res));
+                //this.participateService.getAdress(this.userInput.longitude, this.userInput.latitude).subscribe(res => console.log(res));
             }
         });
 

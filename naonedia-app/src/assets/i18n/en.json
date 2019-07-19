@@ -44,7 +44,9 @@
             "areaTotal": "Total ground surface",
             "rooms": "Number of rooms",
             "type" : "Housing",
-            "poi": "Points of interest nearby"
+            "poi": "Points of interest nearby",
+            "price": "Buy / sale price",
+            "year": "Buy / sale year"
         }
     },
     "houseType":{

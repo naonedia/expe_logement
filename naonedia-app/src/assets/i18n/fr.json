@@ -45,7 +45,9 @@
             "rooms": "Nombre de pièces",
             "type" : "Type de bien",
             "location": "Localisation",
-            "poi": "Points d'intérêt à proximité"
+            "poi": "Points d'intérêt à proximité",
+            "price": "Prix d'achat / vente",
+            "year": "Année d'achat / vente"
         }
     },
     "houseType": {
