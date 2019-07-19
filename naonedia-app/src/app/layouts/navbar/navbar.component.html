@@ -1,36 +1,31 @@
-<nav class="navbar navbar-expand-md text-dark jh-navbar">
-    <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
+<nav class="navbar navbar-expand-md navbar-light bg-light text-primary fixed-top">
+    <a class="navbar-brand logo" routerLink="/">
         <span class="logo-img"></span>
     </a>
-
-    <a class="navbar-toggler d-lg-none" data-toggle="collapse" data-target="#navbarResponsive" (click)="toggleNavbar()">
-        <fa-icon icon="bars"></fa-icon>
-    </a>
-        
-    
-    <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed">
+    <button class="navbar-toggler" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed"
+        data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon text-primary"></span>
+    </button>
+    <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarsDefault">
         <ul class="navbar-nav ml-auto">
-            <li ngbDropdown class="nav-item">
-                <a class="nav-link" routerLink="/model" id="modelNavBar" (click)="collapseNavbar()">
-                    <span>
-                        <fa-icon icon="chart-bar" class="text-dark mr-1"></fa-icon>
-                        <span [translate]="'global.menu.model'" class="text-dark">Test model</span>
-                    </span>
-                </a>
+            <li class="nav-item font-weight-bold">
+                <a class="nav-link text-uppercase" [translate]="'global.menu.about'" href="#"></a>
             </li>
-            
-            <li ngbDropdown class="nav-item dropdown pointer" *ngIf="languages && languages.length > 1">
-                <a class="nav-link dropdown-toggle" ngbDropdownToggle id="languagesNavBarDropdown">
-                    <span>
-                        <fa-icon icon="flag" class="text-dark mr-1"></fa-icon>
-                        <span [translate]="'global.menu.language'" class="text-dark">Language</span>
-                    </span>
-                </a>
-                <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="languagesNavBarDropdown">
-                    <li *ngFor="let language of languages">
-                        <a class="dropdown-item" [ActiveMenu]="language" (click)="changeLanguage(language);collapseNavbar();">{{language | findLanguageFromKey}}</a>
-                    </li>
-                </ul>
+            <li class="nav-item font-weight-bold">
+                <a class="nav-link text-uppercase" [translate]="'global.menu.participate'" href="#">Link</a>
+            </li>
+            <li class="nav-item font-weight-bold">
+                <a class="nav-link text-uppercase" [translate]="'global.menu.estimate'" href="#">Link</a>
+            </li>
+
+            <li class="nav-item font-weight-bold dropdown" ngbDropdown>
+                <a class="nav-link dropdown-toggle text-uppercase" ngbDropdownToggle [translate]="'global.menu.language'"></a>
+                <div class="dropdown-menu" ngbDropdownMenu>
+                    <a *ngFor="let language of languages" class="dropdown-item" (click)="changeLanguage(language);collapseNavbar();">
+                        {{language | findLanguageFromKey}}
+                    </a>
+                </div>
             </li>
         </ul>
     </div>

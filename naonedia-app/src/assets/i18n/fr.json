@@ -2,6 +2,9 @@
     "global": {
         "title": "Expérience logement",
         "menu": {
+            "about": "À propos",
+            "participate": "Participter",
+            "estimate": "Estimer un bien",
             "language": "Langue",
             "model": "Evaluer un bien immobilier"
         },

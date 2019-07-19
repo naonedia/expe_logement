@@ -2,6 +2,9 @@
     "global": {
         "title": "Housing experience",
         "menu": {
+            "about": "About",
+            "participate": "Participate",
+            "estimate": "Estimate housing",
             "language": "Language",
             "model": "Evaluate a property"
         },
