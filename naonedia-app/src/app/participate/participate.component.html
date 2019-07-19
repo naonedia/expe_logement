@@ -185,18 +185,13 @@
     <div class="row mb-3 justify-content-center justify-content-md-center">
       <div class="col-md-2">
 
-        <p class="text-center align-middle text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiumdod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur.</p>
+        <p [translate]="'global.explanation.poi'" class="text-center align-middle text-light"></p>
       </div>
     </div>
     <div class="row mb-3 justify-content-center">
       <div class="col-md-2">
         <input class="form-control bg-primary border-light text-light rounded-pill" type="text"
-          placeholder="Adresse du bien" [(ngModel)]="location" name="location" [ngbTypeahead]="search"
+          placeholder="{{ 'model.placeholder.location' | translate }}" [(ngModel)]="location" name="location" [ngbTypeahead]="search"
           [resultFormatter]="resultFormatBandListValue" [inputFormatter]="inputFormatBandListValue" />
       </div>
     </div>
@@ -209,7 +204,7 @@
 
     <div class="row pb-3 justify-content-center">
       <div class="col-md-2">
-        <button type="submit" class="btn btn-light btn-lg btn-block text-primary rounded-pill">Predict</button>
+        <button [translate]="'global.button.participate'" type="submit" class="btn btn-light btn-lg btn-block text-primary text-uppercase rounded-pill"></button>
       </div>
     </div>
 

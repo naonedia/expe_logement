@@ -8,7 +8,7 @@ import Feature from 'ol/Feature';
 import GeoJSON from 'ol/format/GeoJSON';
 import Map from 'ol/Map';
 import Point from 'ol/geom/Point';
-import { fromLonLat, transform } from 'ol/proj';
+import { fromLonLat, transform, get } from 'ol/proj';
 import { OSM } from 'ol/source';
 import { Fill, Icon, Stroke, Style } from 'ol/style';
 import TileLayer from 'ol/layer/Tile';
@@ -62,7 +62,7 @@ export class EstimateComponent implements OnInit, AfterViewInit {
 
         const view = new View({
             center: fromLonLat([this.longitude, this.latitude]),
-            zoom: 11
+            zoom: 16,
         });
 
         const iconFeature = new Feature({
@@ -126,6 +126,16 @@ export class EstimateComponent implements OnInit, AfterViewInit {
             view
         });
 
+        const myExtent = this.map.getView().calculateExtent(this.map.getSize());
+        this.map.setView(
+            new View({
+                center: fromLonLat([this.longitude, this.latitude]),
+                minZoom: 11,
+                zoom: 11,
+                extent: myExtent,
+            })
+        );
+
         this.coordinatesChange.subscribe(res => {
             temp.setCoordinates(fromLonLat(res));
             this.userInput.longitude = res[0];
@@ -153,6 +163,8 @@ export class EstimateComponent implements OnInit, AfterViewInit {
                     vectorNantesCentreVilleLayer.getSource().getFeaturesAtCoordinate(fromLonLat(value.geometry.coordinates)).length !== 0
                 ))
             );
+
+        console.log(get("EPSG:3857").getExtent());
     }
 
     ngAfterViewInit() {

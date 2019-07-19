@@ -1,9 +1,16 @@
 {
     "global": {
         "title": "Expérience logement",
+        "button": {
+            "estimate": "Estimer",
+            "participate": "Participer"
+        },
+        "explanation": {
+            "poi": "Nous utilisons des points d’intérêts pour obtenir l’estimation la plus proche en matière de logement. Nous ne stockons pas la localisation. Celle-ci n'est utilisé que pour intégrer nos données."
+        },
         "menu": {
             "about": "À propos",
-            "participate": "Participter",
+            "participate": "Participer",
             "estimate": "Estimer un bien",
             "language": "Langue",
             "model": "Evaluer un bien immobilier"
@@ -11,8 +18,7 @@
         "footer":{
             "contact": "Contact : ",
             "other": "Nos autres sites : "
-        },
-        "text": "Ceci est une smple demonstration pour ngx-translate"
+        }
     },
     "home": {
         "contributions": "contributions",
@@ -26,7 +32,7 @@
             "project": "Projets"
         },
         "us": {
-            "title": "A propos de nous",
+            "title": "À propos de nous",
             "text2": "Nous sommes un collectif souhaitant impulser une dynamique territoriale sur l'IA. Au total nous sommes plus de 80 acteurs",
             "text1": "Nos membres proviennent de différents horizons : chercheurs, académiques, entrepreneurs (grandes entreprises, ESN, startups), experts, collectivités, user-groups, journalistes, juristes, etc...",
             "text3": "Nous agissons autour de huit engagements: transparence, décloisonnement, responsabilité/traçabilité, éthique, respect de la vie privée, gouvernance, culture scientifique et technique, coopération homme-machine."
@@ -48,6 +54,9 @@
             "poi": "Points d'intérêt à proximité",
             "price": "Prix d'achat / vente",
             "year": "Année d'achat / vente"
+        },
+        "placeholder": {
+            "location": "Addresse du bien"
         }
     },
     "houseType": {

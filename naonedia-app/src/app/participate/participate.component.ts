@@ -62,7 +62,7 @@ export class ParticipateComponent implements OnInit, AfterViewInit {
 
         const view = new View({
             center: fromLonLat([this.longitude, this.latitude]),
-            zoom: 11
+            zoom: 16
         });
 
         const iconFeature = new Feature({
@@ -125,6 +125,16 @@ export class ParticipateComponent implements OnInit, AfterViewInit {
             target: 'map',
             view
         });
+
+        const myExtent = this.map.getView().calculateExtent(this.map.getSize());
+        this.map.setView(
+            new View({
+                center: fromLonLat([this.longitude, this.latitude]),
+                minZoom: 11,
+                zoom: 11,
+                extent: myExtent,
+            })
+        );
 
         this.coordinatesChange.subscribe(res => {
             temp.setCoordinates(fromLonLat(res));
