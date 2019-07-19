@@ -16,18 +16,18 @@ import SourceVector from 'ol/source/Vector';
 import LayerVector from 'ol/layer/Vector';
 import View from 'ol/View';
 
-import { ModelService } from './model.service';
+import { EstimateService } from './estimate.service';
 import { HouseType } from '../shared/model/houseType.model';
 import { UserInput } from '../shared/model/userInput.model';
 
 
 @Component({
-    selector: 'app-model',
-    templateUrl: './model.component.html',
-    styleUrls: ['model.scss']
+    selector: 'app-estimate',
+    templateUrl: './estimate.component.html',
+    styleUrls: ['estimate.scss']
 })
 
-export class ModelComponent implements OnInit, AfterViewInit {
+export class EstimateComponent implements OnInit, AfterViewInit {
 
     // Nantes Longitude and latitude
     longitude = -1.553621;
@@ -50,7 +50,7 @@ export class ModelComponent implements OnInit, AfterViewInit {
 
     constructor(
         private router: Router,
-        private modelService: ModelService,
+        private estimateService: EstimateService,
         private translateService: TranslateService
     ) { }
 
@@ -140,7 +140,7 @@ export class ModelComponent implements OnInit, AfterViewInit {
                 vectorNantesCentreVilleLayer.getSource().getFeaturesAtCoordinate(evt.coordinate).length !== 0
             ) {
                 this.coordinatesChange.next(transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326'));
-                this.modelService.getAdress(this.userInput.longitude, this.userInput.latitude).subscribe(res => console.log(res));
+                this.estimateService.getAdress(this.userInput.longitude, this.userInput.latitude).subscribe(res => console.log(res));
             }
         });
 
@@ -149,7 +149,7 @@ export class ModelComponent implements OnInit, AfterViewInit {
                 debounceTime(200),
                 distinctUntilChanged(),
                 filter(searchText => searchText !== ''),
-                switchMap((searchText) => this.modelService.getAutoComplete(searchText)),
+                switchMap((searchText) => this.estimateService.getAutoComplete(searchText)),
                 map(response => response.filter(value =>
                     vectorNantesLayer.getSource().getFeaturesAtCoordinate(fromLonLat(value.geometry.coordinates)).length !== 0 ||
                     vectorNantesCentreVilleLayer.getSource().getFeaturesAtCoordinate(fromLonLat(value.geometry.coordinates)).length !== 0

@@ -6,7 +6,7 @@ import { SERVER_API_URL } from '../app.constants';
 import { createRequestOption } from '../shared';
 
 @Injectable({ providedIn: 'root' })
-export class ModelService {
+export class EstimateService {
     public resourceUrl = 'http://localhost:4000/v1';
 
     constructor(protected http: HttpClient) { }
