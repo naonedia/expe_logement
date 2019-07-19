@@ -16,10 +16,9 @@ import SourceVector from 'ol/source/Vector';
 import LayerVector from 'ol/layer/Vector';
 import View from 'ol/View';
 
-import { EstimateService } from './estimate.service';
 import { HouseType } from '../shared/model/houseType.model';
 import { EstimateInput } from '../shared/model/estimateInput.model';
-
+import { PeliasService } from '../service';
 
 @Component({
     selector: 'app-estimate',
@@ -50,7 +49,7 @@ export class EstimateComponent implements OnInit, AfterViewInit {
 
     constructor(
         private router: Router,
-        private estimateService: EstimateService,
+        private peliasService: PeliasService,
         private translateService: TranslateService
     ) { }
 
@@ -139,7 +138,7 @@ export class EstimateComponent implements OnInit, AfterViewInit {
                 vectorNantesCentreVilleLayer.getSource().getFeaturesAtCoordinate(evt.coordinate).length !== 0
             ) {
                 this.coordinatesChange.next(transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326'));
-                //this.estimateService.getAdress(this.userInput.longitude, this.userInput.latitude).subscribe(res => console.log(res));
+                //this.peliasService.getAdress(this.userInput.longitude, this.userInput.latitude).subscribe(res => console.log(res));
             }
         });
 
@@ -148,7 +147,7 @@ export class EstimateComponent implements OnInit, AfterViewInit {
                 debounceTime(200),
                 distinctUntilChanged(),
                 filter(searchText => searchText !== ''),
-                switchMap((searchText) => this.estimateService.getAutoComplete(searchText)),
+                switchMap((searchText) => this.peliasService.getAutoComplete(searchText)),
                 map(response => response.filter(value =>
                     vectorNantesLayer.getSource().getFeaturesAtCoordinate(fromLonLat(value.geometry.coordinates)).length !== 0 ||
                     vectorNantesCentreVilleLayer.getSource().getFeaturesAtCoordinate(fromLonLat(value.geometry.coordinates)).length !== 0
