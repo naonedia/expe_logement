@@ -7,7 +7,7 @@ import { createRequestOption } from '../shared';
 
 @Injectable({ providedIn: 'root' })
 export class PeliasService {
-    public resourceUrl = 'http://localhost:4000/v1';
+    public resourceUrl = `http://${SERVER_API_URL}:4000/v1`;
 
     constructor(protected http: HttpClient) { }
 
