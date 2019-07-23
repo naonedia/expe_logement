@@ -1,15 +1,24 @@
 {
     "global": {
         "title": "Housing experience",
+        "button": {
+            "estimate": "Estimate",
+            "participate": "Participate"
+        },
+        "explanation": {
+            "poi": "We are using points of interests to get the closest estimation for housing. We are NOT storing the location. This is only used to embed our data."
+        },
         "menu": {
+            "about": "About",
+            "participate": "Participate",
+            "estimate": "Estimate housing",
             "language": "Language",
             "model": "Evaluate a property"
         },
         "footer":{
             "contact": "Contact : ",
             "other": "Other sites : "
-        },
-        "text": "This is a simple demonstration app for ngx-translate"
+        }
     },
     "home": {
         "contributions": "contributions",
@@ -35,27 +44,22 @@
         }
     },
     "model": {
-        "inside": "Inside",
-        "outside": "Outside",
         "input": {
             "area": "Ground surface",
+            "areaCarrez": "Ground surface using ‘Loi Carrez’",
+            "areaTotal": "Total ground surface",
             "rooms": "Number of rooms",
             "type" : "Housing",
-            "location": "Location",
-            "medical": "Medical facilities",
-            "parks": "Parks & gardens",
-            "transport": "Public transport",
-            "daily": "Daily places",
-            "distractions": "Spare time places"
+            "poi": "Points of interest nearby",
+            "price": "Buy / sale price",
+            "year": "Buy / sale year"
+        },
+        "placeholder": {
+            "location": "Property address"
         }
     },
     "houseType":{
         "house": "House",
         "flat": "Flat"
-    },
-    "distanceType":{
-        "CLOSE": "10 min by foot",
-        "MEDIUM": "5 min by car",
-        "FAR": "None close"
     }
 }

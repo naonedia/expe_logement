@@ -20,6 +20,21 @@ h4 {
     font-weight: 300;
 }
 
+// avoid left shift on small device
+.row {
+    padding-right: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+.col {
+    padding-right: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
 /* ==========================================================================
 Browser Upgrade Prompt
 ========================================================================== */
