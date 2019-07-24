@@ -76,7 +76,7 @@ export class EstimateComponent implements OnInit, AfterViewInit {
                 anchorXUnits: 'fraction' as any,
                 anchorYUnits: 'fraction' as any,
                 opacity: 0.75,
-                src: '/assets/images/marker.svg'
+                src: './assets/images/marker.svg'
             }))
         });
 
@@ -85,7 +85,7 @@ export class EstimateComponent implements OnInit, AfterViewInit {
         const vectorNantesLayer = new LayerVector({
             source: new SourceVector({
                 format: new GeoJSON(),
-                url: '/assets/maps/metropolis.geojson'
+                url: './assets/maps/metropolis.geojson'
             }),
             style: new Style({
                 fill: new Fill({
@@ -100,7 +100,7 @@ export class EstimateComponent implements OnInit, AfterViewInit {
         const vectorNantesCentreVilleLayer = new LayerVector({
             source: new SourceVector({
                 format: new GeoJSON(),
-                url: '/assets/maps/town-center.geojson'
+                url: './assets/maps/town-center.geojson'
             }),
             style: new Style({
                 fill: new Fill({
