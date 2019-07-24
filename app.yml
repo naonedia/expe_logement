@@ -1,11 +1,17 @@
 runtime: python27
 threadsafe: true
- 
+
+skip_files:
+  - ^naonedia-app/.*
+  - ^LICENSE
+  - ^README.md
+  - ^.gitignore
+
 handlers:
 - url: /
-  static_files: docs/index.html
-  upload: docs/index.html
+  static_files: gc/index.html
+  upload: gc/index.html
  
 - url: /(.*)
-  static_files: docs/\1
-  upload: docs/(.*)
+  static_files: gc/\1
+  upload: gc/(.*)
