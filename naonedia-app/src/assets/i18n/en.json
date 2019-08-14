@@ -3,7 +3,9 @@
         "title": "Housing experience",
         "button": {
             "estimate": "Estimate",
-            "participate": "Participate"
+            "participate": "Participate",
+            "validate": "ok",
+            "discover": "Discover"
         },
         "explanation": {
             "poi": "We are using points of interests to get the closest estimation for housing. We are NOT storing the location. This is only used to embed our data."
@@ -18,6 +20,9 @@
         "footer":{
             "contact": "Contact : ",
             "other": "Other sites : "
+        },
+        "error": {
+            "title": "Error Page!"
         }
     },
     "home": {
@@ -52,14 +57,35 @@
             "type" : "Housing",
             "poi": "Points of interest nearby",
             "price": "Buy / sale price",
-            "year": "Buy / sale year"
+            "year": "Buy / sale year",
+            "month": "Buy / sale month"
+
         },
         "placeholder": {
             "location": "Property address"
         }
     },
+    "result": {
+        "title": "Your estimation",
+        "text": "Do you own the property? Help us improve, fill in the purchase price excluding notary fees.",
+        "textExplanation": "Are you curious? Understand our estimated calculation:"
+    },
     "houseType":{
         "house": "House",
         "flat": "Flat"
+    },
+    "months": {
+        "january": "january",
+        "february": "february",
+        "march": "march",
+        "april": "april",
+        "may": "may",
+        "june": "june",
+        "july": "july",
+        "august": "august",
+        "september": "september",
+        "october": "october",
+        "november": "november",
+        "december": "december"
     }
 }
