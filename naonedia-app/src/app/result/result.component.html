@@ -1,20 +1,50 @@
-<div class="card mb-3 mt-3">
-  <div class="card-header">
-    Result
-  </div>
-  <div class="row pt-2">
-    <div class="col text-center">
-      <div [hidden]="!accuracy">
-        <canvas id="canvas1">{{ accuracy }}</canvas>
-      </div>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
+<div class="result">
+  <div class="row top">
+
+    <div class="col">
+      <img src="./assets/images/horizontalShiftSuccess.svg" class="svg2">
+      <h1 [translate]="'result.title'" class="text-center align-middle text-light pb-3 pt-3 display-3"></h1>
+
+      <h1 class="text-center align-middle text-light pb-3 pt-3">{{ price }} €  </h1>
+      <p [translate]="'result.text'" class="text-center align-middle text-light"></p>
+
+      <form (ngSubmit)="onSubmit()">
+        <div class="row mb-3 justify-content-center">
+          <div class="col-md-2 mb-1 mt-1">
+            <div class="input-group">
+              <input class="form-control bg-success border-light text-light" type="number" [(ngModel)]="userInput.price"
+                placeholder="{{ 'model.input.price' | translate }}" name="price" numbersOnly />
+              <div class="input-group-append">
+                <span class="input-group-text bg-success border-light text-light">€</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 mb-1 mt-1">
+            <input class="form-control bg-success border-light text-light rounded-pill" type="number"
+              placeholder="{{ 'model.input.year' | translate }}" [(ngModel)]="userInput.year" name="year" numbersOnly />
+          </div>
+
+          <div class="col-md-2 mb-1 mt-1">
+            <button [translate]="'global.button.validate'" type="submit"
+              class="btn btn-light btn-lg btn-block text-success text-uppercase rounded-pill"></button>
+          </div>
+        </div>
+      </form>
     </div>
-    <div class="col text-center">
-      <div [hidden]="!samples">
-        <canvas id="canvas2">{{ samples }}</canvas>
+  </div>
+  <div class="row bottom bg-light justify-content-center">
+    <div class="col">
+      <div class="row justify-content-center">
+        <div class="col-md-4 mb-1 mt-1">
+          <p [translate]="'result.textExplanation'" class="text-center align-middle text-primary"></p>
+        </div>
       </div>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.
+      <div class="row justify-content-center">
+        <div class="col-md-4 mb-1 mt-1">
+          <button [translate]="'global.button.discover'" type="submit"
+            class="btn btn-primary btn-lg btn-block text-light text-uppercase rounded-pill"></button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
