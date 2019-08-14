@@ -17,8 +17,9 @@ import LayerVector from 'ol/layer/Vector';
 import View from 'ol/View';
 
 import { HouseType } from '../shared/model/houseType.model';
+import { MonthEnums } from '../shared/model/months.model';
 import { ParticipateInput } from '../shared/model/participateInput.model';
-import { PeliasService } from '../service';
+import { PeliasService, PredictService } from '../service';
 
 @Component({
     selector: 'app-participate',
@@ -38,6 +39,8 @@ export class ParticipateComponent implements OnInit, AfterViewInit {
     map: any;
 
     houseTypeList = Object.keys(HouseType);
+    months = MonthEnums
+    monthsKeys = Object.keys(MonthEnums).filter(Number);
 
     // User input
     userInput = new ParticipateInput();
@@ -50,6 +53,7 @@ export class ParticipateComponent implements OnInit, AfterViewInit {
     constructor(
         private router: Router,
         private peliasService: PeliasService,
+        private predictService: PredictService,
         private translateService: TranslateService
     ) { }
 
@@ -172,7 +176,10 @@ export class ParticipateComponent implements OnInit, AfterViewInit {
     onSubmit() {
         console.log(this.userInput);
 
-        this.router.navigate(['/result']);
+        this.predictService.participate(this.userInput).subscribe(res => {
+            console.log(res);
+            this.router.navigate(['/result'],{ state: { userInput: this.userInput } });
+        })
     }
 
     /**

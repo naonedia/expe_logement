@@ -24,10 +24,23 @@
         <h5 [translate]="'model.input.year'" class="text-center text-light"></h5>
       </div>
       <div class="col-md-2">
-        <input class="form-control bg-primary border-light text-light rounded-pill" type="number" [(ngModel)]="userInput.year"
-          name="year" numbersOnly />
+        <input class="form-control bg-primary border-light text-light rounded-pill" type="number"
+          [(ngModel)]="userInput.year" name="year" numbersOnly />
       </div>
     </div>
+
+    <div class="row mb-3 justify-content-center">
+        <div class="col-md-2">
+          <h5 [translate]="'model.input.month'" class="text-center text-light"></h5>
+        </div>
+        <div class="col-md-2">
+            <select class="form-control bg-primary border-light text-light rounded-pill" [(ngModel)]="userInput.month" name="month">
+                <option *ngFor="let key of monthsKeys" [ngValue]="key"> {{ months[key] | translate }}</option>
+              </select>
+        </div>
+      </div>
+    
+
     <div class="row justify-content-md-center mb-3">
       <div class="col-12 col-sm-6 col-md-4 col-lg-2 col-xl-2  text-center align-middle">
         <input type="radio" name="type" id="house" value='house' [(ngModel)]="userInput.type" checked>
@@ -191,8 +204,9 @@
     <div class="row mb-3 justify-content-center">
       <div class="col-md-2">
         <input class="form-control bg-primary border-light text-light rounded-pill" type="text"
-          placeholder="{{ 'model.placeholder.location' | translate }}" [(ngModel)]="location" name="location" [ngbTypeahead]="search"
-          [resultFormatter]="resultFormatBandListValue" [inputFormatter]="inputFormatBandListValue" />
+          placeholder="{{ 'model.placeholder.location' | translate }}" [(ngModel)]="location" name="location"
+          [ngbTypeahead]="search" [resultFormatter]="resultFormatBandListValue"
+          [inputFormatter]="inputFormatBandListValue" />
       </div>
     </div>
 
@@ -204,7 +218,8 @@
 
     <div class="row pb-3 justify-content-center">
       <div class="col-md-2">
-        <button [translate]="'global.button.participate'" type="submit" class="btn btn-light btn-lg btn-block text-primary text-uppercase rounded-pill"></button>
+        <button [translate]="'global.button.participate'" type="submit"
+          class="btn btn-light btn-lg btn-block text-primary text-uppercase rounded-pill"></button>
       </div>
     </div>
 

@@ -18,7 +18,7 @@ import View from 'ol/View';
 
 import { HouseType } from '../shared/model/houseType.model';
 import { EstimateInput } from '../shared/model/estimateInput.model';
-import { PeliasService } from '../service';
+import { PeliasService, PredictService } from '../service';
 
 @Component({
     selector: 'app-estimate',
@@ -50,6 +50,7 @@ export class EstimateComponent implements OnInit, AfterViewInit {
     constructor(
         private router: Router,
         private peliasService: PeliasService,
+        private predictService: PredictService,
         private translateService: TranslateService
     ) { }
 
@@ -174,7 +175,9 @@ export class EstimateComponent implements OnInit, AfterViewInit {
     onSubmit() {
         console.log(this.userInput);
 
-        this.router.navigate(['/result']);
+        this.predictService.estimate(this.userInput).subscribe(res => {
+            this.router.navigate(['/result'],{ state: { userInput: this.userInput, price: res } });
+        })
     }
 
     /**
