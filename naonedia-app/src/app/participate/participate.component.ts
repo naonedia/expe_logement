@@ -174,12 +174,9 @@ export class ParticipateComponent implements OnInit, AfterViewInit {
     }
 
     onSubmit() {
-        console.log(this.userInput);
-
         this.predictService.participate(this.userInput).subscribe(res => {
-            console.log(res);
             this.router.navigate(['/result'],{ state: { userInput: this.userInput } });
-        })
+        });
     }
 
     /**

@@ -173,8 +173,6 @@ export class EstimateComponent implements OnInit, AfterViewInit {
     }
 
     onSubmit() {
-        console.log(this.userInput);
-
         this.predictService.estimate(this.userInput).subscribe(res => {
             this.router.navigate(['/result'],{ state: { userInput: this.userInput, price: res } });
         })

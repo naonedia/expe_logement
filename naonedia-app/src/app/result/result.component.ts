@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { ParticipateInput } from '../shared/model/participateInput.model';
+import { PredictService } from '../service';
 
 
 @Component({
@@ -10,11 +11,11 @@ import { ParticipateInput } from '../shared/model/participateInput.model';
     templateUrl: './result.component.html',
     styleUrls: ['result.scss']
 })
-export class ResultComponent implements OnInit {
+export class ResultComponent {
     userInput: ParticipateInput;
     price: number = NaN;
 
-    constructor(private router: Router, private translateService: TranslateService) {
+    constructor(private router: Router, private predictService: PredictService, private translateService: TranslateService) {
         const extras = this.router.getCurrentNavigation().extras
         if (extras.state && extras.state.price) {
             this.price = extras.state.price
@@ -27,5 +28,9 @@ export class ResultComponent implements OnInit {
 
     }
 
-    ngOnInit() { }
+    onSubmit() {
+        this.predictService.participate(this.userInput).subscribe(res => {
+            this.router.navigate(['/result'],{ state: { userInput: this.userInput } });
+        });
+    }
 }
