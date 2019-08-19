@@ -14,6 +14,7 @@ import { PredictService } from '../service';
 export class ResultComponent {
     userInput: ParticipateInput;
     price: number = NaN;
+    isEstimation: boolean;
 
     constructor(private router: Router, private predictService: PredictService, private translateService: TranslateService) {
         const extras = this.router.getCurrentNavigation().extras
@@ -22,6 +23,9 @@ export class ResultComponent {
         }
         if (extras.state && extras.state.userInput) {
             this.userInput = extras.state.userInput
+        }
+        if (extras.state && extras.state.type) {
+            this.isEstimation = extras.state.type == 'estimate'
         } else {
             this.router.navigate(['accessdenied'])
         }

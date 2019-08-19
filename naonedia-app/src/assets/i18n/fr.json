@@ -111,7 +111,8 @@
     "result": {
         "title": "Votre estimation",
         "text": "Vous êtes propriétaire du bien ? Aidez-nous à nous améliorer, renseignez son prix d'achat hors frais de notaire.",
-        "textExplanation": "Vous êtes curieux ? Comprenez notre calcul estimatif :"
+        "textExplanation": "Vous êtes curieux ? Comprenez notre calcul estimatif :",
+        "participate": "L'estimation a donc un écart de {{ value }}%."
     },
     "houseType": {
         "house": "Maison",

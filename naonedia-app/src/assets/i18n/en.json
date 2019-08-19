@@ -110,7 +110,8 @@
     "result": {
         "title": "Your estimation",
         "text": "Do you own the property? Help us improve, fill in the purchase price excluding notary fees.",
-        "textExplanation": "Are you curious? Understand our estimated calculation:"
+        "textExplanation": "Are you curious? Understand our estimated calculation:",
+        "participate": "Estimation has gap of {{ value }}%."
     },
     "houseType": {
         "house": "House",
