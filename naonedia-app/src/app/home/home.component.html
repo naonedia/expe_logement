@@ -1,33 +1,23 @@
-<div class="row main">
-    <div class="col left align-middle text-center">
-        <h1 class="text-center text-primary display-2 mb-3 mt-3">Expérimentation logement</h1>
-        <span class="text-center align-middle">
-            L'objectif de ce projet est de présenter le savoir-faire nantais en matière d'intelligence
-            artificielle.<br />
-            Cette application est destinée à tout type de public. Elle permet d'expliquer de manière ludique les grands
-            principes afin de démystifier le sujet.
-        </span>
+<div class="row main no-gutters">
+    <div class="col-7 left align-middle text-center">
+        <h1 [translate]="'home.title'" class="text-center text-primary display-2 mb-3 mt-3"></h1>
+        <span [translate]="'home.text'" class="text-center align-middle text-primary"></span>
 
         <iframe class="video mt-1" src="https://www.youtube.com/embed/f1xz5KeYmX0?rel=0&amp;showinfo=1" frameborder="0" allowfullscreen=""></iframe>
 
         <div class="text-center">
-            <a class="btn btn-success btn-lg rounded-pill" href="#" role="button">En savoir plus</a>
+            <a [translate]="'global.button.learnMore'" class="btn btn-success btn-lg rounded-pill" routerLink="/discover" role="button"></a>
         </div>
     </div>
-    <div class="col right">
+    <div class="col-5 right">
         <img src="./assets/images/verticalShift.svg" class="svg1">
         <img src="./assets/images/horizontalShift.svg" class="svg2">
 
         <div class="row top-right">
             <div class="col carry-icon">
-                <!-- <fa-icon class="centered-icon people-carry fa-inverse fa-10x" icon="people-carry"></fa-icon> -->
-
                 <div class="text-explain align-middle text-center text-light">
 
-                    <span class="align-middle text-center">Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit,<br> sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.
-                    </span>
+                    <span [translate]="'home.participate'" class="align-middle text-center"></span>
 
                     <div class="text-center align-middle">
                         <a class="btn btn-light btn-lg rounded-pill text-primary" routerLink="/participate" role="button" [translate]="'global.menu.participate'"></a>
@@ -38,15 +28,9 @@
         </div>
         <div class="row bottom-right">
             <div class="col chart-icon">
-                <!-- <fa-icon class="centered-icon chart-bar fa-inverse fa-10x" icon="chart-bar"></fa-icon> -->
-
                 <div class="text-explain align-middle text-center">
 
-                    <span class="align-middle text-center text-light">
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        <br>
-                        laboris nisi ut aliquip ex ea commodo consequat.
-                    </span>
+                    <span [translate]="'home.estimate'" class="align-middle text-center text-light"></span>
 
                     <div class="text-center align-middle">
                         <a class="btn btn-light btn-lg rounded-pill text-success" routerLink="/estimate" role="button" [translate]="'global.menu.estimate'"></a>

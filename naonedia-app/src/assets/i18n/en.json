@@ -5,7 +5,8 @@
             "estimate": "Estimate",
             "participate": "Participate",
             "validate": "ok",
-            "discover": "Discover"
+            "discover": "Discover",
+            "learnMore": "Learn more"
         },
         "explanation": {
             "poi": "We are using points of interests to get the closest estimation for housing. We are NOT storing the location. This is only used to embed our data."
@@ -26,27 +27,10 @@
         }
     },
     "home": {
-        "contributions": "contributions",
-        "opendata": "Open data source",
-        "data1": "Property values",
-        "data2": "OpenStreetMap data",
-        "info": {
-            "location": "Original place",
-            "date": "Creation date",
-            "contributors": "Contributors",
-            "project": "Projects"
-        },
-        "us": {
-            "title": "About us",
-            "text2": "We are a collective wishing to boost territorial dynamic on AI. In total we are more than 80 actors",
-            "text1": "Our members are from different horizons: researchers, academics, entrepreneurs (large companies, digital companies, startups), experts, communities, user-groups, journalists, lawyers, etc...",
-            "text3": "We act on eight commitments: transparency, decompartmentalization, responsibility / traceability, ethics, respect for privacy, governance, scientific and technical culture, human-machine cooperation."
-        },
-        "why": {
-            "title": "Why this application",
-            "text1": "The goal of this project is to present Nantais's know-how in artificial intelligence.",
-            "text2": "This application is intended for any kind of public. It explains in a fun way the main principles and thus to demystify the subject."
-        }
+        "title": "Housing experimentation",
+        "text": "The objective of this project is to present the know-how of artificial intelligence in Nantes.This application is intended for all types of public.It allows to explain in a fun way the main principles to demystify the subject.",
+        "participate": "Help us improve the prediction of our model.",
+        "estimate": "Help us improve the prediction of our model."
     },
     "model": {
         "input": {

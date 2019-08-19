@@ -2,7 +2,7 @@ a {
   margin-top: 1em;
 }
 
-@media screen and (max-width:800px){
+@media screen and (max-width:1140px){
   .display-2 {
     font-size: 2.5rem;
   }
@@ -31,13 +31,9 @@ a {
   padding-top: 25%;
 }
 
-.left {
-  height: 100vh;
-}
-
 .svg1 {
   display: none;
-  @media (min-width: 1000px) { 
+  @media (min-width: 1140px) { 
     display: block;
     z-index: 2;
     position: absolute;
@@ -49,7 +45,7 @@ a {
 
 .svg2 {
   display: none;
-  @media (min-width: 1000px) {  
+  @media (min-width: 1140px) {  
     display: block;
     position: absolute;
     top: 50%;
@@ -73,23 +69,28 @@ a {
 }
 
 .right {
-  background-color: #1872d9;
   height: 100vh;
 }
 
 .left {
   padding-left: 5vw;
   padding-right: 5vw;
+  height: 100vh;
 }
 
 .top-right {
   height: 50%;
+  background-color: #1872d9;
 }
 
 .bottom-right {
   @media (max-width: 1000px) {
-    padding-top: 10%;
+    padding-top: 15%;
   }
+  @media (min-width: 1000px) and (max-width: 1330px) {
+    padding-top: 5%;
+  }
+
   background-color: #00aac1;
   height: 50%;
 }
