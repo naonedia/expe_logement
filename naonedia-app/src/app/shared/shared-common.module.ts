@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
-import { ChatBotSharedLibsModule } from './shared-libs.module';
+import { SharedLibsModule } from './shared-libs.module';
 import { FindLanguageFromKeyPipe } from './language/find-language-from-key.pipe';
 import { TranslateModule } from '@ngx-translate/core';
 import { NumberDirective } from './util/numbers-only.directive';
 
 @NgModule({
-    imports: [ChatBotSharedLibsModule],
+    imports: [SharedLibsModule],
     declarations: [FindLanguageFromKeyPipe, NumberDirective],
-    exports: [ChatBotSharedLibsModule, FindLanguageFromKeyPipe, TranslateModule, NumberDirective]
+    exports: [SharedLibsModule, FindLanguageFromKeyPipe, TranslateModule, NumberDirective]
 })
 
-export class ChatBotSharedCommonModule {}
+export class SharedCommonModule {}

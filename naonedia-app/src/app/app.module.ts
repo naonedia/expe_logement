@@ -4,12 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { ChatBotSharedModule } from './shared';
-import { ChatBotHomeModule } from './home/home.module';
-import { ChatBotCoreModule } from './core/core.module';
+import { SharedModule } from './shared';
+import { HomeModule } from './home/home.module';
+import { CoreModule } from './core/core.module';
 import { EstimateModule } from './estimate/estimate.module';
 import { ParticipateModule } from './participate/participate.module';
 import { ResultModule } from './result/result.module';
+import { DiscoverModule } from './discover/discover.module';
 
 
 import { NavbarComponent, FooterComponent, ActiveMenuDirective, ErrorComponent, MainComponent } from './layouts';
@@ -24,7 +25,6 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
 import { Injector, APP_INITIALIZER } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { LOCATION_INITIALIZED } from '@angular/common';
-import { DemoMaterialModule } from './material-module';
 
 export function appInitializerFactory(translate: TranslateService, injector: Injector) {
   return () => new Promise<any>((resolve: any) => {
@@ -49,12 +49,13 @@ export function appInitializerFactory(translate: TranslateService, injector: Inj
     BrowserModule,
 
     NgxWebstorageModule.forRoot({ prefix: 'app', separator: '-' }),
-    ChatBotSharedModule.forRoot(),
-    ChatBotHomeModule,
+    SharedModule.forRoot(),
+    HomeModule,
     EstimateModule,
     ParticipateModule,
     ResultModule,
-    ChatBotCoreModule,
+    DiscoverModule,
+    CoreModule,
 
     // Configure i18n
     HttpClientModule,

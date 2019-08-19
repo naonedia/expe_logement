@@ -11,10 +11,10 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     exports: [FormsModule, CommonModule, NgbModule, FontAwesomeModule, BrowserAnimationsModule, DragDropModule]
 })
 
-export class ChatBotSharedLibsModule {
+export class SharedLibsModule {
     static forRoot() {
         return {
-            ngModule: ChatBotSharedLibsModule
+            ngModule: SharedLibsModule
         };
     }
 }

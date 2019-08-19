@@ -17,7 +17,7 @@ import locale from '@angular/common/locales/en';
         DatePipe
     ]
 })
-export class ChatBotCoreModule {
+export class CoreModule {
     constructor() {
         registerLocaleData(locale);
     }

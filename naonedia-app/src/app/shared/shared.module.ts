@@ -2,20 +2,20 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap';
 
 import { NgbDateMomentAdapter } from './util/datepicker-adapter';
-import { ChatBotSharedLibsModule } from './shared-libs.module';
-import { ChatBotSharedCommonModule } from './shared-common.module';
+import { SharedLibsModule } from './shared-libs.module';
+import { SharedCommonModule } from './shared-common.module';
 
 @NgModule({
-    imports: [ChatBotSharedLibsModule, ChatBotSharedCommonModule],
+    imports: [SharedLibsModule, SharedCommonModule],
     providers: [{ provide: NgbDateAdapter, useClass: NgbDateMomentAdapter }],
-    exports: [ChatBotSharedCommonModule],
+    exports: [SharedCommonModule],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 
-export class ChatBotSharedModule {
+export class SharedModule {
     static forRoot() {
         return {
-            ngModule: ChatBotSharedModule
+            ngModule: SharedModule
         };
     }
 }
