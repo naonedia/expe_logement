@@ -149,7 +149,6 @@ export class EstimateComponent implements OnInit, AfterViewInit {
                 vectorNantesCentreVilleLayer.getSource().getFeaturesAtCoordinate(evt.coordinate).length !== 0
             ) {
                 this.coordinatesChange.next(transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326'));
-                //this.peliasService.getAdress(this.userInput.longitude, this.userInput.latitude).subscribe(res => console.log(res));
             }
         });
 
@@ -164,8 +163,6 @@ export class EstimateComponent implements OnInit, AfterViewInit {
                     vectorNantesCentreVilleLayer.getSource().getFeaturesAtCoordinate(fromLonLat(value.geometry.coordinates)).length !== 0
                 ))
             );
-
-        console.log(get("EPSG:3857").getExtent());
     }
 
     ngAfterViewInit() {
@@ -174,7 +171,7 @@ export class EstimateComponent implements OnInit, AfterViewInit {
 
     onSubmit() {
         this.predictService.estimate(this.userInput).subscribe(res => {
-            this.router.navigate(['/result'],{ state: { userInput: this.userInput, price: res } });
+            this.router.navigate(['/result'], { state: { userInput: this.userInput, price: res } });
         })
     }
 
