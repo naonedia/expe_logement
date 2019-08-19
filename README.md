@@ -19,6 +19,6 @@ ng build --prod --output-path ../docs --base-href /expe_logement/
 First check you access to the GCP project.
 
 ```sh
-ng build --prod --output-path ../gc
-gcloud app deploy app.yml
+ng build --prod --output-path ../nginx/www
+gcloud app deploy nginx/app.yml
 ```
