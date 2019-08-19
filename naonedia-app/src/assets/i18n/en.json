@@ -17,7 +17,7 @@
             "language": "Language",
             "model": "Evaluate a property"
         },
-        "footer":{
+        "footer": {
             "contact": "Contact : ",
             "other": "Other sites : "
         },
@@ -30,7 +30,7 @@
         "opendata": "Open data source",
         "data1": "Property values",
         "data2": "OpenStreetMap data",
-        "info":{
+        "info": {
             "location": "Original place",
             "date": "Creation date",
             "contributors": "Contributors",
@@ -54,15 +54,73 @@
             "areaCarrez": "Ground surface using ‘Loi Carrez’",
             "areaTotal": "Total ground surface",
             "rooms": "Number of rooms",
-            "type" : "Housing",
+            "type": "Housing",
             "poi": "Points of interest nearby",
             "price": "Buy / sale price",
             "year": "Buy / sale year",
             "month": "Buy / sale month"
-
         },
         "placeholder": {
             "location": "Property address"
+        }
+    },
+    "discover": {
+        "title": "Discover artificial intelligence",
+        "explanation": "Nowadays, we mainly use machine learning, the diagram below will show you the main algorithms used.",
+        "intelligence": {
+            "title": "What's intelligence ?",
+            "explanation": "The mental and cognitive abilities of an individual to solve a problem or to adapt to his environment."
+        },
+        "learning": {
+            "title": "Learning?",
+            "explanation1": "The acquisition of know-how.",
+            "explanation2": "The acquisition or modification of the representation of an environment to achieve effective interactions.",
+            "explanation3": "Make the right decision in a new situation.",
+            "explanation4": "Humans perform these tasks unconsciously, in real time and without explicit effort."
+        },
+        "machine": {
+            "title": "How can we qualify intelligence?",
+            "explanation1": {
+                "title": "A search algorithm?",
+                "explanation": "Represent knowledge in the form of graphs then search for a solution.In principle it is possible to calculate all the actions of the future and their consequences",
+                "problem": "However the number of possibilities explode exponentially"
+            },
+            "explanation2": {
+                "title": "A comparison?",
+                "explanation": "Memorize typical examples of the problem, compare an unknown object with the knowledge and find the nearest object.",
+                "problem": "There can be a lot of characteristics that influence or not the object to recognize"
+            },
+            "explanation3": {
+                "title": "Rules?",
+                "explanation": "Characterize things by rules, check if the rules apply to an unknown object.",
+                "problem": "The rules must be formulated by a specialist. It is difficult to cover all the exceptions. Incomplete or noisy objects will cause problems."
+            }
+        },
+        "methods": {
+            "title": "Learning methods",
+            "symbolic": {
+                "title": "Symbolic learning",
+                "text": "We use a symbolic representation (concepts), typically using a collection of rules, these rules are specified by a human, we use algorithms to combine rules and infer new knowledge."
+            },
+            "statistic": {
+                "title": "Machine learning",
+                "text": "We use a numerical representation (coding), we provide typical examples and the desired answer. The human specifies ‘what’ but not ‘how’, we use statistical learning algorithms."
+            }
+        },
+        "learningType": {
+            "title": "Main categories of machine learning",
+            "supervised": {
+                "title": "Supervised",
+                "text": "Each example is associated with a label, the purpose is to predict the label, so the system learns how to classify the data."
+            },
+            "unsupervised": {
+                "title": "Unsupervised",
+                "text": "The examples are not labeled, the goal is to find an existing typology characterizing the observations, the system learns a classification of the data."
+            },
+            "reinforcement": {
+                "title": "Reinforcement",
+                "text": "The examples are associated with a reward / punishment. The goal is to maximize the rewards. The system learns a decision policy."
+            }
         }
     },
     "result": {
@@ -70,7 +128,7 @@
         "text": "Do you own the property? Help us improve, fill in the purchase price excluding notary fees.",
         "textExplanation": "Are you curious? Understand our estimated calculation:"
     },
-    "houseType":{
+    "houseType": {
         "house": "House",
         "flat": "Flat"
     },

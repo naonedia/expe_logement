@@ -1,0 +1,78 @@
+<div class="discover">
+  <div class="row top">
+
+    <div class="col left bg-primary pl-3 pr-3 pb-2">
+      <h1 [translate]="'discover.intelligence.title'" class="text-center align-middle text-light pb-3 pt-3 font-weight-bold"></h1>
+      <p [translate]="'discover.intelligence.explanation'" class="text-center align-middle text-light"></p>
+
+      <h1 [translate]="'discover.learning.title'" class="text-center align-middle text-light pb-3 pt-3 font-weight-bold"></h1>
+      <ul>
+        <li [translate]="'discover.learning.explanation1'" class="align-middle text-light"></li>
+        <li [translate]="'discover.learning.explanation2'" class="align-middle text-light"></li>
+        <li [translate]="'discover.learning.explanation3'" class="align-middle text-light"></li>
+        <li [translate]="'discover.learning.explanation4'" class="align-middle text-light"></li>
+      </ul>
+
+      <h1 [translate]="'discover.machine.title'" class="text-center align-middle text-light pb-3 pt-3 font-weight-bold"></h1>
+      <ul>
+        <li [translate]="'discover.machine.explanation1.title'" class="align-middle text-light"></li>
+        <ul>
+          <li [translate]="'discover.machine.explanation1.explanation'" class="align-middle text-light"></li>
+          <li [translate]="'discover.machine.explanation1.problem'" class="align-middle text-light"></li>
+        </ul>
+        <li [translate]="'discover.machine.explanation2.title'" class="align-middle text-light"></li>
+        <ul>
+          <li [translate]="'discover.machine.explanation2.explanation'" class="align-middle text-light"></li>
+          <li [translate]="'discover.machine.explanation2.problem'" class="align-middle text-light"></li>
+        </ul>
+        <li [translate]="'discover.machine.explanation3.title'" class="align-middle text-light"></li>
+        <ul>
+          <li [translate]="'discover.machine.explanation3.explanation'" class="align-middle text-light"></li>
+          <li [translate]="'discover.machine.explanation3.problem'" class="align-middle text-light"></li>
+        </ul>
+      </ul>
+    </div>
+    <div class="col right bg-light pb-2">
+      <img src="./assets/images/verticalShiftPrimary.svg" class="svg1">
+
+      <h1 [translate]="'discover.methods.title'" class="text-center align-middle text-success pb-3 pt-3 font-weight-bold"></h1>
+      
+      <div class="row">
+        <div class="col pl-2 pr-2">
+            <h3 [translate]="'discover.methods.symbolic.title'" class="text-center align-middle text-success pb-3 pt-3"></h3>
+            <p [translate]="'discover.methods.symbolic.text'" class="text-center align-middle text-success"></p>
+        </div>
+        <div class="col pl-2 pr-2">
+            <h3 [translate]="'discover.methods.statistic.title'" class="text-center align-middle text-success pb-3 pt-3"></h3>
+            <p [translate]="'discover.methods.statistic.text'" class="text-center align-middle text-success"></p>
+        </div>
+      </div>
+
+      <h1 [translate]="'discover.learningType.title'" class="text-center align-middle text-success pb-3 pt-3 font-weight-bold"></h1>
+
+      <div class="row">
+          <div class="col pl-2 pr-2">
+              <h3 [translate]="'discover.learningType.supervised.title'" class="text-center align-middle text-success pb-3 pt-3"></h3>
+              <p [translate]="'discover.learningType.supervised.text'" class="text-center align-middle text-success"></p>
+          </div>
+          <div class="col pl-2 pr-2">
+              <h3 [translate]="'discover.learningType.unsupervised.title'" class="text-center align-middle text-success pb-3 pt-3"></h3>
+              <p [translate]="'discover.learningType.unsupervised.text'" class="text-center align-middle text-success"></p>
+          </div>
+          <div class="col pl-2 pr-2">
+              <h3 [translate]="'discover.learningType.reinforcement.title'" class="text-center align-middle text-success pb-3 pt-3"></h3>
+              <p [translate]="'discover.learningType.reinforcement.text'" class="text-center align-middle text-success"></p>
+          </div>
+        </div>
+
+
+      
+      <p [translate]="'discover.explanation'" class="text-center align-middle text-success pb-3 pt-3"></p>
+      <div class="text-center align-middle">
+        <img *ngIf="lang" src="./assets/images/cartoIAEn.svg" class="svg2">
+        <img *ngIf="!lang" src="./assets/images/cartoIAFr.svg" class="svg2">
+      </div>
+
+    </div>
+  </div>
+</div>

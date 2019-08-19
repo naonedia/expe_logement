@@ -65,6 +65,65 @@
             "location": "Addresse du bien"
         }
     },
+    "discover": {
+        "title": "Découvrir l'intelligence artificielle",
+        "explanation": "De nos jours, nous utilisons principalement l'apprentissage automatique. Le schéma ci-dessous va vous montrer les principaux algorithmes utilisés.",
+        "intelligence": {
+            "title": "Qu'est-ce que l'intelligence ?",
+            "explanation": "Les capacitées mentales et cognitives d'un individu à résoudre un problème ou à s'adapter à son environnement."
+        },
+        "learning": {
+            "title": "Apprentissage ?",
+            "explanation1": "L'acquisition d'un savoir-faire.",
+            "explanation2": "L'acquisition ou la modification de la représentation d'un environnement pour réaliser des interactions efficaces.",
+            "explanation3": "Prendre la bonne décision face à une situation nouvelle.",
+            "explanation4": " Les humains effectuent  ces tâche de façon inconsciente, en temps réel et sans effort explicite."
+        },
+        "machine": {
+            "title": "Comment peut-on qualifier l'intelligence ?",
+            "explanation1": {
+                "title": "Un algorithme de recherche ?",
+                "explanation": "Représenter les connaissances sous formes de graphes puis rechercher une solution. En principe il est possible de calculer toutes les actions du futur et leurs conséquences",
+                "problem": "Cependant le nombre de possibilités explosent exponentiellement"
+            },
+            "explanation2": {
+                "title": "Une comparaison ?",
+                "explanation": "Mémoriser des exemples typiques du problème. Comparer un objet inconnu avec les connaissances et trouver l'objet le plus proche.",
+                "problem": "Il peut y avoir énormement de caractéristiques qui influencent ou pas l'objet à reconaître"
+            },
+            "explanation3": {
+                "title": "Des règles ?",
+                "explanation": "Caractériser les choses par des règles, vérifier si les règles s'appliquent à un objet inconnu.",
+                "problem": "Les règles doivent être formuléespar un spécialiste. Il est difficile de couvrir toutes les exceptions. Les objets incomplets ou bruités poseront des problèmes."
+            }
+        },
+        "methods": {
+            "title": "Méthodes d'apprentissage",
+            "symbolic": {
+                "title": "Apprentissage symbolique",
+                "text": "On utilise une représentation symbolique (concepts), typiquement en utilisant une collection de règles. Ces règles sont spécifiées par un humain. On utilise des algorithmes pour combiner les règles et inférer de nouvelles connaissances."
+            },
+            "statistic": {
+                "title": "Apprentissage automatique",
+                "text": "On utilise une représentation numérique (codage), on fournit des exemples typiques et la réponse souhaitée. L'humain spécifie le ‘quoi’ mais pas le ‘comment’. On utilise des algorithmes d'apprentissage statistiques."
+            }
+        },
+        "learningType": {
+            "title": "Principales catégories d'apprentissage automatique",
+            "supervised": {
+                "title": "Supervised",
+                "text": "Chaque exemple est associé à une étiquette. L'objectif est de prédire l'étiquette. Le système apprend donc à classer les données."
+            },
+            "unsupervised": {
+                "title": "Unsupervised",
+                "text": "Les exemples ne sont pas étiquetés. L'objectif est de trouver une typologie existante caractérisant les observations. Le système apprend une classification des données."
+            },
+            "reinforcement": {
+                "title": "Reinforcement",
+                "text": "Les exemples sont associés à une récompense / punition. L'objectif est de maximiser les récompenses. Le système apprend une politique de décision."
+            }
+        }
+    },
     "result": {
         "title": "Votre estimation",
         "text": "Vous êtes propriétaire du bien ? Aidez-nous à nous améliorer, renseignez son prix d'achat hors frais de notaire.",
