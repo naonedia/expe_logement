@@ -12,7 +12,7 @@ export class PredictService {
     headers = new HttpHeaders({ 'Access-Control-Allow-Origin': '*',
                                 'Access-Control-Allow-Methods': 'PUT, GET, POST, DELETE, OPTIONS',
                                 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization' });
-    public resourceUrl = `http://${SERVER_API_URL}:10000/api`;
+    public resourceUrl = `/api`;
 
     constructor(protected http: HttpClient) { }
 
