@@ -1,3 +1,5 @@
+@import '../../../assets/scss/bootstrap-variables';
+
 @media (min-width: 767.98px) {
     .logo-img {
         width: 300px;
@@ -17,5 +19,13 @@
         vertical-align: middle;
         background: url('../../../assets/images/logo-2.png') no-repeat center center;
         background-size: contain;
+    }
+}
+
+.navbar {
+    .dropdown-item.active {
+        color: $primary;
+        font-weight: bold;
+        background-color: $light;
     }
 }

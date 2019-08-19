@@ -22,7 +22,7 @@
             <li class="nav-item font-weight-bold dropdown" ngbDropdown>
                 <a class="nav-link dropdown-toggle text-uppercase" ngbDropdownToggle [translate]="'global.menu.language'"></a>
                 <div class="dropdown-menu" ngbDropdownMenu>
-                    <a *ngFor="let language of languages" class="dropdown-item" (click)="changeLanguage(language);collapseNavbar();">
+                    <a *ngFor="let language of languages" class="dropdown-item" [ActiveMenu]="language" (click)="changeLanguage(language);collapseNavbar();">
                         {{language | findLanguageFromKey}}
                     </a>
                 </div>
