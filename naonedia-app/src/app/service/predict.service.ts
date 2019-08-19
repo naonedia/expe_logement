@@ -16,11 +16,11 @@ export class PredictService {
 
     constructor(protected http: HttpClient) { }
 
-    estimate(userInput: EstimateInput, req?: any): Observable<number> {
+    estimate(userInput: EstimateInput, req?: any): Observable<any> {
         const options = createRequestOption(req);
         return new Observable((observer) => {
             this.http.post<any>(`${this.resourceUrl}/estimate`, userInput,{headers: this.headers, params: options, observe: 'response' })
-                .subscribe(response => observer.next(response.body.price), error => observer.error());
+                .subscribe(response => observer.next(response.body), error => observer.error());
         });
     }
 
