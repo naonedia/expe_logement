@@ -35,7 +35,7 @@
         </form>
       </div>
       <div *ngIf="!isEstimation">
-        <p [translate]="'result.participate'" [translateParams]="{value: {{price * 100 / userInput.price}} }" class="text-center align-middle text-light"></p>
+        <p class="text-center align-middle text-light">{{ 'result.participate' | translate:{'value': gap} }}</p>
       </div>
     </div>
   </div>

@@ -15,6 +15,7 @@ export class ResultComponent {
     userInput: ParticipateInput;
     price: number = NaN;
     isEstimation: boolean;
+    gap: number;
 
     constructor(private router: Router, private predictService: PredictService, private translateService: TranslateService) {
         const extras = this.router.getCurrentNavigation().extras
@@ -29,6 +30,8 @@ export class ResultComponent {
         } else {
             this.router.navigate(['accessdenied'])
         }
+
+        this.gap = this.price * 100 / this.userInput.price;
 
     }
 
