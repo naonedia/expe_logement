@@ -11,7 +11,7 @@ import { EstimateModule } from './estimate/estimate.module';
 import { ParticipateModule } from './participate/participate.module';
 import { ResultModule } from './result/result.module';
 import { DiscoverModule } from './discover/discover.module';
-
+import { HealthcheckModule } from './healthcheck/healthcheck.module';
 
 import { NavbarComponent, FooterComponent, ActiveMenuDirective, ErrorComponent, MainComponent } from './layouts';
 
@@ -55,6 +55,7 @@ export function appInitializerFactory(translate: TranslateService, injector: Inj
     ParticipateModule,
     ResultModule,
     DiscoverModule,
+    HealthcheckModule,
     CoreModule,
 
     // Configure i18n
