@@ -38,4 +38,42 @@ $border-radius-sm: 0.1rem;
 // Typography:
 // Font, line-height, and color for body text, headings, and more.
 
+
+/* open-sans-300 - latin */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    src: url('/assets/fonts/open-sans-v17-latin-300.woff') format('woff'), /* Modern Browsers */
+  }
+  /* open-sans-regular - latin */
+  @font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/assets/fonts/open-sans-v17-latin-regular.woff') format('woff'), /* Modern Browsers */
+  }
+  /* open-sans-600 - latin */
+  @font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    src: url('/assets/fonts/open-sans-v17-latin-600.woff') format('woff'), /* Modern Browsers */
+  }
+  /* open-sans-700 - latin */
+  @font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/assets/fonts/open-sans-v17-latin-700.woff') format('woff'), /* Modern Browsers */
+  }
+  /* open-sans-800 - latin */
+  @font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 800;
+    src: url('/assets/fonts/open-sans-v17-latin-800.woff') format('woff'), /* Modern Browsers */
+  }
+
 $font-size-base: 1rem;
+$font-family-base: "Open Sans";

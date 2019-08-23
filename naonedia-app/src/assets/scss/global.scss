@@ -20,6 +20,24 @@ h4 {
     font-weight: 300;
 }
 
+h1 {
+    @media screen and (min-width:800px){
+      font-size: 3.5rem;
+    }
+  
+    @media screen and (max-width:700px){
+      font-size: 2.5rem;
+    }
+
+    @media screen and (max-width:500px){
+        font-size: 2rem;
+    }
+
+    @media screen and (max-width:450px){
+        font-size: 1.5rem;
+    }
+  }
+
 // avoid left shift on small device
 .row {
     padding-right: 0px;
