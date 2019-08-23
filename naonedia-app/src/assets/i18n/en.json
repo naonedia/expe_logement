@@ -8,9 +8,6 @@
             "discover": "Discover",
             "learnMore": "Learn more"
         },
-        "explanation": {
-            "poi": "We are using points of interests to get the closest estimation for housing. We are NOT storing the location. This is only used to embed our data."
-        },
         "menu": {
             "about": "About",
             "participate": "Participate",
@@ -25,6 +22,10 @@
         "error": {
             "title": "Error Page!"
         }
+    },
+    "estimate": {
+        "poi": "We are using points of interests to get the closest estimation for housing. We are NOT storing the location. This is only used to embed our data.",
+        "or": "or"
     },
     "home": {
         "title": "Housing experimentation",

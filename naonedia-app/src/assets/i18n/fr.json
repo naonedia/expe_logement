@@ -8,9 +8,6 @@
             "discover": "Découvrir",
             "learnMore": "En savoir plus"
         },
-        "explanation": {
-            "poi": "Nous utilisons des points d’intérêts pour obtenir l’estimation la plus proche en matière de logement. Nous ne stockons pas la localisation. Celle-ci n'est utilisé que pour intégrer nos données."
-        },
         "menu": {
             "about": "À propos",
             "participate": "Participer",
@@ -31,6 +28,10 @@
         "text": "L'objectif de ce projet est de présenter le savoir-faire nantais en matière d'intelligence artificielle. Cette application est destinée à tout type de public. Elle permet d'expliquer de manière ludique les grands principes afin de démystifier le sujet.",
         "participate": "Aidez-nous à améliorer la prédiction de notre modèle.",
         "estimate": "Aidez-nous à améliorer la prédiction de notre modèle."
+    },
+    "estimate": {
+        "poi": "Nous utilisons des points d’intérêts pour obtenir l’estimation la plus proche en matière de logement. Nous ne stockons pas la localisation. Celle-ci n'est utilisé que pour intégrer nos données.",
+        "or": "ou"
     },
     "model": {
         "input": {
@@ -82,7 +83,7 @@
             }
         },
         "methods": {
-            "title": "Méthodes d'apprentissage",
+            "title": "Méthodes d'apprentissages",
             "symbolic": {
                 "title": "Apprentissage symbolique",
                 "text": "On utilise une représentation symbolique (concepts), typiquement en utilisant une collection de règles. Ces règles sont spécifiées par un humain. On utilise des algorithmes pour combiner les règles et inférer de nouvelles connaissances."
@@ -95,15 +96,15 @@
         "learningType": {
             "title": "Principales catégories d'apprentissage automatique",
             "supervised": {
-                "title": "Supervised",
+                "title": "Supervisé",
                 "text": "Chaque exemple est associé à une étiquette. L'objectif est de prédire l'étiquette. Le système apprend donc à classer les données."
             },
             "unsupervised": {
-                "title": "Unsupervised",
+                "title": "Non-supervisé",
                 "text": "Les exemples ne sont pas étiquetés. L'objectif est de trouver une typologie existante caractérisant les observations. Le système apprend une classification des données."
             },
             "reinforcement": {
-                "title": "Reinforcement",
+                "title": "Renforcement",
                 "text": "Les exemples sont associés à une récompense / punition. L'objectif est de maximiser les récompenses. Le système apprend une politique de décision."
             }
         }
