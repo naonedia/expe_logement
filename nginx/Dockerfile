@@ -7,8 +7,6 @@ FROM nginx
 # the runtime to respond to HTTP requests at port 8080.
 COPY nginx.conf /etc/nginx/nginx.conf
 
-COPY default.conf /etc/nginx/conf.d/default.conf
-
 # create log dir configured in nginx.conf
 RUN mkdir -p /var/log/app_engine
 
