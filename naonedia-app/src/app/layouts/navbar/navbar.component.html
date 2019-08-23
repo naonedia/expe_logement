@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light text-primary fixed-top">
-    <a class="navbar-brand logo" routerLink="/">
+<nav class="navbar navbar-expand-md navbar-light bg-light text-primary fixed-top pt-2 pb-2">
+    <a class="navbar-brand logo pl-4" routerLink="/">
         <span class="logo-img"></span>
     </a>
     <button class="navbar-toggler" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed"
@@ -7,7 +7,7 @@
         aria-label="Toggle navigation">
         <span class="navbar-toggler-icon text-primary"></span>
     </button>
-    <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarsDefault">
+    <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse pr-5" id="navbarsDefault">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item font-weight-bold">
                 <a class="nav-link text-uppercase" [translate]="'global.menu.about'" (click)="collapseNavbar()"></a>

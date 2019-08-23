@@ -1,9 +1,9 @@
 @import '../../../assets/scss/bootstrap-variables';
 
-@media (min-width: 767.98px) {
+@media (min-width: 840px) {
     .logo-img {
         width: 300px;
-        height: 36px;
+        height: 24px;
         display: inline-block;
         vertical-align: middle;
         background: url('../../../assets/images/logo-2.png') no-repeat center center;
@@ -11,10 +11,10 @@
     }
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 840px) {
     .logo-img {
         width: 182px;
-        height: 22px;
+        height: 20px;
         display: inline-block;
         vertical-align: middle;
         background: url('../../../assets/images/logo-2.png') no-repeat center center;
