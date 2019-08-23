@@ -1,16 +1,12 @@
+@import '../../assets/scss/bootstrap-variables';
+
 a {
   margin-top: 1em;
 }
 
-@media screen and (max-width:1140px){
-  .display-2 {
-    font-size: 2.5rem;
-  }
-}
-
 .carry-icon {
   background-image:url('../../assets/images/carry.svg');
-  background-size: 50%;
+  background-size: 30%;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -19,7 +15,10 @@ a {
   background-image:url('../../assets/images/chart.svg');
   background-size: 30%;
   background-repeat: no-repeat;  
-  background-position: center;
+  background-position: 50% 75%;
+  @media (max-width: 1140px) { 
+    background-position: center;  
+  }
 }
 
 .text-explain {
@@ -48,7 +47,7 @@ a {
   @media (min-width: 1140px) {  
     display: block;
     position: absolute;
-    top: 50%;
+    top: 40%;
     left:0;
     right: 0;
     width: 100%;
@@ -68,10 +67,6 @@ a {
   transform: translate(0,50%);
 }
 
-.right {
-  height: 100vh;
-}
-
 .left {
   padding-left: 5vw;
   padding-right: 5vw;
@@ -79,23 +74,40 @@ a {
 }
 
 .top-right {
-  height: 50%;
+  height: 40%;
   background-color: #1872d9;
 }
 
 .bottom-right {
-  @media (max-width: 1000px) {
-    padding-top: 15%;
-  }
-  @media (min-width: 1000px) and (max-width: 1330px) {
-    padding-top: 5%;
+  background-color: #00aac1;
+  height: 60%;
+}
+
+.chart-icon .text-explain {
+  padding-top: 50%;   
+}
+
+.iframe-container {
+  height: 60%;
+  
+  @media (max-width: 1400px) {  
+    height: 55%;
   }
 
-  background-color: #00aac1;
-  height: 50%;
+  @media (max-width: 1200px) {  
+    height: 50%;
+  }
+
+  @media (max-width: 700px) {  
+    height: 35%;
+  }
+
+  @media (max-width: 400px) {  
+    height: 25%;
+  }
 }
 
 .video {
   width: 100%;
-  height: 40%;
+  height: 100%;
 }

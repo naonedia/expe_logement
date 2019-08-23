@@ -1,9 +1,10 @@
-<div class="row main no-gutters">
-    <div class="col-7 left align-middle text-center">
-        <h1 [translate]="'home.title'" class="text-center text-primary display-2 mb-3 mt-3"></h1>
-        <span [translate]="'home.text'" class="text-center align-middle text-primary"></span>
-
-        <iframe class="video mt-1" src="https://www.youtube.com/embed/f1xz5KeYmX0?rel=0&amp;showinfo=1" frameborder="0" allowfullscreen=""></iframe>
+<div class="row home no-gutters">
+    <div class="col-7 left align-middle text-center pt-4">
+        <h1 [translate]="'home.title'" class="text-center text-primary pb-4 pt-4"></h1>
+        <p [translate]="'home.text'" class="text-center align-middle"></p>
+        <div class="iframe-container">
+            <iframe class="video mt-1" src="https://www.youtube.com/embed/f1xz5KeYmX0?rel=0&amp;showinfo=1" frameborder="0" allowfullscreen=""></iframe>
+        </div>
 
         <div class="text-center">
             <a [translate]="'global.button.learnMore'" class="btn btn-success btn-lg rounded-pill" routerLink="/discover" role="button"></a>
