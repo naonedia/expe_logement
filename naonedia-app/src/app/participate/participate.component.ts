@@ -19,7 +19,7 @@ import View from 'ol/View';
 import { HouseType } from '../shared/model/houseType.model';
 import { MonthEnums } from '../shared/model/months.model';
 import { ParticipateInput } from '../shared/model/participateInput.model';
-import { PeliasService, PredictService } from '../service';
+import { PeliasService, PredictService, LoaderService } from '../service';
 
 @Component({
     selector: 'app-participate',
@@ -50,12 +50,19 @@ export class ParticipateComponent implements OnInit, AfterViewInit {
 
     search: any;
 
+    loading = false;
+
     constructor(
         private router: Router,
         private peliasService: PeliasService,
         private predictService: PredictService,
-        private translateService: TranslateService
-    ) { }
+        private translateService: TranslateService,
+        private loaderService: LoaderService
+    ) { 
+        this.loaderService.isLoading.subscribe((v) => {
+            this.loading = v;
+        });
+    }
 
     ngOnInit() {
         const temp = new Point(fromLonLat([this.longitude, this.latitude]));

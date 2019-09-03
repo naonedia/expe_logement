@@ -13,18 +13,21 @@ import { ResultModule } from './result/result.module';
 import { DiscoverModule } from './discover/discover.module';
 import { HealthcheckModule } from './healthcheck/healthcheck.module';
 
+import { LoaderService } from './service';
+
 import { NavbarComponent, FooterComponent, ActiveMenuDirective, ErrorComponent, MainComponent } from './layouts';
 
 // import ngx-translate and the http loader
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { NgxWebstorageModule } from 'ngx-webstorage';
 
 import { Injector, APP_INITIALIZER } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { LOCATION_INITIALIZED } from '@angular/common';
+import { LoaderInterceptor } from './core/loader.interceptor';
 
 export function appInitializerFactory(translate: TranslateService, injector: Injector) {
   return () => new Promise<any>((resolve: any) => {
@@ -72,6 +75,8 @@ export function appInitializerFactory(translate: TranslateService, injector: Inj
   ],
   declarations: [MainComponent, NavbarComponent, ErrorComponent, ActiveMenuDirective, FooterComponent],
   providers: [
+    LoaderService,
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
     {
       provide: APP_INITIALIZER,
       useFactory: appInitializerFactory,

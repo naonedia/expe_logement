@@ -211,8 +211,14 @@
 
     <div class="row justify-content-center pb-5 pt-2">
       <div class="col-md-2">
-        <button [translate]="'global.button.estimate'" type="submit"
-          class="btn btn-light btn-lg btn-block text-success text-uppercase rounded-pill"></button>
+        <button type="submit" [disabled]="loading" class="btn btn-light btn-lg btn-block text-success text-uppercase rounded-pill">
+          <div *ngIf="!loading">
+              {{ 'global.button.estimate' | translate }}
+          </div>
+          <div *ngIf="loading">
+              {{ 'global.button.loading' | translate }}
+          </div>
+        </button>
       </div>
     </div>
 

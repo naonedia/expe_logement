@@ -6,7 +6,8 @@
             "participate": "Participer",
             "validate": "ok",
             "discover": "Découvrir",
-            "learnMore": "En savoir plus"
+            "learnMore": "En savoir plus",
+            "loading": "Chargement ..."
         },
         "menu": {
             "about": "À propos",
