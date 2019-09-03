@@ -12,6 +12,7 @@ import { ParticipateModule } from './participate/participate.module';
 import { ResultModule } from './result/result.module';
 import { DiscoverModule } from './discover/discover.module';
 import { HealthcheckModule } from './healthcheck/healthcheck.module';
+import { ExplainModule } from './explain/explain.module';
 
 import { LoaderService } from './service';
 
@@ -59,6 +60,7 @@ export function appInitializerFactory(translate: TranslateService, injector: Inj
     ResultModule,
     DiscoverModule,
     HealthcheckModule,
+    ExplainModule,
     CoreModule,
 
     // Configure i18n
