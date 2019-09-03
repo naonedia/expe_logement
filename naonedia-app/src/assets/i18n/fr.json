@@ -7,6 +7,7 @@
             "validate": "ok",
             "discover": "Découvrir",
             "learnMore": "En savoir plus",
+            "howItWorks": "Comment ça marche",
             "loading": "Chargement ..."
         },
         "menu": {
@@ -14,7 +15,7 @@
             "participate": "Participer",
             "estimate": "Estimer un bien",
             "language": "Langue",
-            "model": "Evaluer un bien immobilier"
+            "model": "Évaluer un bien immobilier"
         },
         "footer": {
             "contact": "Contact : ",
@@ -48,15 +49,25 @@
             "month": "Mois d'achat / vente"
         },
         "placeholder": {
-            "location": "Addresse du bien"
+            "location": "Adresse du bien"
         }
+    },
+    "explain": {
+        "step1": "On commence par récupérer différents jeux de données issues de différentes sources.",
+        "step2": "On commence par les analyser, examiner leurs contenus, analyser les features disponibles.",
+        "step3": "On effectue un nettoyage du jeu de données en supprimant les doublons, remplissage des données manquantes.",
+        "step4": "On enrichie le jeu de données en le combinant avec d'autres ou en utilisant divers services.",
+        "step5": "On encode le jeu de données afin que celui-ci soit compréhensible pour un ordinateur.",
+        "step6": "On peut maintenant créer différents modèles en utilisant plusieurs algorithmes. Ces algorithmes effectuent leurs apprentissage en ingérant les données préparées au préalables.",
+        "step7": "On analyse les résultats des différents modèles grâce à différents outils, on peut ainsi les comparer.",
+        "step8": "On peut déployer le modèle qui semble le plus adapté aux besoins."
     },
     "discover": {
         "title": "Découvrir l'intelligence artificielle",
         "explanation": "De nos jours, nous utilisons principalement l'apprentissage automatique. Le schéma ci-dessous va vous montrer les principaux algorithmes utilisés.",
         "intelligence": {
             "title": "Qu'est-ce que l'intelligence ?",
-            "explanation": "Les capacitées mentales et cognitives d'un individu à résoudre un problème ou à s'adapter à son environnement."
+            "explanation": "Les capacités mentales et cognitives d'un individu à résoudre un problème ou à s'adapter à son environnement."
         },
         "learning": {
             "title": "Apprentissage ?",
@@ -75,12 +86,12 @@
             "explanation2": {
                 "title": "Une comparaison ?",
                 "explanation": "Mémoriser des exemples typiques du problème. Comparer un objet inconnu avec les connaissances et trouver l'objet le plus proche.",
-                "problem": "Il peut y avoir énormement de caractéristiques qui influencent ou pas l'objet à reconaître"
+                "problem": "Il peut y avoir énormément de caractéristiques qui influencent ou pas l'objet à reconnaître"
             },
             "explanation3": {
                 "title": "Des règles ?",
                 "explanation": "Caractériser les choses par des règles, vérifier si les règles s'appliquent à un objet inconnu.",
-                "problem": "Les règles doivent être formuléespar un spécialiste. Il est difficile de couvrir toutes les exceptions. Les objets incomplets ou bruités poseront des problèmes."
+                "problem": "Les règles doivent être formulées par un spécialiste. Il est difficile de couvrir toutes les exceptions. Les objets incomplets ou bruités poseront des problèmes."
             }
         },
         "methods": {

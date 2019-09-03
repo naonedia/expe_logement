@@ -7,6 +7,7 @@
             "validate": "ok",
             "discover": "Discover",
             "learnMore": "Learn more",
+            "howItWorks": "How it works",
             "loading": "Loading ..."
         },
         "menu": {
@@ -23,6 +24,16 @@
         "error": {
             "title": "Error Page!"
         }
+    },
+    "explain": {
+        "step1": "We start by recovering different datasets from different sources.",
+        "step2": "We start by analyzing them, examine their contents, analyze the available features.",
+        "step3": "Clean up the dataset by deleting duplicates, filling in missing data.",
+        "step4": "We enrich the dataset by combining it with others or by using various services.",
+        "step5": "We encode the dataset so that it is understandable for a computer.",
+        "step6": "We can now create different models using several algorithms.These algorithms perform their learning by ingesting the data prepared beforehand.",
+        "step7": "We analyze the results of different models with different tools, we can compare them.",
+        "step8": "We can deploy the model that seems the most adapted to the needs."
     },
     "estimate": {
         "poi": "We are using points of interests to get the closest estimation for housing. We are NOT storing the location. This is only used to embed our data.",
@@ -49,6 +60,10 @@
         "placeholder": {
             "location": "Property address"
         }
+    },
+    "explain": {
+        "step1": "",
+        "step2": ""
     },
     "discover": {
         "title": "Discover artificial intelligence",
