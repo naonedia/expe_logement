@@ -2,12 +2,15 @@
     <div class="col-7 left align-middle text-center pt-4">
         <h1 [translate]="'home.title'" class="text-center text-primary pb-4 pt-4"></h1>
         <p [translate]="'home.text'" class="text-center align-middle"></p>
-        <div class="iframe-container">
+        <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="./assets/video/intro.mp4"></iframe>
+              </div>
+        <!-- <div class="iframe-container">
             <iframe class="video mt-1" src="https://www.youtube.com/embed/f1xz5KeYmX0?rel=0&amp;showinfo=1" frameborder="0" allowfullscreen=""></iframe>
-        </div>
+        </div> -->
 
         <div class="text-center">
-            <a [translate]="'global.button.learnMore'" class="btn btn-success btn-lg rounded-pill" routerLink="/discover" role="button"></a>
+            <a [translate]="'global.button.howItWorks'" class="btn btn-success btn-lg rounded-pill" routerLink="/explain" role="button"></a>
         </div>
     </div>
     <div class="col-5 right">
