@@ -4,13 +4,19 @@
     <div class="col">
       <img src="./assets/images/horizontalShiftSuccess.svg" class="svg2">
       <h1 [translate]="'result.title'" class="text-center align-middle text-light pb-3 pt-3 display-3"></h1>
-
-      <h1 class="text-center align-middle text-light pb-3 pt-3">{{ price }} € </h1>
-      <p [translate]="'result.text'" class="text-center align-middle text-light"></p>
-
+      <div *ngIf="!isEstimation">
+        <h1 class="text-center align-middle text-light pb-3 pt-3">{{ gap }}%</h1>
+        <div class="row mb-3 justify-content-center">
+          <div class="col-md-6 mb-1 mt-1">
+            <p [translate]="'result.participate'" class="text-center align-middle text-light"></p>
+          </div>
+        </div>
+      </div>
       <div *ngIf="isEstimation">
-        <form (ngSubmit)="onSubmit()">
-          <div class="row mb-3 justify-content-center">
+        <h1 class="text-center align-middle text-light pb-3 pt-3">{{ price }} € </h1>
+        <p [translate]="'result.text'" class="text-center align-middle text-light pb-3 pt-3 bg-success"></p>
+        <form (ngSubmit)="onSubmit()" class="bg-success">
+          <div class="row pb-3 pt-3 justify-content-center">
             <div class="col-md-2 mb-1 mt-1">
               <div class="input-group">
                 <input class="form-control bg-success border-light text-light" type="number"
@@ -29,13 +35,10 @@
 
             <div class="col-md-2 mb-1 mt-1">
               <button [translate]="'global.button.validate'" type="submit"
-                class="btn btn-light btn-lg btn-block text-success text-uppercase rounded-pill"></button>
+                class="btn btn-light btn-md btn-block text-success text-uppercase rounded-pill"></button>
             </div>
           </div>
         </form>
-      </div>
-      <div *ngIf="!isEstimation">
-        <p class="text-center align-middle text-light">{{ 'result.participate' | translate:{'value': gap} }}</p>
       </div>
     </div>
   </div>
@@ -48,8 +51,8 @@
       </div>
       <div class="row justify-content-center">
         <div class="col-md-4 mb-1 mt-1">
-          <button [translate]="'global.button.discover'" type="submit"
-            class="btn btn-primary btn-lg btn-block text-light text-uppercase rounded-pill"></button>
+          <a class="btn btn-primary btn-lg btn-block text-light text-uppercase rounded-pill" routerLink="/explain"
+            [translate]="'global.button.discover'"></a>
         </div>
       </div>
     </div>

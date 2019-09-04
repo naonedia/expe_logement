@@ -6,6 +6,10 @@
     }
 }
 
+p {
+    margin: 0;
+}
+
 .svg2 {
     display: none;
     @media (min-width: 1000px) {  
@@ -19,16 +23,17 @@
   }
 
 .top {
-    height: 75%;
-    @media screen and (min-width:540px){
+    height: 50%;
+    @media screen and (max-width:540px){
         height: 50%;
     }
 }
 
 .bottom {
     padding-top: 10%;
-    height: 25%;
-    @media screen and (min-width:540px){
+    height: 50%;
+    @media screen and (max-width:540px){
+        padding-top: 5%;
         height: 50%;
     }
 }

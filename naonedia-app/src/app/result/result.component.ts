@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
@@ -15,7 +15,7 @@ export class ResultComponent {
     userInput: ParticipateInput;
     price: number = NaN;
     isEstimation: boolean;
-    gap: number;
+    gap: string;
 
     constructor(private router: Router, private predictService: PredictService, private translateService: TranslateService) {
         const extras = this.router.getCurrentNavigation().extras
@@ -31,7 +31,7 @@ export class ResultComponent {
             this.router.navigate(['accessdenied'])
         }
 
-        this.gap = this.price * 100 / this.userInput.price;
+        this.gap = Math.abs(100 - this.price * 100 / this.userInput.price).toFixed(2);
 
     }
 
