@@ -9,13 +9,13 @@ import { Router } from '@angular/router';
     styleUrls: ['discover.scss']
 })
 export class DiscoverComponent {
-    lang: boolean
+    lang: boolean;
 
     constructor(private router: Router, private translateService: TranslateService) {
-        this.lang = this.translateService.currentLang == 'en'
+        this.lang = this.translateService.currentLang === 'en';
 
         this.translateService.onLangChange.subscribe((params: LangChangeEvent) => {
-            this.lang = this.translateService.currentLang == 'en'
+            this.lang = this.translateService.currentLang === 'en';
         });
     }
 

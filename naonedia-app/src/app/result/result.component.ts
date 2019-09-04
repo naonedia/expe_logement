@@ -13,22 +13,22 @@ import { PredictService } from '../service';
 })
 export class ResultComponent {
     userInput: ParticipateInput;
-    price: number = NaN;
+    price: number;
     isEstimation: boolean;
     gap: string;
 
     constructor(private router: Router, private predictService: PredictService, private translateService: TranslateService) {
-        const extras = this.router.getCurrentNavigation().extras
+        const extras = this.router.getCurrentNavigation().extras;
         if (extras.state && extras.state.price) {
-            this.price = extras.state.price
+            this.price = extras.state.price;
         }
         if (extras.state && extras.state.userInput) {
-            this.userInput = extras.state.userInput
+            this.userInput = extras.state.userInput;
         }
         if (extras.state && extras.state.type) {
-            this.isEstimation = extras.state.type == 'estimate'
+            this.isEstimation = extras.state.type === 'estimate';
         } else {
-            this.router.navigate(['accessdenied'])
+            this.router.navigate(['accessdenied']);
         }
 
         this.gap = Math.abs(100 - this.price * 100 / this.userInput.price).toFixed(2);
@@ -37,7 +37,7 @@ export class ResultComponent {
 
     onSubmit() {
         this.predictService.participate(this.userInput).subscribe(res => {
-            this.router.navigate(['/result'],{ state: { userInput: this.userInput } });
+            this.router.navigate(['/result'], { state: { userInput: this.userInput } });
         });
     }
 }

@@ -39,7 +39,7 @@ export class ParticipateComponent implements OnInit, AfterViewInit {
     map: any;
 
     houseTypeList = Object.keys(HouseType);
-    months = MonthEnums
+    months = MonthEnums;
     monthsKeys = Object.keys(MonthEnums).filter(Number);
 
     // User input
@@ -58,7 +58,7 @@ export class ParticipateComponent implements OnInit, AfterViewInit {
         private predictService: PredictService,
         private translateService: TranslateService,
         private loaderService: LoaderService
-    ) { 
+    ) {
         this.loaderService.isLoading.subscribe((v) => {
             this.loading = v;
         });
@@ -142,7 +142,7 @@ export class ParticipateComponent implements OnInit, AfterViewInit {
                 center: fromLonLat([this.longitude, this.latitude]),
                 minZoom: 11,
                 zoom: 11,
-                extent: fromLonLat([-1.856722,47.105736]).concat(fromLonLat([-1.368222,47.318067])),
+                extent: fromLonLat([-1.856722, 47.105736]).concat(fromLonLat([-1.368222, 47.318067])),
             })
         );
 
@@ -180,7 +180,7 @@ export class ParticipateComponent implements OnInit, AfterViewInit {
 
     onSubmit() {
         this.predictService.participate(this.userInput).subscribe(res => {
-            this.router.navigate(['/result'],{ state: { userInput: this.userInput, price: res.price, type: res.type } });
+            this.router.navigate(['/result'], { state: { userInput: this.userInput, price: res.price, type: res.type } });
         });
     }
 

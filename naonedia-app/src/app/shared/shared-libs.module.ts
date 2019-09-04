@@ -7,7 +7,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
-    imports: [NgbModule.forRoot(), FontAwesomeModule, BrowserAnimationsModule, DragDropModule],
+    imports: [NgbModule, FontAwesomeModule, BrowserAnimationsModule, DragDropModule],
     exports: [FormsModule, CommonModule, NgbModule, FontAwesomeModule, BrowserAnimationsModule, DragDropModule]
 })
 

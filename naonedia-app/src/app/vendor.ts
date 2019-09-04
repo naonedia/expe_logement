@@ -19,7 +19,7 @@ import { far } from '@fortawesome/free-regular-svg-icons';
 
 // Adds the SVG icon to the library so you can use it in your page
 
-library.add(faBroom)
+library.add(faBroom);
 library.add(faChartPie);
 library.add(faCogs);
 library.add(faDatabase);

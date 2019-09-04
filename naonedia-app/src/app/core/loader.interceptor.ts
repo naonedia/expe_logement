@@ -17,7 +17,7 @@ export class LoaderInterceptor implements HttpInterceptor {
     constructor(private loaderService: LoaderService) { }
 
     removeRequest(req: HttpRequest<any>) {
-        if(req.url == '/api/estimate' || req.url == '/api/participate') {
+        if (req.url === '/api/estimate' || req.url === '/api/participate') {
 
             const i = this.requests.indexOf(req);
             if (i >= 0) {
@@ -29,11 +29,11 @@ export class LoaderInterceptor implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-        if (req.url == '/api/estimate' || req.url == '/api/participate') {
+        if (req.url === '/api/estimate' || req.url === '/api/participate') {
             this.requests.push(req);
             this.loaderService.isLoading.next(true);
         }
-        return Observable.create(observer => {
+        return new Observable(observer => {
             const subscription = next.handle(req)
                 .subscribe(
                     event => {

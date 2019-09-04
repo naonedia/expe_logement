@@ -14,8 +14,9 @@ export class PeliasService {
     getAutoComplete(text: string, req?: any): Observable<any[]> {
         const options = createRequestOption(req);
         return new Observable((observer) => {
-            this.http.get<any>(`${this.resourceUrl}/autocomplete?focus.point.lat=47.218371&focus.point.lon=-1.553621&text=${text}&size=10'`, { params: options, observe: 'response' })
-                .subscribe(response => observer.next(response.body.features), error => observer.error());
+            this.http.get<any>(`${this.resourceUrl}/autocomplete?focus.point.lat=47.218371&focus.point.lon=-1.553621&text=${text}&size=10'`,
+            { params: options, observe: 'response' })
+            .subscribe(response => observer.next(response.body.features), error => observer.error());
         });
     }
 
