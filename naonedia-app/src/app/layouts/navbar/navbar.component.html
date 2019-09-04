@@ -10,7 +10,7 @@
     <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse pr-5" id="navbarsDefault">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item font-weight-bold">
-                <a class="nav-link text-uppercase" [translate]="'global.menu.about'" (click)="collapseNavbar()"></a>
+                <a class="nav-link text-uppercase" routerLink="/about" [translate]="'global.menu.about'" (click)="collapseNavbar()"></a>
             </li>
             <li class="nav-item font-weight-bold">
                 <a class="nav-link text-uppercase" routerLink="/participate" [translate]="'global.menu.participate'" (click)="collapseNavbar()">Link</a>
