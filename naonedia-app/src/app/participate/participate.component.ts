@@ -137,13 +137,12 @@ export class ParticipateComponent implements OnInit, AfterViewInit {
             view
         });
 
-        const myExtent = this.map.getView().calculateExtent(this.map.getSize());
         this.map.setView(
             new View({
                 center: fromLonLat([this.longitude, this.latitude]),
                 minZoom: 11,
                 zoom: 11,
-                extent: myExtent,
+                extent: fromLonLat([-1.856722,47.105736]).concat(fromLonLat([-1.368222,47.318067])),
             })
         );
 
