@@ -25,6 +25,14 @@
             "title": "Page d'erreur!"
         }
     },
+    "about": {
+        "title": "Notre mission",
+        "title2": "une intelligence artificielle éthique et populaire",
+        "title3": "À propos",
+        "text1": "Dans le cadre de cette expérience naonedIA, en tant qu'acteurs du collectif, nous nous sommes réunis pour participer à cette expérience. En réalisant un travail collaboratif, nous avons pu réaliser un outil de prédiction immobilier.",
+        "title4": "Sources",
+        "text2": "Ayant une volonté de partager nos connaissances, tout notre projet est en OpenSource, si vous êtes étudiant, enseignant ou juste curieux, vous pouvez regarder en détail notre travail. Nous vous encourageons même à le challenger afin de pouvoir l'améliorer."
+    },
     "home": {
         "title": "Expérimentation logement",
         "text": "L'objectif de ce projet est de présenter le savoir-faire nantais en matière d'intelligence artificielle. Cette application est destinée à tout type de public. Elle permet d'expliquer de manière ludique les grands principes afin de démystifier le sujet.",
@@ -125,7 +133,7 @@
         "title": "Votre estimation",
         "text": "Vous êtes propriétaire du bien ? Aidez-nous à nous améliorer, renseignez son prix d'achat hors frais de notaire.",
         "textExplanation": "Vous êtes curieux ? Comprenez notre calcul estimatif :",
-        "participate": "L'estimation a donc un écart de {{ value }}%."
+        "participate": "Le chiffre dessus est l'écart de prédiction, la différence en pourcentage entre le prix estimé par notre algorithme et le prix réelle du bien."
     },
     "houseType": {
         "house": "Maison",

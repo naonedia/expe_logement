@@ -25,25 +25,23 @@
             "title": "Error Page!"
         }
     },
-    "explain": {
-        "step1": "We start by recovering different datasets from different sources.",
-        "step2": "We start by analyzing them, examine their contents, analyze the available features.",
-        "step3": "Clean up the dataset by deleting duplicates, filling in missing data.",
-        "step4": "We enrich the dataset by combining it with others or by using various services.",
-        "step5": "We encode the dataset so that it is understandable for a computer.",
-        "step6": "We can now create different models using several algorithms.These algorithms perform their learning by ingesting the data prepared beforehand.",
-        "step7": "We analyze the results of different models with different tools, we can compare them.",
-        "step8": "We can deploy the model that seems the most adapted to the needs."
-    },
-    "estimate": {
-        "poi": "We are using points of interests to get the closest estimation for housing. We are NOT storing the location. This is only used to embed our data.",
-        "or": "or"
+    "about": {
+        "title": "Our mission",
+        "title2": "an artificial and ethical artificial intelligence",
+        "title3": "About",
+        "text1": "As part of this naonedIA experience, as members of the collective, we came together to take part in this experience.With a collaborative work, we were able to create a real estate prediction tool.",
+        "title4": "Sources",
+        "text2": "Having a willingness to share our knowledge, all our project is in OpenSource, if you are a student, teacher or just curious, you can look in detail at our work.We even encourage you to the challenger in order to be able to improve."
     },
     "home": {
         "title": "Housing experimentation",
         "text": "The objective of this project is to present the know-how of artificial intelligence in Nantes.This application is intended for all types of public.It allows to explain in a fun way the main principles to demystify the subject.",
         "participate": "Help us improve the prediction of our model.",
         "estimate": "Help us improve the prediction of our model."
+    },
+    "estimate": {
+        "poi": "We are using points of interests to get the closest estimation for housing. We are NOT storing the location. This is only used to embed our data.",
+        "or": "or"
     },
     "model": {
         "input": {
@@ -62,8 +60,14 @@
         }
     },
     "explain": {
-        "step1": "",
-        "step2": ""
+        "step1": "We start by recovering different datasets from different sources.",
+        "step2": "We start by analyzing them, examine their contents, analyze the available features.",
+        "step3": "Clean up the dataset by deleting duplicates, filling in missing data.",
+        "step4": "We enrich the dataset by combining it with others or by using various services.",
+        "step5": "We encode the dataset so that it is understandable for a computer.",
+        "step6": "We can now create different models using several algorithms.These algorithms perform their learning by ingesting the data prepared beforehand.",
+        "step7": "We analyze the results of different models with different tools, we can compare them.",
+        "step8": "We can deploy the model that seems the most adapted to the needs."
     },
     "discover": {
         "title": "Discover artificial intelligence",
