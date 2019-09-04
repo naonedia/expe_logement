@@ -13,6 +13,7 @@ import { ResultModule } from './result/result.module';
 import { DiscoverModule } from './discover/discover.module';
 import { HealthcheckModule } from './healthcheck/healthcheck.module';
 import { ExplainModule } from './explain/explain.module';
+import { AboutModule } from './about/about.module';
 
 import { LoaderService } from './service';
 
@@ -61,6 +62,7 @@ export function appInitializerFactory(translate: TranslateService, injector: Inj
     DiscoverModule,
     HealthcheckModule,
     ExplainModule,
+    AboutModule,
     CoreModule,
 
     // Configure i18n
