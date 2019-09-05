@@ -28,6 +28,10 @@ a {
   left: 0;
   right: 0;
   padding-top: 25%;
+  @media (max-width: 768px) {
+    padding-bottom: 15%;
+    padding-top: 15%;  
+  }
 }
 
 .svg1 {
@@ -70,21 +74,31 @@ a {
 .left {
   padding-left: 5vw;
   padding-right: 5vw;
-  min-height: 100vh;
+  @media (min-width: 768px) {  
+    min-height: 100vh;
+  }
 }
 
 .top-right {
   height: 40%;
   background-color: #1872d9;
+  @media (max-width: 768px) {
+    height: 50%;  
+  }
 }
 
 .bottom-right {
-  background-color: #00aac1;
   height: 60%;
+  background-color: #00aac1;
+  @media (max-width: 768px) {
+    height: 50%;  
+  }
 }
 
 .chart-icon .text-explain {
-  padding-top: 50%;   
+  @media (min-width: 768px) {
+    padding-top: 50%;
+  }
 }
 
 .iframe-container {
