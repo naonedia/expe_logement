@@ -6,119 +6,139 @@
       <h1 [translate]="'global.button.howItWorks'" class="text-center align-middle text-light pb-3 pt-3 display-3"></h1>
 
       <div class="row justify-content-center">
-        <div class="col-8">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item bg-primary d-flex justify-content-between align-items-center">
-              <h3>
+        <div class="col-12 col-md-8">
+
+          <div class="row border-bottom border-light pt-3 pb-3 justify-content-center bg-primary">
+            <div class="col-12">
+              <h3 class="text-center">
                 <span class="badge badge-success text-light badge-pill text-center">
                   1
-                  <fa-icon [icon]="'database'" class="text-light"></fa-icon>
+                  <fa-icon [icon]="'database'" class="text-light text-center"></fa-icon>
                 </span>
               </h3>
+            </div>
+            <div class="col-12">
               <p [translate]="'explain.step1'" class="text-center align-middle text-light"></p>
-            </li>
+            </div>
+          </div>
 
-            <li class="list-group-item bg-primary d-flex justify-content-between align-items-center">
-              <h3>
+          <div class="row border-bottom border-light pt-3 pb-3 justify-content-center bg-primary">
+            <div class="col-12">
+              <h3 class="text-center">
                 <span class="badge badge-success text-light badge-pill text-center">
                   2
-                  <fa-icon [icon]="'search'" class="text-light"></fa-icon>
+                  <fa-icon [icon]="'search'" class="text-light text-center"></fa-icon>
                 </span>
               </h3>
-
+            </div>
+            <div class="col-12">
               <p [translate]="'explain.step2'" class="text-center align-middle text-light"></p>
-            </li>
+            </div>
+          </div>
 
-            <li class="list-group-item bg-primary d-flex justify-content-between align-items-center">
-              <h3>
+          <div class="row border-bottom border-light pt-3 pb-3 justify-content-center bg-primary">
+            <div class="col-12">
+              <h3 class="text-center">
                 <span class="badge badge-success text-light badge-pill text-center">
                   3
                   <fa-icon [icon]="'broom'" class="text-light"></fa-icon>
                 </span>
               </h3>
-
-              <p [translate]="'explain.step3'" class="text-center align-middle text-light"></p>
-            </li>
-
-            <li class="list-group-item bg-primary d-flex justify-content-between align-items-center">
-                <h3>
-                  <span class="badge badge-success text-light badge-pill text-center">
-                    4
-                    <fa-icon [icon]="'magic'" class="text-light"></fa-icon>
-                  </span>
-                </h3>
-  
-                <p [translate]="'explain.step4'" class="text-center align-middle text-light"></p>
-              </li>
-
-          </ul>
-
-        </div>
-      </div>
-
-    </div>
-  </div>
-  <div class="row bottom justify-content-center">
-    <div class="col">
-
-        <div class="row justify-content-center">
-            <div class="col-8">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item bg-light d-flex justify-content-between align-items-center">
-                  <h3>
-                    <span class="badge badge-primary text-light badge-pill text-center">
-                      5
-                      <fa-icon [icon]="'cogs'" class="text-light"></fa-icon>
-                    </span>
-                  </h3>
-                  <p [translate]="'explain.step5'" class="text-center align-middle text-primary"></p>
-                </li>
-    
-                <li class="list-group-item bg-light d-flex justify-content-between align-items-center">
-                  <h3>
-                    <span class="badge badge-primary text-light badge-pill text-center">
-                      6
-                      <fa-icon [icon]="'layer-group'" class="text-light"></fa-icon>
-                    </span>
-                  </h3>
-    
-                  <p [translate]="'explain.step6'" class="text-center align-middle text-primary"></p>
-                </li>
-    
-                <li class="list-group-item bg-light d-flex justify-content-between align-items-center">
-                  <h3>
-                    <span class="badge badge-primary text-light badge-pill text-center">
-                      7
-                      <fa-icon [icon]="'chart-pie'" class="text-light"></fa-icon>
-    
-                    </span>
-                  </h3>
-    
-                  <p [translate]="'explain.step7'" class="text-center align-middle text-primary"></p>
-                </li>
-
-                <li class="list-group-item bg-light d-flex justify-content-between align-items-center">
-                    <h3>
-                      <span class="badge badge-primary text-light badge-pill text-center">
-                        8
-                        <fa-icon [icon]="'server'" class="text-light"></fa-icon>
-      
-                      </span>
-                    </h3>
-      
-                    <p [translate]="'explain.step8'" class="text-center align-middle text-primary"></p>
-                  </li>
-    
-              </ul>
-    
+              <div class="col-12">
+                <p [translate]="'explain.step3'" class="text-center align-middle text-light"></p>
+              </div>
             </div>
           </div>
 
-      <div class="row justify-content-center">
-        <div class="col-md-4 mb-3 mt-3">
-            <a [translate]="'global.button.learnMore'" class="btn btn-success btn-lg btn-block text-light text-uppercase rounded-pill" routerLink="/discover" role="button"></a>
+          <div class="row pt-3 pb-3 justify-content-center bg-primary">
+            <div class="col-12">
+              <h3 class="text-center">
+                <span class="badge badge-success text-light badge-pill text-center">
+                  4
+                  <fa-icon [icon]="'magic'" class="text-light"></fa-icon>
+                </span>
+              </h3>
+              <div class="col-12">
+                <p [translate]="'explain.step4'" class="text-center align-middle text-light"></p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+  </div>
+
+
+  <div class="row bottom justify-content-center">
+    <div class="col">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8">
+
+          <div class="row border-bottom border-primary pt-3 pb-3 justify-content-center">
+            <div class="col-12">
+              <h3 class="text-center">
+                <span class="badge badge-primary text-light badge-pill text-center">
+                  5
+                  <fa-icon [icon]="'cogs'" class="text-light text-center"></fa-icon>
+                </span>
+              </h3>
+            </div>
+            <div class="col-12">
+              <p [translate]="'explain.step5'" class="text-center align-middle text-primary"></p>
+            </div>
+          </div>
+
+          <div class="row border-bottom border-primary pt-3 pb-3 justify-content-center">
+            <div class="col-12">
+              <h3 class="text-center">
+                <span class="badge badge-primary text-light badge-pill text-center">
+                  6
+                  <fa-icon [icon]="'layer-group'" class="text-light text-center"></fa-icon>
+                </span>
+              </h3>
+            </div>
+            <div class="col-12">
+              <p [translate]="'explain.step6'" class="text-center align-middle text-primary"></p>
+            </div>
+          </div>
+
+          <div class="row border-bottom border-primary pt-3 pb-3 justify-content-center">
+            <div class="col-12">
+              <h3 class="text-center">
+                <span class="badge badge-primary text-light badge-pill text-center">
+                  7
+                  <fa-icon [icon]="'chart-pie'" class="text-light text-center"></fa-icon>
+                </span>
+              </h3>
+            </div>
+            <div class="col-12">
+              <p [translate]="'explain.step7'" class="text-center align-middle text-primary"></p>
+            </div>
+          </div>
+
+          <div class="row pt-3 pb-3 justify-content-center">
+            <div class="col-12">
+              <h3 class="text-center">
+                <span class="badge badge-primary text-light badge-pill text-center">
+                  8
+                  <fa-icon [icon]="'server'" class="text-light text-center"></fa-icon>
+                </span>
+              </h3>
+            </div>
+            <div class="col-12">
+              <p [translate]="'explain.step8'" class="text-center align-middle text-primary"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-4 mb-3 mt-3">
+      <a [translate]="'global.button.learnMore'"
+        class="btn btn-success btn-lg btn-block text-light text-uppercase rounded-pill" routerLink="/discover"
+        role="button"></a>
     </div>
   </div>
 </div>
