@@ -1,0 +1,34 @@
+dist: trusty
+sudo: false
+
+language: node_js
+node_js:
+  - '8'
+
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+
+cache:
+  directories:
+    - .naonedia-app/node_modules
+
+install:
+  - cd naonedia-app
+  - npm install
+
+script:
+  - cd naonedia-app
+  - npm run lint
+  - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+  - ng build --prod --output-path ../nginx/www
+
+
+deploy:
+  provider: script
+  script: echo "deploy"
+  on:
+    branch: master
