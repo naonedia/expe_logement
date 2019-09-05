@@ -35,7 +35,7 @@
     },
     "home": {
         "title": "Housing experimentation",
-        "text": "The objective of this project is to present the know-how of artificial intelligence in Nantes.This application is intended for all types of public.It allows to explain in a fun way the main principles to demystify the subject.",
+        "text": "The objective of this project is to present the know-how of artificial intelligence in Nantes.This application is intended for all types of public.It allows to explain in a fun way the main principles to demystify you can estimate a property in Nantes metropolis.You can also help us by contributing to this experience. ",
         "participate": "Help us improve the prediction of our model.",
         "estimate": "Help us improve the prediction of our model."
     },
@@ -45,9 +45,9 @@
     },
     "model": {
         "input": {
-            "area": "Ground surface",
-            "areaCarrez": "Ground surface using ‘Loi Carrez’",
-            "areaTotal": "Total ground surface",
+            "area": "Floor area",
+            "areaCarrez": "Floor area using ‘Loi Carrez’",
+            "areaTotal": "Ground surface",
             "rooms": "Number of rooms",
             "type": "Housing",
             "poi": "Points of interest nearby",

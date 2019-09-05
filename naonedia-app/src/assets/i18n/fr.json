@@ -31,11 +31,11 @@
         "title3": "À propos",
         "text1": "Dans le cadre de cette expérience naonedIA, en tant qu'acteurs du collectif, nous nous sommes réunis pour participer à cette expérience. En réalisant un travail collaboratif, nous avons pu réaliser un outil de prédiction immobilier.",
         "title4": "Sources",
-        "text2": "Ayant une volonté de partager nos connaissances, tout notre projet est en OpenSource, si vous êtes étudiant, enseignant ou juste curieux, vous pouvez regarder en détail notre travail. Nous vous encourageons même à le challenger afin de pouvoir l'améliorer. Vous pouvez accèder code source via https://github.com/naonedia"
+        "text2": "Ayant une volonté de partager nos connaissances, tout notre projet est en OpenSource, si vous êtes étudiant, enseignant ou juste curieux, vous pouvez regarder en détail notre travail. Nous vous encourageons même à le challenger afin de pouvoir l'améliorer. Vous pouvez accéder code source via https://github.com/naonedia"
     },
     "home": {
         "title": "Expérimentation logement",
-        "text": "L'objectif de ce projet est de présenter le savoir-faire nantais en matière d'intelligence artificielle. Cette application est destinée à tout type de public. Elle permet d'expliquer de manière ludique les grands principes afin de démystifier le sujet.",
+        "text": "L'objectif de ce projet est de présenter le savoir-faire nantais en matière d'intelligence artificielle. Cette application est destinée à tout type de public. Elle permet d'expliquer de manière ludique les grands principes afin de démystifier le sujet. Vous pouvez ainsi estimer un bien immobilier dans Nantes métropole. Vous pouvez aussi nous aider en contribuant à cette expérience.",
         "participate": "Aidez-nous à améliorer la prédiction de notre modèle.",
         "estimate": "Aidez-nous à améliorer la prédiction de notre modèle."
     },
@@ -47,7 +47,7 @@
         "input": {
             "area": "Surface au sol",
             "areaCarrez": "Surface au sol ‘Loi Carrez’",
-            "areaTotal": "Surface total",
+            "areaTotal": "Surface du terrain",
             "rooms": "Nombre de pièces",
             "type": "Type de bien",
             "location": "Localisation",
