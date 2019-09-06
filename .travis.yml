@@ -17,7 +17,9 @@ before_install:
   -in client-secret.json.enc -out client-secret.json -d
 
 deploy:
-  provider: script
-  script: echo "deploy"
+  provider: gae
+  keyfile: "client-secret.json"
+  project: "naonoedia"
+  config: "nginx/app.yml"
   on:
     branch: master
