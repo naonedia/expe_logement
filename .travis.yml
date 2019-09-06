@@ -22,6 +22,6 @@ deploy:
   provider: gae
   keyfile: "../client-secret.json"
   project: "naonoedia"
-  config: "nginx/app.yml"
+  config: "../nginx/app.yml"
   on:
     branch: master
