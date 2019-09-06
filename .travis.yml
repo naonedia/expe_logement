@@ -18,7 +18,7 @@ before_install:
 
 deploy:
   provider: gae
-  keyfile: "client-secret.json"
+  keyfile: "client-secret.json.enc"
   project: "naonoedia"
   config: "nginx/app.yml"
   on:
