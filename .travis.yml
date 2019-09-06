@@ -19,6 +19,11 @@ script:
 - npm run lint
 - ng build --prod --output-path ../nginx/www
 - cd ..
+- ls
+- cd nginx
+- ls
+- cd www
+- ls
 
 deploy:
   provider: gae
