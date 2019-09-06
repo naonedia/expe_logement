@@ -1,8 +1,9 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, ValidatorFn } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Subject, Observable } from 'rxjs';
-import { debounceTime, distinctUntilChanged, tap, switchMap, filter, map } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, switchMap, filter, map } from 'rxjs/operators';
 
 import Feature from 'ol/Feature';
 import GeoJSON from 'ol/format/GeoJSON';
@@ -20,6 +21,29 @@ import { HouseType } from '../shared/model/houseType.model';
 import { MonthEnums } from '../shared/model/months.model';
 import { ParticipateInput } from '../shared/model/participateInput.model';
 import { PeliasService, PredictService, LoaderService } from '../service';
+
+const FormValidator: ValidatorFn = (fg: FormGroup) => {
+    const groundSurface = fg.get('groundSurface').value;
+    const groundSurfaceCarrez = fg.get('groundSurfaceCarrez').value;
+    const groundSurfaceTotal = fg.get('groundSurfaceTotal').value;
+    const type = fg.get('type').value;
+    const roomNumber = fg.get('roomNumber').value;
+    const year = fg.get('year').value;
+    const month = fg.get('month').value;
+    const price = fg.get('price').value;
+
+
+    return groundSurface !== null &&
+        groundSurfaceCarrez !== null &&
+        groundSurfaceTotal !== null &&
+        type !== null &&
+        roomNumber !== null &&
+        year !== null &&
+        month !== null &&
+        price !== null &&
+        groundSurface >= groundSurfaceCarrez &&
+        groundSurfaceTotal >= groundSurface ? null : { range: true };
+};
 
 @Component({
     selector: 'app-participate',
@@ -52,19 +76,62 @@ export class ParticipateComponent implements OnInit, AfterViewInit {
 
     loading = false;
 
+    form: FormGroup;
+
     constructor(
         private router: Router,
         private peliasService: PeliasService,
         private predictService: PredictService,
         private translateService: TranslateService,
-        private loaderService: LoaderService
+        private loaderService: LoaderService,
+        private formBuilder: FormBuilder
     ) {
         this.loaderService.isLoading.subscribe((v) => {
             this.loading = v;
         });
     }
 
+    validGroundSurfaceTotal() {
+        const groundSurfaceTotal = this.form.get('groundSurfaceTotal').value;
+        const groundSurface = this.form.get('groundSurface').value;
+        const groundSurfaceCarrez = this.form.get('groundSurfaceCarrez').value;
+
+        return groundSurfaceTotal !== null &&
+            groundSurface !== null &&
+            groundSurfaceTotal >= groundSurface &&
+            groundSurfaceCarrez !== null &&
+            groundSurfaceTotal >= groundSurfaceCarrez;
+
+    }
+
+    validGroundSurface() {
+        const groundSurface = this.form.get('groundSurface').value;
+        const groundSurfaceCarrez = this.form.get('groundSurfaceCarrez').value;
+
+        return groundSurface !== null &&
+            groundSurfaceCarrez !== null &&
+            groundSurface >= groundSurfaceCarrez;
+    }
+
+    validYear() {
+        const year = this.form.get('year').value;
+
+        return year >= 1985 &&
+            year <= new Date().getFullYear();
+    }
+
     ngOnInit() {
+        this.form = this.formBuilder.group({
+            type: [this.userInput.type, [Validators.required]],
+            groundSurface: [this.userInput.groundSurface, [Validators.required]],
+            groundSurfaceCarrez: [this.userInput.groundSurfaceCarrez, [Validators.required]],
+            groundSurfaceTotal: [this.userInput.groundSurfaceTotal, [Validators.required]],
+            roomNumber: [this.userInput.roomNumber, [Validators.required]],
+            month: [this.userInput.month, [Validators.required]],
+            year: [this.userInput.year, [Validators.required]],
+            price: [this.userInput.price, [Validators.required]]
+        }, { validator: FormValidator });
+
         const temp = new Point(fromLonLat([this.longitude, this.latitude]));
 
         const wmsLayer = new TileLayer({
@@ -179,6 +246,15 @@ export class ParticipateComponent implements OnInit, AfterViewInit {
     }
 
     onSubmit() {
+        this.userInput.groundSurface = this.form.get('groundSurface').value;
+        this.userInput.groundSurfaceCarrez = this.form.get('groundSurfaceCarrez').value;
+        this.userInput.groundSurfaceTotal = this.form.get('groundSurfaceTotal').value;
+        this.userInput.roomNumber = this.form.get('roomNumber').value;
+        this.userInput.type = this.form.get('type').value;
+        this.userInput.year = this.form.get('year').value;
+        this.userInput.month = this.form.get('month').value;
+        this.userInput.price = this.form.get('.price').value;
+
         this.predictService.participate(this.userInput).subscribe(res => {
             this.router.navigate(['/result'], { state: { userInput: this.userInput, price: res.price, type: res.type } });
         });
@@ -204,12 +280,12 @@ export class ParticipateComponent implements OnInit, AfterViewInit {
     }
 
     increaseRoomNumber() {
-        this.userInput.roomNumber += 1;
+        this.form.get('roomNumber').setValue(this.form.get('roomNumber').value + 1);
     }
 
     decreaseRoomNumber() {
-        if (this.userInput.roomNumber > 0) {
-            this.userInput.roomNumber -= 1;
+        if (this.userInput.roomNumber > 1) {
+            this.form.get('roomNumber').setValue(this.form.get('roomNumber').value - 1);
         }
     }
 }

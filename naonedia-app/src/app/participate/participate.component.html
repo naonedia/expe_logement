@@ -1,12 +1,11 @@
 <div class="form bg-primary">
   <h1 [translate]="'global.menu.participate'" class="text-center align-middle text-light pb-4 pt-5"></h1>
-
-  <form (ngSubmit)="onSubmit()">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <h5 [translate]="'model.input.type'" class="text-center align-middle text-light"></h5>
 
     <div class="row justify-content-center pb-3 pt-3">
       <div class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-1 text-center align-middle">
-        <input type="radio" name="type" id="house" value='house' [(ngModel)]="userInput.type" checked>
+        <input type="radio" name="type" id="house" value='house' formControlName="type" checked>
         <label for="house" class="border rounded border-light active w-100">
 
           <div class="row">
@@ -33,7 +32,7 @@
         </label>
       </div>
       <div class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-1 text-center align-middle">
-        <input type="radio" name="type" id="flat" value='flat' [(ngModel)]="userInput.type">
+        <input type="radio" name="type" id="flat" value='flat' formControlName="type">
         <label for="flat" class="border rounded border-light active w-100">
 
           <div class="row">
@@ -120,10 +119,10 @@
       </div>
       <div class="col-md-2">
         <div class="input-group rounded-pill">
-          <input class="form-control bg-primary border-light text-light" type="number"
-            [(ngModel)]="userInput.groundSurface" name="groundSurface" numbersOnly />
+          <input class="form-control bg-primary text-light" type="number"
+          formControlName="groundSurface" name="groundSurface" numbersOnly [ngClass]="validGroundSurface() ? 'border-light':'border-danger'" />
           <div class="input-group-append">
-            <span class="input-group-text bg-primary border-light text-light">m²</span>
+            <span class="input-group-text bg-primary text-light" [ngClass]="validGroundSurface() ? 'border-light':'border-danger'" >m²</span>
           </div>
         </div>
       </div>
@@ -135,10 +134,10 @@
       </div>
       <div class="col-md-2">
         <div class="input-group">
-          <input class="form-control bg-primary border-light text-light" type="number"
-            [(ngModel)]="userInput.groundSurfaceCarrez" name="groundSurfaceCarrez" numbersOnly />
+          <input class="form-control bg-primary text-light" type="number"
+            formControlName="groundSurfaceCarrez" name="groundSurfaceCarrez" numbersOnly [ngClass]="validGroundSurface() ? 'border-light':'border-danger'" />
           <div class="input-group-append">
-            <span class="input-group-text bg-primary border-light text-light">m²</span>
+            <span class="input-group-text bg-primary text-light" [ngClass]="validGroundSurface() ? 'border-light':'border-danger'" >m²</span>
           </div>
         </div>
       </div>
@@ -151,10 +150,10 @@
       </div>
       <div class="col-md-2">
         <div class="input-group">
-          <input class="form-control bg-primary border-light text-light" type="number"
-            [(ngModel)]="userInput.groundSurfaceTotal" name="groundSurfaceTotal" numbersOnly />
+          <input class="form-control bg-primary text-light" type="number"
+            formControlName="groundSurfaceTotal" name="groundSurfaceTotal" numbersOnly [ngClass]="validGroundSurfaceTotal() ? 'border-light':'border-danger'" />
           <div class="input-group-append">
-            <span class="input-group-text bg-primary border-light text-light">m²</span>
+            <span class="input-group-text bg-primary text-light" [ngClass]="validGroundSurfaceTotal() ? 'border-light':'border-danger'">m²</span>
           </div>
         </div>
       </div>
@@ -167,7 +166,7 @@
       <div class="col-md-2">
         <div class="input-group">
           <input class="form-control bg-primary border-light text-light" type="number"
-            [(ngModel)]="userInput.roomNumber" name="roomNumber" numbersOnly />
+            formControlName="roomNumber" name="roomNumber" numbersOnly />
           <div class="input-group-append">
             <button type="button" (click)="decreaseRoomNumber()"
               class="input-group-text bg-light text-primary">-</button>
@@ -184,7 +183,7 @@
       </div>
       <div class="col-md-2">
         <div class="input-group">
-          <input class="form-control bg-primary border-light text-light" type="number" [(ngModel)]="userInput.price"
+          <input class="form-control bg-primary border-light text-light" type="number" formControlName="price"
             name="price" numbersOnly />
           <div class="input-group-append">
             <span class="input-group-text bg-primary border-light text-light">€</span>
@@ -198,8 +197,8 @@
         <h5 [translate]="'model.input.year'" class="text-left text-light"></h5>
       </div>
       <div class="col-md-2">
-        <input class="form-control bg-primary border-light text-light rounded-pill year-input" type="number"
-          [(ngModel)]="userInput.year" name="year" numbersOnly />
+        <input class="form-control bg-primary text-light rounded-pill year-input" type="number"
+          formControlName="year" name="year" numbersOnly [ngClass]="validYear() ? 'border-light':'border-danger'" />
       </div>
     </div>
 
@@ -208,9 +207,9 @@
         <h5 [translate]="'model.input.month'" class="text-left text-light"></h5>
       </div>
       <div class="col-md-2">
-        <select class="form-control bg-primary border-light text-light rounded-pill" [(ngModel)]="userInput.month"
+        <select class="form-control bg-primary text-light rounded-pill" formControlName="month" [ngClass]="form.get('month').valid ? 'border-light':'border-danger'"
           name="month">
-          <option *ngFor="let key of monthsKeys" [ngValue]="key"> {{ months[key] | translate }}</option>
+          <option *ngFor="let key of monthsKeys" [ngValue]="key">{{ months[key] | translate }}</option>
         </select>
       </div>
     </div>
@@ -224,7 +223,7 @@
     <div class="row justify-content-center pb-2 pt-2">
       <div class="col-md-2">
         <input class="form-control bg-primary border-light text-light rounded-pill" type="text"
-          placeholder="{{ 'model.placeholder.location' | translate }}" [(ngModel)]="location" name="location"
+          placeholder="{{ 'model.placeholder.location' | translate }}" [(ngModel)]="location" [ngModelOptions]="{standalone: true}" name="location"
           [ngbTypeahead]="search" [resultFormatter]="resultFormatBandListValue"
           [inputFormatter]="inputFormatBandListValue" />
       </div>
@@ -246,8 +245,8 @@
 
     <div class="row justify-content-center pb-5 pt-2">
       <div class="col-md-2">
-        <button type="submit" [disabled]="loading"
-          class="btn btn-light btn-lg btn-block text-success text-uppercase rounded-pill">
+        <button type="submit" [disabled]="!form.valid || loading" [class.border-danger]="!form.valid"
+          class="btn btn-light btn-lg btn-block text-primary text-uppercase rounded-pill">
           <div *ngIf="!loading">
             {{ 'global.button.participate' | translate }}
           </div>
