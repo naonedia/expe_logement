@@ -14,14 +14,16 @@ before_install:
 install:
 - cd naonedia-app
 - npm install
+
 script:
 - npm run lint
 - ng build --prod --output-path ../nginx/www
+- cd ..
 
 deploy:
   provider: gae
-  keyfile: "../client-secret.json"
+  keyfile: "client-secret.json"
   project: "naonoedia"
-  config: "../nginx/app.yml"
+  config: "nginx/app.yml"
   on:
     branch: master
