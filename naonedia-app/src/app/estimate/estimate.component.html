@@ -210,8 +210,8 @@
 
     <div class="row justify-content-center pb-5 pt-2">
       <div class="col-md-2">
-        <button type="submit" [disabled]="!form.valid || loading" [class.btn-danger]="!form.valid"
-          class="btn btn-light btn-lg btn-block text-success text-uppercase rounded-pill" [class.border-danger]="!form.valid">
+        <button type="submit" [disabled]="!form.valid || loading" [class.border-danger]="!form.valid"
+          class="btn btn-light btn-lg btn-block text-success text-uppercase rounded-pill">
           <div *ngIf="!loading">
             {{ 'global.button.estimate' | translate }}
           </div>

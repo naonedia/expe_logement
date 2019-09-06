@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, ValidatorFn } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Subject, Observable } from 'rxjs';
@@ -19,7 +20,6 @@ import View from 'ol/View';
 import { HouseType } from '../shared/model/houseType.model';
 import { EstimateInput } from '../shared/model/estimateInput.model';
 import { PeliasService, PredictService, LoaderService } from '../service';
-import { FormGroup, FormBuilder, Validators, ValidatorFn } from '@angular/forms';
 
 const FormValidator: ValidatorFn = (fg: FormGroup) => {
     const groundSurface = fg.get('groundSurface').value;
@@ -35,7 +35,7 @@ const FormValidator: ValidatorFn = (fg: FormGroup) => {
         roomNumber !== null &&
         groundSurface >= groundSurfaceCarrez &&
         groundSurfaceTotal >= groundSurface ? null : { range: true };
-}
+};
 
 @Component({
     selector: 'app-estimate',
@@ -230,7 +230,7 @@ export class EstimateComponent implements OnInit, AfterViewInit {
         this.userInput.groundSurfaceCarrez = this.form.get('groundSurfaceCarrez').value;
         this.userInput.groundSurfaceTotal = this.form.get('groundSurfaceTotal').value;
         this.userInput.roomNumber = this.form.get('roomNumber').value;
-        this.userInput.type = this.form.get('.type').value;
+        this.userInput.type = this.form.get('type').value;
 
         this.predictService.estimate(this.userInput).subscribe(res => {
             this.router.navigate(['/result'], { state: { userInput: this.userInput, price: res.price, type: res.type } });
