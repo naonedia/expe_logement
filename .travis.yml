@@ -20,7 +20,7 @@ script:
 
 deploy:
   provider: gae
-  keyfile: "/client-secret.json.enc"
+  keyfile: "../client-secret.json"
   project: "naonoedia"
   config: "nginx/app.yml"
   on:
