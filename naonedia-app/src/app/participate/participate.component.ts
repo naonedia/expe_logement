@@ -253,7 +253,7 @@ export class ParticipateComponent implements OnInit, AfterViewInit {
         this.userInput.type = this.form.get('type').value;
         this.userInput.year = this.form.get('year').value;
         this.userInput.month = this.form.get('month').value;
-        this.userInput.price = this.form.get('.price').value;
+        this.userInput.price = this.form.get('price').value;
 
         this.predictService.participate(this.userInput).subscribe(res => {
             this.router.navigate(['/result'], { state: { userInput: this.userInput, price: res.price, type: res.type } });

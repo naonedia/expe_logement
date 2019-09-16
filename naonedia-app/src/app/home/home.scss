@@ -1,127 +1,187 @@
 @import '../../assets/scss/bootstrap-variables';
 
-a {
-  margin-top: 1em;
-}
-
-.carry-icon {
-  background-image:url('../../assets/images/carry.svg');
-  background-size: 30%;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.chart-icon {
-  background-image:url('../../assets/images/chart.svg');
-  background-size: 30%;
-  background-repeat: no-repeat;  
-  background-position: 50% 75%;
-  @media (max-width: 1140px) { 
-    background-position: center;  
-  }
-}
-
-.text-explain {
-  //position: absolute;
+.home {
+  display: flex;
+  min-height: 100vh;
   position: relative;
-  z-index: 10;
-  left: 0;
-  right: 0;
-  padding-top: 25%;
   @media (max-width: 768px) {
-    padding-bottom: 15%;
-    padding-top: 15%;  
+    flex-direction: column;
   }
 }
 
-.svg1 {
-  display: none;
-  @media (min-width: 1140px) { 
-    display: block;
-    z-index: 2;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
+section {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  flex-grow: 1;
+}
+
+article {
+  padding: 60px 100px;
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.skew {
+  position: absolute;
+  @media (max-width: 768px) {
+    display: none;
   }
 }
 
-.svg2 {
-  display: none;
-  @media (min-width: 1140px) {  
-    display: block;
-    position: absolute;
-    top: 40%;
-    left:0;
-    right: 0;
+.skew.main {
+  top: 0;
+  left: 58%;
+  width: 120px;
+  height: calc(100%);
+  fill: #fff;
+}
+
+.video {
+  width: 58%;
+  @media (max-width: 768px) {
     width: 100%;
   }
 }
 
-.centered-icon {
-  transform: scale(2);
-  z-index: 2;
-  //position: absolute;
-  position: relative;
-  display: block;
-  margin: auto;
+.video article {
+  padding-right: 50px;
+  @media (max-width: 768px) {
+    padding-right: 20px;
+  }
+}
+
+.actions {
+  width: 42%;
+  overflow: hidden;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.actions .skew {
+  top: 45%;
   left: 0;
-  right: 0;
-  text-align: center;
-  transform: translate(0,50%);
+  width: 100%;
+  height: 10%;
+  fill: #1872d9;
 }
 
-.left {
-  padding-left: 5vw;
-  padding-right: 5vw;
-  @media (min-width: 768px) {  
-    min-height: 100vh;
-  }
+.actions .icon {
+  opacity: 0.15;
+  font-size: 120px;
+  transform: scale(2);
+  transform-origin: top;
 }
 
-.top-right {
-  height: 40%;
-  background-color: #1872d9;
+.actions .cta {
+  position: relative;
+}
+
+.estimer,
+.participer {
+  color: #fff;
+}
+
+.estimer h1,
+.participer h1 {
+  color: inherit;
+}
+
+.estimer p,
+.participer p {
+  max-width: 600px;
+  margin: 0 auto 2.5em;
+}
+
+.estimer .skew,
+.participer .skew {
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 120px;
+}
+
+.participer {
+  background: #1872d9;
+}
+
+.home .participer {
+  height: 45%;
+}
+
+.participer .cta {
+  color: #1872d9;
+}
+
+.estimer {
+  background: #00aac1;
+}
+
+.home .estimer {
+  height: 55%;
+  padding-left: 160px;
   @media (max-width: 768px) {
-    height: 50%;  
+    padding-left: 20px;
   }
+
 }
 
-.bottom-right {
-  height: 60%;
-  background-color: #00aac1;
-  @media (max-width: 768px) {
-    height: 50%;  
-  }
+.estimer .skew {
+  fill: #00aac1;
 }
 
-.chart-icon .text-explain {
-  @media (min-width: 768px) {
-    padding-top: 50%;
-  }
+.estimer .cta {
+  color: #00aac1;
 }
 
-.iframe-container {
-  height: 60%;
-  
-  @media (max-width: 1400px) {  
-    height: 55%;
-  }
-
-  @media (max-width: 1200px) {  
-    height: 50%;
-  }
-
-  @media (max-width: 700px) {  
-    height: 35%;
-  }
-
-  @media (max-width: 400px) {  
-    height: 25%;
-  }
+.cta {
+  font: inherit;
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  background: none;
+  color: #fff;
+  padding: 0.75em 2em;
+  min-height: 46px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease-in-out;
 }
 
-.video {
+.cta.blue {
+  background: #1872d9;
+}
+
+.cta.green {
+  background: #00aac1;
+}
+
+.cta.white {
+  background: #fff;
+  color: inherit;
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+}
+
+.icon svg {
   width: 100%;
   height: 100%;
+  fill: currentColor;
+  vertical-align: unset !important;
 }
