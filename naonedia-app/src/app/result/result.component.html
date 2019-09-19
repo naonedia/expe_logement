@@ -15,12 +15,12 @@
       <div *ngIf="isEstimation">
         <h1 class="text-center align-middle text-light pb-3 pt-3">{{ price }} € </h1>
         <p [translate]="'result.text'" class="text-center align-middle text-light pb-3 pt-3 bg-success"></p>
-        <form (ngSubmit)="onSubmit()" class="bg-success">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="bg-success">
           <div class="row pb-3 pt-3 justify-content-center">
             <div class="col-md-2 mb-1 mt-1">
               <div class="input-group">
                 <input class="form-control bg-success border-light text-light" type="number"
-                  [(ngModel)]="userInput.price" placeholder="{{ 'model.input.price' | translate }}" name="price"
+                  formControlName="price" placeholder="{{ 'model.input.price' | translate }}" name="price"
                   numbersOnly />
                 <div class="input-group-append">
                   <span class="input-group-text bg-success border-light text-light">€</span>
@@ -29,13 +29,27 @@
             </div>
             <div class="col-md-2 mb-1 mt-1">
               <input class="form-control bg-success border-light text-light rounded-pill" type="number"
-                placeholder="{{ 'model.input.year' | translate }}" [(ngModel)]="userInput.year" name="year"
+                placeholder="{{ 'model.input.year' | translate }}" formControlName="year" name="year"
                 numbersOnly />
             </div>
 
             <div class="col-md-2 mb-1 mt-1">
-              <button [translate]="'global.button.validate'" type="submit"
-                class="btn btn-light btn-md btn-block text-success text-uppercase rounded-pill"></button>
+                <input class="form-control bg-success border-light text-light rounded-pill" type="number"
+                  placeholder="{{ 'model.input.month' | translate }}" formControlName="month" name="year"
+                  numbersOnly />
+              </div>
+
+            <div class="col-md-2 mb-1 mt-1">
+              <button [disabled]="!form.valid || loading" type="submit"
+                class="btn btn-light btn-md btn-block text-success text-uppercase rounded-pill">
+                <div *ngIf="!loading">
+                    {{ 'global.button.validate' | translate }}
+                  </div>
+                  <div *ngIf="loading">
+                    <span class="spinner-grow" role="status" aria-hidden="true"></span>
+                    {{ 'global.button.loading' | translate }}
+                  </div>
+              </button>
             </div>
           </div>
         </form>

@@ -100,6 +100,9 @@ export class ParticipateComponent implements OnInit, AfterViewInit {
             groundSurface !== null &&
             groundSurfaceTotal >= groundSurface &&
             groundSurfaceCarrez !== null &&
+            groundSurface > 0 &&
+            groundSurfaceCarrez > 0 &&
+            groundSurfaceTotal > 0 &&
             groundSurfaceTotal >= groundSurfaceCarrez;
 
     }
@@ -110,6 +113,8 @@ export class ParticipateComponent implements OnInit, AfterViewInit {
 
         return groundSurface !== null &&
             groundSurfaceCarrez !== null &&
+            groundSurface > 0 &&
+            groundSurfaceCarrez > 0 &&
             groundSurface >= groundSurfaceCarrez;
     }
 
