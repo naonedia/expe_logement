@@ -3,7 +3,7 @@
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="row justify-content-center pb-3 pt-3">
       <legend class="text-center align-middle" [translate]="'model.input.type'"></legend>
-      <input type="radio" name="type" id="house" value='house' formControlName="type" checked>
+      <input type="radio" name="type" id="house" value='Maison' formControlName="type" checked>
       <label for="house">
         <i class="icon">
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 463 463">
@@ -20,7 +20,7 @@
         <span class="text-center align-middle">{{ 'houseType.house' | translate | uppercase }}</span>
       </label>
 
-      <input type="radio" name="type" id="flat" value='flat' formControlName="type">
+      <input type="radio" name="type" id="flat" value='Appartement' formControlName="type">
       <label for="flat">
         <i class="icon">
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xml:space="preserve">
