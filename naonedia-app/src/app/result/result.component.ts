@@ -43,14 +43,6 @@ export class ResultComponent {
         private loaderService: LoaderService,
         private formBuilder: FormBuilder
     ) {
-
-        this.form = this.formBuilder.group({
-            price: [this.userInput.price, [Validators.required]],
-            month: [this.userInput.month, [Validators.required]],
-            year: [this.userInput.year, [Validators.required]]
-        }, { validator: FormValidator });
-
-
         const extras = this.router.getCurrentNavigation().extras;
         if (extras.state && extras.state.price) {
             this.price = extras.state.price;
@@ -64,6 +56,12 @@ export class ResultComponent {
             this.router.navigate(['accessdenied']);
         }
 
+        this.form = this.formBuilder.group({
+            price: [this.userInput.price, [Validators.required]],
+            month: [this.userInput.month, [Validators.required]],
+            year: [this.userInput.year, [Validators.required]]
+        }, { validator: FormValidator });
+        
         this.loaderService.isLoading.subscribe((v) => {
             this.loading = v;
         });
