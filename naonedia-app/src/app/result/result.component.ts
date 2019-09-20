@@ -61,12 +61,12 @@ export class ResultComponent {
             month: [this.userInput.month, [Validators.required]],
             year: [this.userInput.year, [Validators.required]]
         }, { validator: FormValidator });
-        
+
         this.loaderService.isLoading.subscribe((v) => {
             this.loading = v;
         });
 
-        this.gap = Math.abs(100 - this.price * 100 / this.userInput.price).toFixed(0);
+        this.gap = Math.abs(100 - this.price * 100 / this.userInput.price).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 
     }
 
