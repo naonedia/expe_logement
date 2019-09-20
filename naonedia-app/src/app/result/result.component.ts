@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ParticipateInput } from '../shared/model/participateInput.model';
 import { PredictService, LoaderService } from '../service';
 import { FormGroup, FormBuilder, Validators, ValidatorFn } from '@angular/forms';
+import { MonthEnums } from '../shared/model/months.model';
 
 const FormValidator: ValidatorFn = (fg: FormGroup) => {
     const price = fg.get('price').value;
@@ -36,6 +37,9 @@ export class ResultComponent {
 
     form: FormGroup;
 
+    months = MonthEnums;
+    monthsKeys = Object.keys(MonthEnums).filter(Number);
+
     constructor(
         private router: Router,
         private predictService: PredictService,
@@ -66,10 +70,18 @@ export class ResultComponent {
             this.loading = v;
         });
 
-        this.gap = Math.abs(100 - this.price * 100 / this.userInput.price).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+        this.gap = Math.abs(100 - this.price * 100 / this.userInput.price).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 
     }
 
+    validYear() {
+        const year = this.form.get('year').value;
+
+        return year >= 2005 &&
+            year <= 2018 &&
+            year <= new Date().getFullYear();
+    }
+    
     onSubmit() {
         this.userInput.price = this.form.get('price').value;
         this.userInput.month = this.form.get('month').value;

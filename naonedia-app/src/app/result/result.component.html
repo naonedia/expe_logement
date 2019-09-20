@@ -19,36 +19,35 @@
           <div class="row pb-3 pt-3 justify-content-center">
             <div class="col-md-2 mb-1 mt-1">
               <div class="input-group">
-                <input class="form-control bg-success border-light text-light" type="number"
-                  formControlName="price" placeholder="{{ 'model.input.price' | translate }}" name="price"
-                  numbersOnly />
+                <input class="form-control bg-success border-light text-light" type="number" formControlName="price"
+                  placeholder="{{ 'model.input.price' | translate }}" name="price" numbersOnly />
                 <div class="input-group-append">
                   <span class="input-group-text bg-success border-light text-light">€</span>
                 </div>
               </div>
             </div>
             <div class="col-md-2 mb-1 mt-1">
-              <input class="form-control bg-success border-light text-light rounded-pill" type="number"
-                placeholder="{{ 'model.input.year' | translate }}" formControlName="year" name="year"
-                numbersOnly />
+              <input class="form-control bg-success border-light text-light rounded-pill" type="number" [ngClass]="validYear() ? 'border-light':'border-danger'"
+                placeholder="{{ 'model.input.year' | translate }}" formControlName="year" name="year" numbersOnly />
             </div>
 
             <div class="col-md-2 mb-1 mt-1">
-                <input class="form-control bg-success border-light text-light rounded-pill" type="number"
-                  placeholder="{{ 'model.input.month' | translate }}" formControlName="month" name="year"
-                  numbersOnly />
-              </div>
+              <select class="form-control bg-primary text-light rounded-pill" formControlName="month"
+                [ngClass]="form.get('month').valid ? 'border-light':'border-danger'" name="month">
+                <option *ngFor="let key of monthsKeys" [ngValue]="key">{{ months[key] | translate }}</option>
+              </select>
+            </div>
 
             <div class="col-md-2 mb-1 mt-1">
               <button [disabled]="!form.valid || loading" type="submit"
                 class="btn btn-light btn-md btn-block text-success text-uppercase rounded-pill">
                 <div *ngIf="!loading">
-                    {{ 'global.button.validate' | translate }}
-                  </div>
-                  <div *ngIf="loading">
-                    <span class="spinner-grow" role="status" aria-hidden="true"></span>
-                    {{ 'global.button.loading' | translate }}
-                  </div>
+                  {{ 'global.button.validate' | translate }}
+                </div>
+                <div *ngIf="loading">
+                  <span class="spinner-grow" role="status" aria-hidden="true"></span>
+                  {{ 'global.button.loading' | translate }}
+                </div>
               </button>
             </div>
           </div>

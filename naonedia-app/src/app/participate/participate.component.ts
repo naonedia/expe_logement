@@ -121,7 +121,8 @@ export class ParticipateComponent implements OnInit, AfterViewInit {
     validYear() {
         const year = this.form.get('year').value;
 
-        return year >= 1985 &&
+        return year >= 2005 &&
+            year <= 2018 &&
             year <= new Date().getFullYear();
     }
 
