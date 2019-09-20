@@ -81,7 +81,7 @@ export class ResultComponent {
             year <= 2018 &&
             year <= new Date().getFullYear();
     }
-    
+
     onSubmit() {
         this.userInput.price = this.form.get('price').value;
         this.userInput.month = this.form.get('month').value;
