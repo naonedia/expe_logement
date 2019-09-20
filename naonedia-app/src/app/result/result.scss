@@ -25,7 +25,7 @@ p {
 .top {
     height: 50%;
     @media screen and (max-width:540px){
-        height: 50%;
+        height: 75vh;
     }
 }
 
@@ -34,7 +34,7 @@ p {
     height: 50%;
     @media screen and (max-width:540px){
         padding-top: 5%;
-        height: 50%;
+        height: 25vh;
     }
 }
 
