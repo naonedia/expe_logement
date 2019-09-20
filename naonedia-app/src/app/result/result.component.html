@@ -32,7 +32,7 @@
             </div>
 
             <div class="col-md-2 mb-1 mt-1">
-              <select class="form-control bg-primary text-light rounded-pill" formControlName="month"
+              <select class="form-control bg-success text-light rounded-pill" formControlName="month"
                 [ngClass]="form.get('month').valid ? 'border-light':'border-danger'" name="month">
                 <option *ngFor="let key of monthsKeys" [ngValue]="key">{{ months[key] | translate }}</option>
               </select>
