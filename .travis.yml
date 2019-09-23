@@ -16,9 +16,10 @@ install:
 - npm install
 - npm run lint
 - ng build --prod --output-path ../nginx/www
-- cd ..
-- cd nginx
-- ls
+
+script:
+  - cd nginx
+  - ls
 
 deploy:
   provider: gae
