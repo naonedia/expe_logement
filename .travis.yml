@@ -19,13 +19,12 @@ install:
 - cd ..
 
 script:
-  - cd nginx
-  - ls
+  - ls nginx/www
 
 deploy:
   provider: gae
-  keyfile: "../client-secret.json"
+  keyfile: "client-secret.json"
   project: "naonoedia"
-  config: "app.yml"
+  config: "nginx/app.yml"
   on:
     branch: master
