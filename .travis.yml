@@ -14,8 +14,6 @@ before_install:
 install:
 - cd naonedia-app
 - npm install
-
-script:
 - npm run lint
 - ng build --prod --output-path ../nginx/www
 - cd ..
