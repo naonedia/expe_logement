@@ -42,7 +42,17 @@ const FormValidator: ValidatorFn = (fg: FormGroup) => {
         month !== null &&
         price !== null &&
         groundSurface >= groundSurfaceCarrez &&
-        groundSurfaceTotal >= groundSurface ? null : { range: true };
+        groundSurfaceTotal >= groundSurface &&
+        groundSurface > 0 &&
+        groundSurfaceCarrez > 0 &&
+        groundSurfaceTotal > 0 &&
+        groundSurfaceTotal >= groundSurfaceCarrez && 
+        roomNumber > 0 &&
+        year >= 2005 &&
+        year <= 2018 &&
+        month >= 1 &&
+        month <= 12 &&
+        price > 0 ? null : { range: true };
 };
 
 @Component({
@@ -124,6 +134,13 @@ export class ParticipateComponent implements OnInit, AfterViewInit {
         return year >= 2005 &&
             year <= 2018 &&
             year <= new Date().getFullYear();
+    }
+
+    validPrice() {
+        const price = this.form.get('price').value;
+
+        return price !== null &&
+            price > 0;
     }
 
     ngOnInit() {
