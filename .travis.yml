@@ -19,12 +19,13 @@ script:
 - npm run lint
 - ng build --prod --output-path ../nginx/www
 - cd ..
-- ls nginx/www
+- cd nginx
+- ls
 
 deploy:
   provider: gae
-  keyfile: "client-secret.json"
+  keyfile: "../client-secret.json"
   project: "naonoedia"
-  config: "nginx/app.yml"
+  config: "app.yml"
   on:
     branch: master

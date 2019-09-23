@@ -20,9 +20,6 @@ RUN mkdir -p /usr/share/nginx/www/_ah && \
     echo "healthy" > /usr/share/nginx/www/_ah/health
 
 # Finally, all static assets.
-RUN pwd
-RUN ls
-
 RUN ls /usr/share/nginx/
 
 ADD www /usr/share/nginx/www/
