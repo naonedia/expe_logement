@@ -19,7 +19,8 @@
         },
         "footer": {
             "contact": "Contact : ",
-            "other": "Other sites : "
+            "other": "Other sites : ",
+            "code": "Source code on"
         },
         "error": {
             "title": "Error Page!"
