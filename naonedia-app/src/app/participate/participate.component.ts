@@ -46,7 +46,7 @@ const FormValidator: ValidatorFn = (fg: FormGroup) => {
         groundSurface > 0 &&
         groundSurfaceCarrez > 0 &&
         groundSurfaceTotal > 0 &&
-        groundSurfaceTotal >= groundSurfaceCarrez && 
+        groundSurfaceTotal >= groundSurfaceCarrez &&
         roomNumber > 0 &&
         year >= 2005 &&
         year <= 2018 &&
