@@ -22,5 +22,5 @@ RUN mkdir -p /usr/share/nginx/www/_ah && \
 # Finally, all static assets.
 RUN ls /usr/share/nginx/
 
-ADD www /usr/share/nginx/www/
+ADD nginx/www /usr/share/nginx/www/
 RUN chmod -R a+r /usr/share/nginx/www
