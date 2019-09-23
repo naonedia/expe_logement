@@ -19,6 +19,8 @@ install:
 - cd ..
 
 script:
+  - touch nginx/test.txt
+  - ls nginx
   - ls nginx/www
 
 deploy:
