@@ -16,6 +16,7 @@ install:
 - npm install
 - npm run lint
 - ng build --prod --output-path ../nginx/www
+- cd ..
 
 script:
   - cd nginx
