@@ -1,4 +1,7 @@
+
 # Expe-logement
+![Travis (.org) branch](https://img.shields.io/travis/naonedia/expe_logement/master)  
+
 Project on housing to discover artificial intelligence.
 
 ## Front-End development server

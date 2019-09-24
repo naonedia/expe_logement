@@ -169,7 +169,7 @@
           <input class="form-control bg-primary border-light text-light" type="number" formControlName="price"
             [ngClass]="validPrice() ? 'border-light':'border-danger'" name="price" numbersOnly />
           <div class="input-group-append">
-            <span class="input-group-text bg-primary border-light text-light">€</span>
+            <span class="input-group-text bg-primary border-light text-light" [ngClass]="validPrice() ? 'border-light':'border-danger'">€</span>
           </div>
         </div>
       </div>
