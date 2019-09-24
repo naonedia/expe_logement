@@ -16,12 +16,9 @@ install:
 - npm install
 - npm run lint
 - ng build --prod --output-path ../nginx/www
-- cd ..
 
 script:
-  - touch nginx/test.txt
-  - ls nginx
-  - ls nginx/www
+  - cd ..
 
 deploy:
   skip_cleanup: true
