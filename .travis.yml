@@ -24,6 +24,7 @@ script:
   - ls nginx/www
 
 deploy:
+  skip_cleanup: true
   provider: gae
   keyfile: "client-secret.json"
   project: "naonoedia"
