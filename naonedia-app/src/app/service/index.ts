@@ -1,3 +1,4 @@
+export * from './data.service';
 export * from './loader.service';
 export * from './pelias.service';
 export * from './predict.service';

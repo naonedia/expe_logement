@@ -1,0 +1,27 @@
+@import '../../assets/scss/bootstrap-variables';
+
+#pie {
+    svg {
+        display: block;
+        margin: auto;
+    }
+    width: 90%;
+    height: 90%;
+}
+
+div.tooltip {
+    position: absolute;
+    text-align: center;
+    width: 80px;
+    height: 40px;
+    padding: 5px;
+    font: 12px sans-serif;
+    background: black;
+    color: white;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+    vertical-align: middle;
+    z-index: 10;
+}
+
