@@ -1,0 +1,17 @@
+@import '../../assets/scss/bootstrap-variables';
+
+.visualization {
+  min-height: 100vh;
+}
+
+.top {
+  min-height: 20vh;
+}
+
+.middle, .bottom {
+  min-height: 40vh;
+}
+
+#bar-chart-1, #bar-chart-2, #bar-chart-3, #bar-chart-4 {
+  height: 100%;
+}

@@ -1,0 +1,28 @@
+<div class="visualization">
+  <div class="row top bg-primary">
+    <div class="col">
+      <h1 [translate]="'global.menu.estimate'" class="text-center align-middle text-light pt-5"></h1>
+    </div>
+  </div>
+
+  <div class="row middle bg-primary">
+    <div class="col">
+        <app-pie-chart class=""></app-pie-chart>
+    </div>
+    <div class="col">
+        <app-bar-chart class=""></app-bar-chart>
+    </div>
+  </div>
+
+
+
+
+  <div class="row bottom justify-content-center">
+    <div class="col">
+      <div #barChart1 id="bar-chart-1" (window:resize)="onResize($event)"></div>
+    </div>
+    <div class="col">
+      <div #barChart2 id="bar-chart-2" (window:resize)="onResize($event)"></div>
+    </div>
+  </div>
+</div>

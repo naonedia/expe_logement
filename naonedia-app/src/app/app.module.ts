@@ -30,6 +30,7 @@ import { Injector, APP_INITIALIZER } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { LOCATION_INITIALIZED } from '@angular/common';
 import { LoaderInterceptor } from './core/loader.interceptor';
+import { VisualizationModule } from './visualization/visualization.module';
 
 export function appInitializerFactory(translate: TranslateService, injector: Injector) {
   return () => new Promise<any>((resolve: any) => {
@@ -63,6 +64,7 @@ export function appInitializerFactory(translate: TranslateService, injector: Inj
     HealthcheckModule,
     ExplainModule,
     AboutModule,
+    VisualizationModule,
     CoreModule,
 
     // Configure i18n
