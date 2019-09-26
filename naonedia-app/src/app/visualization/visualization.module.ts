@@ -6,10 +6,11 @@ import { VISUALIZATION_ROUTE } from './visualization.route';
 import { VisualizationComponent } from './visualization.component';
 import { BarChartComponent } from '../bar-chart';
 import { PieChartComponent } from '../pie-chart';
+import { LineChartComponent } from '../line-chart';
 
 @NgModule({
     imports: [SharedModule, RouterModule.forChild([VISUALIZATION_ROUTE])],
-    declarations: [VisualizationComponent, BarChartComponent, PieChartComponent],
+    declarations: [VisualizationComponent, BarChartComponent, PieChartComponent, LineChartComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class VisualizationModule {}

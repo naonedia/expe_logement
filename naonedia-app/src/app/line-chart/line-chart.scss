@@ -14,12 +14,7 @@ div.tooltip {
     z-index: 10;
 }
 
-:host {
-    width: 100%;
-    height: 100%;
-}
-
-#bar {
+#line {
     svg {
         text.label {
             fill: black;

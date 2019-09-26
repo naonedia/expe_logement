@@ -22,17 +22,11 @@ export class LineChartComponent implements OnInit {
   get width(): number {
     return parseInt(d3.select('body').style('width'), 10);
   }
-  get barWidth(): number {
-    return this.chartContainer1.nativeElement.offsetWidth - this.margin.left - this.margin.right;
-  }
-  get barHeight(): number {
-    return this.chartContainer1.nativeElement.offsetHeight - this.margin.top - this.margin.bottom;
-  }
 
   // group containers
   private gx: any; // X axis
   private gy: any; // Y axis
-  private bars: any; // Bars
+  private line: d3.Line<[number, number]>; // Line
   private labels: any; // Labels
 
   // Scales and Axis
@@ -46,39 +40,33 @@ export class LineChartComponent implements OnInit {
   private svg: any;
   private mainContainer: any;
 
-  dataSource: Item[];
+  dataSource: any[];
   total: number;
   percentage = 5;
 
   constructor(private service: DataService) {
     const tmp = this.service.getData();
-    
 
-    this.dataSource = [
-      {
-        value: tmp.filter(values => values < this.percentage).length,
-        name: `Inferior < ${this.percentage} %`
-      },
-      {
-        value: tmp.filter(val => val >= this.percentage).length,
-        name: `Superior < ${this.percentage} %`
-      }
-    ]
+    this.dataSource = tmp.map((val, index) => { return { value: val, epochs: index } });
 
-    this.total = this.dataSource.reduce((sum, it) => sum += it.value, 0);
+
+    this.total = this.dataSource.reduce((sum, it) => sum += it, 0);
+
+    console.log(this.dataSource)
+
   }
 
   ngOnInit() {
     this.svg = d3.select('#line').select('svg');
-    this.xScale = d3.scaleBand();
-    this.yScale = d3.scaleLinear();
-    this.initSvg();
 
     this.tooltip = d3.select('#line')
       .append('div')
+      .style('opacity', 0)
       .attr('class', 'tooltip')
-      .style('display', 'none')
-      .style('opacity', 0);
+    this.initSvg();
+
+
+    console.log(this.tooltip)
   }
 
   private initSvg() {
@@ -96,80 +84,21 @@ export class LineChartComponent implements OnInit {
     window.addEventListener('resize', this.resize.bind(this));
   }
 
-  private drawBars() {
-    this.bars = this.mainContainer.selectAll('.line')
-      .remove()
-      .exit()
-      .data(this.dataSource)
-      .enter().append('rect')
-      .attr('class', d => d.value > 0 ? 'bar bar--positive' : 'bar bar--negative');
+  private drawLine() {
+    var thisXScale = this.xScale;
+    var thisYScale = this.yScale;
 
-    this.bars
-      .attr('x', d => this.xScale(d.name))
-      .attr('y', this.yScale(0))
-      .attr('width', this.xScale.bandwidth())
-      .transition()
-      .ease(d3.easeBounce)
-      .duration(1000)
-      .delay((d, i) => i * 80)
-      .attr('y', d => this.yScale(d.value))
-      .attr('height', d => Math.abs(this.yScale(d.value) - this.yScale(0)));
+    this.line = d3.line()/* .curve(d3.curveLinear) */
+      .x(function (d: any) { return thisXScale(d.epochs) })
+      .y(function (d: any) { return thisYScale(d.value); });
 
-    this.bars
-      .on('mousemove', function (s) {
-        const percent = (Math.abs(s.value / this.total) * 100).toFixed(2) + '%';
-        this.tooltip
-          .style('top', (d3.event.layerY + 15) + 'px')
-          .style('left', (d3.event.layerX) + 'px')
-          .style('display', 'block')
-          .style('opacity', 1)
-          .style('height', '40px')
-          .html('name: ' + s.name + '<br>' +
-            'value: ' + s.value + '<br>' +
-            'share: ' + percent);
-      }.bind(this))
-      .on('mouseover', function (data, i, arr) {
-        const interval = 3;
-
-        d3.select(arr[i])
-          .transition()
-          .ease(d3.easeBounce)
-          .duration(150)
-          .attr('fill', 'gray')
-          .attr('x', d => this.xScale(d['name']) - interval)
-          .attr('width', this.xScale.bandwidth() + interval * 2)
-          .attr('y', d => this.yScale(d['value']) - interval)
-          .attr('height', d => Math.abs(this.yScale(d['value']) - this.yScale(0)) + interval);
-
-        d3.select(this.labels._groups[0][i])
-          .transition()
-          .ease(d3.easeBounce)
-          .duration(150)
-          .style('color', 'gray')
-          .attr('y', d => this.yScale(d['value']) + (-5 - interval));
-      }.bind(this))
-      .on('mouseout', function (data, i, arr) {
-        this.tooltip.style('display', 'none');
-        this.tooltip.style('opacity', 0);
-
-        d3.select(arr[i])
-          .transition()
-          .ease(d3.easeBounce)
-          .duration(150)
-          .attr('fill', 'black')
-          .attr('x', d => this.xScale(d['name']))
-          .attr('width', this.xScale.bandwidth())
-          .attr('y', d => this.yScale(d['value']))
-          .attr('y', d => this.yScale(d['value']))
-          .attr('height', d => Math.abs(this.yScale(d['value']) - this.yScale(0)));
-
-        d3.select(this.labels._groups[0][i])
-          .transition()
-          .ease(d3.easeBounce)
-          .duration(150)
-          .style('color', 'black')
-          .attr('y', d => this.yScale(d['value']) - 5);
-      }.bind(this));
+    this.mainContainer.append('path')
+      .datum(this.dataSource)
+      .attr('class', 'line')
+      .attr("stroke-width", 1)
+      .attr("stroke", "black")
+      .attr("fill", "none")
+      .attr('d', this.line)
   }
 
   private drawAxis() {
@@ -184,23 +113,30 @@ export class LineChartComponent implements OnInit {
   }
 
   private setAxisScales() {
-    this.xScale = d3.scaleBand();
+    this.xScale = d3.scaleLinear();
     this.yScale = d3.scaleLinear();
 
     this.xScale
-      .rangeRound([0, this.barWidth]).padding(.1)
-      .domain(this.dataSource.map(d => d.name));
+      .range([0, this.chartContainer1.nativeElement.offsetWidth - this.margin.left - this.margin.right])
+      .domain(d3.extent(this.dataSource, (d) => d.epochs));
+
     this.yScale
-      .range([this.barHeight, 0])
+      .range([this.chartContainer1.nativeElement.offsetHeight - this.margin.top - this.margin.bottom, 0])
+      //.domain(d3.extent(this.dataSource, (d) => d.value))
       .domain([0, Math.max(...this.dataSource.map(x => x.value))]);
     this.xAxis = d3.axisBottom(this.xScale);
     this.yAxis = d3.axisLeft(this.yScale);
+
+    console.log('width ' + (this.chartContainer1.nativeElement.offsetWidth));
+    console.log('height ' + (this.chartContainer1.nativeElement.offsetHeight));
+    console.log('width fix ' + (this.chartContainer1.nativeElement.offsetWidth - this.margin.left - this.margin.right));
+    console.log('height fix ' + (this.chartContainer1.nativeElement.offsetHeight - this.margin.top - this.margin.bottom));
   }
 
   private draw() {
     this.setAxisScales();
     this.drawAxis();
-    this.drawBars();
+    this.drawLine();
     this.drawLabels();
   }
 
@@ -212,22 +148,60 @@ export class LineChartComponent implements OnInit {
 
   private repaint() {
     this.drawAxis();
-    this.drawBars();
+    this.drawLine();
     this.drawLabels();
   }
 
   private drawLabels() {
-    this.labels = this.mainContainer.selectAll('.label')
-      .remove()
-      .exit()
+    const thisTooltip = this.tooltip;
+
+    this.labels = this.mainContainer.selectAll('.dot')
       .data(this.dataSource)
-      .enter().append('text')
-      .attr('class', 'label')
-      .attr('x', d => this.xScale(d.name) + (this.xScale.bandwidth() / 2))
-      .attr('y', d => this.yScale(d.value) + (d.value < 0 ? 15 : -5))
+      .enter().append('circle')
+      .attr("r", 5)
+      .on('mouseover', function (data, i, arr) {
+        const interval = 3;
+
+        thisTooltip
+          .style('top', (d3.event.layerY + 15) + 'px')
+          .style('left', (d3.event.layerX) + 'px')
+          .style('display', 'block')
+          .style('opacity', 1)
+          .style('height', '40px')
+          .html('value: ' + data.value + '<br>' +
+            'epochs: ' + data.epochs + '<br>');
+
+        d3.select(arr[i])
+          .transition()
+          .ease(d3.easeBounce)
+          .duration(150)
+          .attr('fill', 'blue');
+
+      })
+      .on('mouseout', function (data, i, arr) {
+        thisTooltip.style('display', 'none');
+        thisTooltip.style('opacity', 0);
+
+        d3.select(arr[i])
+          .transition()
+          .ease(d3.easeBounce)
+          .duration(150)
+          .attr('fill', 'black');
+
+      })
+
       .transition()
       .duration(1500)
       .delay((d, i) => 1000 + i * 100)
-      .text(d => Math.floor(d.value));
+      .attr("class", "myCircle")
+      .attr('cx', d => this.xScale(d.epochs))
+      .attr('cy', d => this.yScale(d.value))
+      .attr('x', d => d.epochs)
+      .attr('y', d => d.value)
+
+
+
+
+
   }
 }
