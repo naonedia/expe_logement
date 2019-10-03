@@ -9,7 +9,7 @@
 
   <div class="row middle bg-primary">
     <div class="col">
-      <app-pie-chart class="p-1"></app-pie-chart>
+      <app-bar-chart class=""></app-bar-chart>
     </div>
     <div class="col">
       <app-line-chart class=""></app-line-chart>
@@ -21,10 +21,10 @@
 
   <div class="row bottom justify-content-center bg-success">
     <div class="col">
-      <app-bar-chart class=""></app-bar-chart>
+      <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
     </div>
-    <div class="col">
-      <div #barChart2 id="bar-chart-2" (window:resize)="onResize($event)"></div>
+    <div class="col m-2">
+      <app-pie-chart class=""></app-pie-chart>
     </div>
   </div>
 </div>

@@ -1,9 +1,6 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-
+import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Router } from '@angular/router';
-
-import * as d3 from "d3";
+import { Options } from 'ng5-slider';
 
 @Component({
     selector: 'app-visualization',
@@ -11,5 +8,11 @@ import * as d3 from "d3";
     styleUrls: ['visualization.scss']
 })
 export class VisualizationComponent {
-    constructor() {}
+    constructor(translateService: TranslateService) { }
+
+    value: number = 50;
+    options: Options = {
+        floor: 0,
+        ceil: 100
+    };
 }
