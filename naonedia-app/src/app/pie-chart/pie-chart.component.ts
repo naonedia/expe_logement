@@ -13,21 +13,15 @@ export class PieChartComponent implements OnInit {
   @ViewChild('pie')
   chartContainer1: ElementRef;
 
-  // Dimensions
-  get height(): number {
-    return parseInt(d3.select('body').style('height'), 10);
-  }
-  get width(): number {
-    return parseInt(d3.select('body').style('width'), 10);
-  }
   radius: number;
 
-  percentage = 5;
+  percentage = 50;
+  thickness = .65;
 
   // Arcs & pie
   private arc: any;
-  private hoveredArc: any;
-  private arcLabel: any;
+  private circleText: any;
+  private circleTitle: any;
   private pie: any;
   private slices: any;
 
@@ -39,6 +33,7 @@ export class PieChartComponent implements OnInit {
 
   private texts: any;
 
+
   dataSource: Item[];
   total: number;
 
@@ -49,36 +44,45 @@ export class PieChartComponent implements OnInit {
     this.dataSource = [
       {
         value: tmp.filter(values => values < this.percentage).length,
-        name: `Inferior < ${this.percentage} %`
+        name: `Inferior to ${this.percentage} %`
       },
       {
         value: tmp.filter(val => val >= this.percentage).length,
-        name: `Superior < ${this.percentage} %`
+        name: `Superior to ${this.percentage} %`
       }
     ]
 
     this.total = this.dataSource.reduce((sum, it) => sum += it.value, 0);
-
-    console.log(this.dataSource)
   }
 
   ngOnInit() {
-
     this.svg = d3.select('#pie').select('svg');
     this.initSvg();
   }
 
   private initSvg() {
 
+    this.radius = (Math.min(this.chartContainer1.nativeElement.offsetWidth, this.chartContainer1.nativeElement.offsetHeight)) / 2;
+
     this.setSVGDimensions();
 
-    // Color scale.
-    //this.color = d3.scaleOrdinal(d3.schemeCategory10);
-    this.color = ['#ffc107', '#dc3545']
+    var tmp = this.mainContainer.append('g');
 
-    this.mainContainer = this.svg.append('g')
-      .attr('transform', 'translate(' + this.radius + ',' + this.radius + ')');
+    tmp = tmp.append('text')
+      .attr('class', 'label')
+      .attr("text-anchor", "middle")
+      .style('font-weight', 'bold');
 
+    this.circleTitle = tmp.append('tspan')
+      //.filter(d => (d.endAngle - d.startAngle) > 0.05)
+      .attr('x', 0)
+      .attr('y', 0)
+      .style('font-weight', 'bold')
+
+    this.circleText = tmp.append('tspan')
+      //filter(d => (d.endAngle - d.startAngle) > 0.25)
+      .attr('x', 0)
+      .attr('y', '1.3em')
 
     this.pie = d3.pie()
       .sort(null)
@@ -89,8 +93,8 @@ export class PieChartComponent implements OnInit {
   }
 
   private setSVGDimensions() {
-
-    this.radius = (Math.min(this.chartContainer1.nativeElement.offsetWidth, this.chartContainer1.nativeElement.offsetHeight)) / 2;
+    this.mainContainer = this.svg.append('g')
+    .attr('transform', 'translate(' + this.radius + ',' + this.radius + ')');
 
     this.svg
       .attr('width', this.radius * 2)
@@ -100,38 +104,51 @@ export class PieChartComponent implements OnInit {
   private draw() {
     this.setArcs();
     this.drawSlices();
-    this.drawLabels();
   }
 
   private setArcs() {
-    const thickness = .65;
     this.arc = d3.arc()
       .outerRadius(this.radius)
       .innerRadius(0)
-      .innerRadius(this.radius * thickness);
+      .innerRadius(this.radius * this.thickness);
+  }
 
-    this.arcLabel = d3.arc()
-      .innerRadius(this.radius * .8)
-      .outerRadius(this.radius * .8);
+  pathAnim(path, dir, thisRadius, thisColor) {
+    switch (dir) {
+      case 0:
+        path
+          .style("fill", function (d) { return d3.rgb(thisColor).darker(-0.1); })
+          .style("stroke", function (d) { return d3.rgb(thisColor).darker(-0.3); })
+
+          .transition()
+          .duration(500)
+          .ease(d3.easeBounce)
+          .attr('d', d3.arc()
+            .innerRadius(thisRadius * 0.65)
+            .outerRadius(thisRadius));
+        break;
+
+      case 1:
+        path
+          .style("fill", function (d) { return d3.rgb(thisColor).darker(0.1); })
+          .style("stroke", function (d) { return d3.rgb(thisColor).darker(0.3); })
+          .transition()
+          .duration(500)
+          .ease(d3.easeBounce)
+          .attr('d', d3.arc()
+            .innerRadius(thisRadius * 0.55)
+            .outerRadius(thisRadius));
+        break;
+    }
   }
 
   private drawSlices() {
-    var tooltip = d3.select("body").append("div")
-      .attr("class", "tooltip")
-      .style("opacity", 0.5);
 
-    tooltip.append("rect")
-      .attr("width", 30)
-      .attr("height", 20)
-      .attr("fill", "#ffffff")
-      .style("opacity", 0.5);
-
-    tooltip.append("div")
-      .attr("x", 15)
-      .attr("dy", "1.2em")
-      .style("text-anchor", "middle")
-      .attr("font-size", "1.5em")
-      .attr("font-weight", "bold");
+    const circleText = this.circleText
+    const circleTitle = this.circleTitle
+    const pathAnim = this.pathAnim
+    const thisRadius = this.radius
+    const thisArc = this.arc
 
     this.slices = this.mainContainer.selectAll('path')
       .remove()
@@ -139,76 +156,49 @@ export class PieChartComponent implements OnInit {
       .data(this.pie(this.dataSource))
       .enter().append('g')
       .append('path')
-      .attr('d', this.arc);
+    //.attr('d', this.arc)
+
+    this.slices
+      .transition().delay(function (d, i) {
+        return i * 500;
+      }).duration(500)
+      .attrTween('d', function (d) {
+        var i = d3.interpolate(d.startAngle + 0.1, d.endAngle);
+        return function (t) {
+          d.endAngle = i(t);
+          return thisArc(d)
+        }
+      });
+
 
     this.slices
       .attr('fill', 'transparent')
-      .attr('fill', (d, i) => this.color[i])
+      .attr('class', (d, i) => 'color-' + i)
+      .style("stroke-width", "0.1em")
 
-      .on("mouseover", function () {
-        tooltip.style("display", null);
+      .on("mouseover", function (d, i) {
+        pathAnim(d3.select(this), 1, thisRadius, d3.select(this).style("fill"));
+        circleTitle.text(d.data.name)
+          .attr("fill", d3.select(this).style("fill"));
+        circleText.text(d.data.value)
+          .attr("fill", d3.select(this).style("fill"));
       })
-      .on("mousemove", function (d) {
-        tooltip.transition().duration(200)
-          .style("opacity", 0.9);
-        tooltip.select("div").html(d.data.name + " <br><strong>" + d.data.value + "</strong>")
-          .style("position", "fixed")
-          .style("text-align", "center")
-          .style("width", "120px")
-          .style("height", "45px")
-          .style("padding", "2px")
-          .style("font", "12px sans-serif")
-          .style("background", "lightsteelblue")
-          .style("border", "0px")
-          .style("border-radius", "8px")
-          .style("left", (d3.event.pageX + 15) + "px")
-          .style("top", (d3.event.pageY - 28) + "px");
-        d3.select(this.firstChild).transition()
-          .attr("d", this.arc);
-
+      .on("mouseout", function (d, i) {
+        pathAnim(d3.select(this), 0, thisRadius, d3.select(this).style("fill"));
+        circleTitle.text('')
+        circleText.text('')
       })
-      .on("mouseout", function () {
-        tooltip.style("display", "none")
-        d3.select(this.firstChild).transition()
-          .attr("d", this.arcLabel)
-          .attr("stroke", "none");
-      })
-  }
-
-  private drawLabels() {
-    this.texts = this.mainContainer.selectAll('text')
-      .remove()
-      .exit()
-      .data(this.pie(this.dataSource))
-      .enter().append('text')
-      .attr('text-anchor', 'middle')
-      .attr('transform', d => `translate(${this.arcLabel.centroid(d)})`)
-      .attr('dy', '0.35em');
-
-    this.texts.append('tspan')
-      .filter(d => (d.endAngle - d.startAngle) > 0.05)
-      .attr('x', 0)
-      .attr('y', 0)
-      .style('font-weight', 'bold')
-      .text(d => d.data.name);
-
-    this.texts.append('tspan')
-      .filter(d => (d.endAngle - d.startAngle) > 0.25)
-      .attr('x', 0)
-      .attr('y', '1.3em')
-      .attr('fill-opacity', 0.7)
-      .text(d => d.data.value.toLocaleString());
   }
 
   private resize() {
     this.setSVGDimensions();
     this.setArcs();
     this.repaint();
-    this.drawLabels();
   }
 
   private repaint() {
     this.drawSlices();
-    this.drawLabels();
   }
+
+
 }
