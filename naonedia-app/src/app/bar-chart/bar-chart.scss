@@ -1,8 +1,12 @@
+@import '../../assets/scss/bootstrap-variables';
+
 div.tooltip {
     position: absolute;
+    left: 50%;
+    top: 50%;
     text-align: center;
-    width: 80px;
-    height: 40px;
+    width: 150px;
+    height: 50px;
     padding: 5px;
     font: 12px sans-serif;
     background: black;
@@ -14,11 +18,10 @@ div.tooltip {
     z-index: 10;
 }
 
-
 #bar {
     svg {
         text.label {
-            fill: black;
+            fill: $light;
             font: 15px;
             font-weight: 400;
             text-anchor: middle;
@@ -27,6 +30,13 @@ div.tooltip {
         display: block;
         margin: auto;
     }
-    width: 90%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
+}
+
+.color-0{
+    fill: $warning;
+}
+.color-1{
+    fill: $danger;
 }

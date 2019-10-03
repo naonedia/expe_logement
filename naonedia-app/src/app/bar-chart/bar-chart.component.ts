@@ -16,17 +16,10 @@ export class BarChartComponent implements OnInit {
 
   private margin = { top: 20, right: 20, bottom: 20, left: 20 };
 
-  get height(): number {
-    return parseInt(d3.select('body').style('height'), 10);
-  }
-  get width(): number {
-    return parseInt(d3.select('body').style('width'), 10);
-  }
   get barWidth(): number {
     return this.chartContainer1.nativeElement.offsetWidth - this.margin.left - this.margin.right;
   }
   get barHeight(): number {
-    console.log(this.chartContainer1.nativeElement.offsetHeight - this.margin.top - this.margin.bottom);
     return this.chartContainer1.nativeElement.offsetHeight - this.margin.top - this.margin.bottom;
   }
 
@@ -49,11 +42,11 @@ export class BarChartComponent implements OnInit {
 
   dataSource: Item[];
   total: number;
-  percentage = 5;
+  percentage = 50;
 
   constructor(private service: DataService) {
     const tmp = this.service.getData();
-    
+
 
     this.dataSource = [
       {
@@ -67,8 +60,6 @@ export class BarChartComponent implements OnInit {
     ]
 
     this.total = this.dataSource.reduce((sum, it) => sum += it.value, 0);
-
-    console.log(this.dataSource)
 
   }
 
@@ -116,6 +107,7 @@ export class BarChartComponent implements OnInit {
       .ease(d3.easeBounce)
       .duration(1000)
       .delay((d, i) => i * 80)
+      .attr('class', (d, i) => 'color-' + i)
       .attr('y', d => this.yScale(d.value))
       .attr('height', d => Math.abs(this.yScale(d.value) - this.yScale(0)));
 
@@ -128,9 +120,8 @@ export class BarChartComponent implements OnInit {
           .style('display', 'block')
           .style('opacity', 1)
           .style('height', '40px')
-          .html('name: ' + s.name + '<br>' +
-            'value: ' + s.value + '<br>' +
-            'share: ' + percent);
+          .style('width', '100px')
+          .html(s.name + '<br>' + percent);
       }.bind(this))
       .on('mouseover', function (data, i, arr) {
         const interval = 3;
@@ -191,7 +182,7 @@ export class BarChartComponent implements OnInit {
     this.xScale = d3.scaleBand();
     this.yScale = d3.scaleLinear();
 
-    this.xScale 
+    this.xScale
       .rangeRound([0, this.barWidth]).padding(.1)
       .domain(this.dataSource.map(d => d.name));
     this.yScale
