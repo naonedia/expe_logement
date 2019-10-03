@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { SERVER_API_URL } from '../app.constants';
 import { createRequestOption } from '../shared';
 import { EstimateInput } from '../shared/model/estimateInput.model';
 import { ParticipateInput } from '../shared/model/participateInput.model';
+import { Stats } from '../shared/model/stats.model';
 
 @Injectable({ providedIn: 'root' })
 export class PredictService {
@@ -35,6 +35,17 @@ export class PredictService {
             this.http.post<any>(
                 `${this.resourceUrl}/participate`,
                 userInput,
+                { headers: this.headers, params: options, observe: 'response' }
+            ).subscribe(response => observer.next(response.body), error => observer.error());
+        });
+    }
+
+    stats(stats: Stats, req?: any): Observable<any> {
+        const options = createRequestOption(req);
+        return new Observable((observer) => {
+            this.http.post<any>(
+                `${this.resourceUrl}/stats`,
+                stats,
                 { headers: this.headers, params: options, observe: 'response' }
             ).subscribe(response => observer.next(response.body), error => observer.error());
         });
