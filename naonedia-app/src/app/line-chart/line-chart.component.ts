@@ -52,8 +52,6 @@ export class LineChartComponent implements OnInit {
 
     this.total = this.dataSource.reduce((sum, it) => sum += it, 0);
 
-    console.log(this.dataSource)
-
   }
 
   ngOnInit() {
@@ -64,9 +62,6 @@ export class LineChartComponent implements OnInit {
       .style('opacity', 0)
       .attr('class', 'tooltip')
     this.initSvg();
-
-
-    console.log(this.tooltip)
   }
 
   private initSvg() {
@@ -88,15 +83,17 @@ export class LineChartComponent implements OnInit {
     var thisXScale = this.xScale;
     var thisYScale = this.yScale;
 
-    this.line = d3.line()/* .curve(d3.curveLinear) */
+    this.line = d3.line()
       .x(function (d: any) { return thisXScale(d.epochs) })
       .y(function (d: any) { return thisYScale(d.value); });
+
+    this.mainContainer.select('.line')
+      .remove()
 
     this.mainContainer.append('path')
       .datum(this.dataSource)
       .attr('class', 'line')
       .attr("stroke-width", 1)
-      .attr("stroke", "black")
       .attr("fill", "none")
       .attr('d', this.line)
   }
@@ -127,10 +124,6 @@ export class LineChartComponent implements OnInit {
     this.xAxis = d3.axisBottom(this.xScale);
     this.yAxis = d3.axisLeft(this.yScale);
 
-    console.log('width ' + (this.chartContainer1.nativeElement.offsetWidth));
-    console.log('height ' + (this.chartContainer1.nativeElement.offsetHeight));
-    console.log('width fix ' + (this.chartContainer1.nativeElement.offsetWidth - this.margin.left - this.margin.right));
-    console.log('height fix ' + (this.chartContainer1.nativeElement.offsetHeight - this.margin.top - this.margin.bottom));
   }
 
   private draw() {
@@ -159,9 +152,8 @@ export class LineChartComponent implements OnInit {
       .data(this.dataSource)
       .enter().append('circle')
       .attr("r", 5)
+      .attr("class", "myCircle")
       .on('mouseover', function (data, i, arr) {
-        const interval = 3;
-
         thisTooltip
           .style('top', (d3.event.layerY + 15) + 'px')
           .style('left', (d3.event.layerX) + 'px')
@@ -171,29 +163,16 @@ export class LineChartComponent implements OnInit {
           .html('value: ' + data.value + '<br>' +
             'epochs: ' + data.epochs + '<br>');
 
-        d3.select(arr[i])
-          .transition()
-          .ease(d3.easeBounce)
-          .duration(150)
-          .attr('fill', 'blue');
-
       })
       .on('mouseout', function (data, i, arr) {
         thisTooltip.style('display', 'none');
         thisTooltip.style('opacity', 0);
-
-        d3.select(arr[i])
-          .transition()
-          .ease(d3.easeBounce)
-          .duration(150)
-          .attr('fill', 'black');
 
       })
 
       .transition()
       .duration(1500)
       .delay((d, i) => 1000 + i * 100)
-      .attr("class", "myCircle")
       .attr('cx', d => this.xScale(d.epochs))
       .attr('cy', d => this.yScale(d.value))
       .attr('x', d => d.epochs)
