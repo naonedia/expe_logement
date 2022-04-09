@@ -32,7 +32,7 @@
     "bootstrap": "^4.3.1",
     "chart.js": "^2.8.0",
     "core-js": "^2.6.9",
-    "moment": "2.24.0",
+    "moment": "2.29.2",
     "ngx-webstorage": "^3.0.2",
     "ol": "^5.3.3",
     "rxjs": "^6.5.2",
